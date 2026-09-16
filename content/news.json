@@ -1,0 +1,23 @@
+{
+  "updated": "2026-09-16",
+  "posts": [
+    {
+      "title": "Safety training goes digital at ROCKWOOL",
+      "date": "2026-05-29",
+      "category": "Case study",
+      "summary": "D-TECH delivered a Safety Training Kiosk, a Group Training Kiosk and a customised work-permit module at ROCKWOOL. The video walks through how induction, biometric verification and safety-pass printing work on the shop floor.",
+      "youtube": "MxedaWs3DWg",
+      "link": "kiosk.html",
+      "linkLabel": "See the Safety Kiosk"
+    },
+    {
+      "title": "D-TECH and JIVA: automation that industries rely on",
+      "date": "2026-01-15",
+      "category": "Video",
+      "summary": "An introduction to the JIVA partnership: engineering services, system integration, turnkey automation, special-purpose machines and heavy lifting equipment.",
+      "youtube": "hwtWs---dys",
+      "link": "jiva.html",
+      "linkLabel": "Explore JIVA"
+    }
+  ]
+}

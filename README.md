@@ -34,6 +34,24 @@ Set these in Vercel → Project → Settings → Environment Variables, then red
 The function only accepts JSON posts from the site's own origin, has a hidden bot trap field, sanitises the name used in the greeting, and rate-limits by IP and by recipient. These limits live in memory per instance; add a CAPTCHA (e.g. Cloudflare Turnstile) or a shared store before heavy public use.
 
 
+## News page
+
+Posts live in `content/news.json`. To publish an update, add an entry at the top of `posts` and push; the page reads the file in the browser, so no rebuild is needed.
+
+```json
+{
+  "title": "Headline",
+  "date": "2026-09-16",
+  "category": "Case study",
+  "summary": "One short paragraph.",
+  "youtube": "VIDEO_ID",
+  "link": "kiosk.html",
+  "linkLabel": "See the Safety Kiosk"
+}
+```
+
+`youtube` is the id after `watch?v=` and shows the video thumbnail; use `image` instead for a local picture. `link` and `linkLabel` are optional.
+
 ## Careers: live jobs and applications from Odoo
 
 `careers.html` lists the jobs published in Odoo Recruitment and lets people apply on this site. Applications create a candidate (`hr.applicant`) in Odoo with the CV attached, exactly like applying on the Odoo careers site, so HR sees them in the same pipeline.
