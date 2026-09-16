@@ -1,0 +1,57 @@
+{
+  "petronet-fms": {
+    "title": "Petronet LNG Limited",
+    "topic": "24×7 Onsite Enterprise FMS",
+    "file": "assets/case-studies/pdf/petronet-lng-enterprise-fms-2026.pdf"
+  },
+  "rockwool": {
+    "title": "ROCKWOOL",
+    "topic": "Safety Training & Work Permit Kiosk",
+    "file": "assets/case-studies/pdf/rockwool-safety-training-work-permit-kiosk.pdf"
+  },
+  "gnfc-fms": {
+    "title": "GNFC Limited",
+    "topic": "Enterprise IT FMS & Helpdesk",
+    "file": "assets/case-studies/pdf/gnfc-enterprise-it-fms-2023-2026.pdf"
+  },
+  "veer-pharma": {
+    "title": "Veer Pharma",
+    "topic": "Redundant Turnkey IT Infrastructure",
+    "file": "assets/case-studies/pdf/veer-pharma-turnkey-it-infrastructure.pdf"
+  },
+  "krystal": {
+    "title": "Krystal Ingredients Pvt. Ltd.",
+    "topic": "IP PA System & FLP Telephones",
+    "file": "assets/case-studies/pdf/krystal-ingredients-ip-pa-flp-telephone.pdf"
+  },
+  "mrf": {
+    "title": "MRF Limited",
+    "topic": "Fibre, Copper & Aruba Switching",
+    "file": "assets/case-studies/pdf/mrf-its-network-infrastructure.pdf"
+  },
+  "indofil": {
+    "title": "Indofil Industries Limited",
+    "topic": "Complete Greenfield Plant IT",
+    "file": "assets/case-studies/pdf/indofil-complete-it-infrastructure.pdf"
+  },
+  "bostik": {
+    "title": "Bostik India Pvt. Ltd.",
+    "topic": "Plant-wide Network & EPABX",
+    "file": "assets/case-studies/pdf/bostik-plant-network-epabx.pdf"
+  },
+  "gnfc-amc": {
+    "title": "GNFC Limited",
+    "topic": "Network, PC & Dell Server AMC",
+    "file": "assets/case-studies/pdf/gnfc-enterprise-amc-2013-2018.pdf"
+  },
+  "petronet-amc": {
+    "title": "Petronet LNG Limited",
+    "topic": "Dell Systems Warranty & Support",
+    "file": "assets/case-studies/pdf/petronet-lng-dell-systems-amc-2014.pdf"
+  },
+  "balaji": {
+    "title": "Balaji Wafers Private Limited",
+    "topic": "AI Vision QC Reject & RFID Dispatch",
+    "file": "assets/case-studies/balaji-wafers-case-study.pdf"
+  }
+}

@@ -1,0 +1,85 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1950 >>
+stream
+BT
+/F1 18 Tf
+50 785 Td
+(MRF Tyres Limited: 10G Armored OFC Plant Backbone) Tj
+/F1 10 Tf
+0 -20 Td
+(D-TECH SOLUTION INTEGRATORS PVT. LTD. - OFFICIAL ENGINEERING WHITE PAPER) Tj
+/F1 9 Tf
+0 -15 Td
+(Client: MRF Tyres Limited | Location: Dahej PCPIR Corridor, Gujarat | Industry: Automotive Tyre & Rubber Manufacturing) Tj
+/F1 8 Tf
+0 -12 Td
+(ISO 9001:2015 Turnkey Systems Integration | Bharuch Corporate HQ | SLA: 4-Hour On-Site) Tj
+/F1 13 Tf
+0 -32 Td
+(1. THE INDUSTRIAL CHALLENGE) Tj
+/F1 10 Tf
+0 -18 Td
+(A sprawling 80+ acre heavy industrial plant suffered from severe electromagnetic noise, high curing steam temperatures, and communication dropouts across legacy multi-vendor cabling that paused automated vulcanizing lines.) Tj
+0 -14 Td
+(Multiple legacy vendor splices failed under high vibration corridors.) Tj
+0 -14 Td
+/F1 13 Tf
+0 -22 Td
+(2. D-TECH TURNKEY SOLUTION ARCHITECTURE) Tj
+/F1 10 Tf
+0 -18 Td
+(Engineered a turnkey 10-Gigabit single-mode armored optical fiber redundant ring backbone with flame-retardant LSZH sheathing, explosion-proof CCTV in curing bays, and a dual-redundant server room with Netrack 42U enclosures.) Tj
+0 -14 Td
+(Guaranteed sub-50ms self-healing ring topology across all manufacturing units.) Tj
+0 -14 Td
+/F1 13 Tf
+0 -22 Td
+(3. VERIFIED ENGINEERING FIELD METRICS & ROI) Tj
+/F1 10 Tf
+0 -18 Td
+(  * Backbone Network Uptime: 99.999% Guaranteed) Tj
+0 -14 Td
+(  * Optical Cabling Corridors: 12+ Kilometers Armored) Tj
+0 -14 Td
+(  * Production Downtime Dropouts: 100% Drops Eliminated) Tj
+0 -14 Td
+(  * Mean Time to Resolution [MTTR]: < 15 Minutes) Tj
+0 -14 Td
+/F1 13 Tf
+0 -22 Td
+(4. VERIFIED CLIENT ENDORSEMENT) Tj
+/F1 10 Tf
+0 -18 Td
+("D-TECH attention to detail in optical ring redundancy and their rapid 4-hour on-site engineering team has given our Dahej plant unmatched communication stability.") Tj
+0 -35 Td
+/F1 8 Tf
+(CONFIDENTIAL & PROPRIETARY | D-TECH SIPL | Email: sales@dtechindia.com | Phone: +91 99980 26089) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000234 00000 n 
+0000000305 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2486
+%%EOF

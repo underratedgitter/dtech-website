@@ -1,0 +1,109 @@
+/* ==========================================================================
+   D-TECH · FIELD MANUAL design system (v3) — DARK chapter.
+   Loaded through <link id="theme-dark-css"> and disabled by the theme
+   bootstrap in light mode, so this file is the dark half only.
+   Same structure as skin.css; it re-points tokens and fixes the handful of
+   places where a light-on-dark inversion has to flip the other way.
+   ========================================================================== */
+
+:root {
+  --paper:#0e1114;
+  --surface:#14181c;
+  --well:#1a1f25;
+  --sunken:#0a0d10;
+
+  --ink:#ecebe5;
+  --ink-soft:#c2c8cd;
+  --muted:#8d969e;
+  --faint:#6c757d;
+
+  --line:#262d34;
+  --line-strong:#3a434c;
+
+  --invert:#1a2027;
+  --on-invert:#f2f1ec;
+  --rule-strong:#59636d;
+
+  --signal:#ff6a3d;
+  --signal-deep:#e2521d;
+  --signal-wash:rgba(255,106,61,.16);
+
+  --grid-line:rgba(255,255,255,.05);
+
+  color-scheme:dark;
+}
+
+/* ---- Wordmark: pure black art needs inverting on every dark ground ------- */
+.brand-mark img { filter:invert(1); }
+
+/* ---- Action colour: on dark, the signal carries the primary action ------- */
+.button-primary { background:var(--signal); border-color:var(--signal); color:#fff!important; }
+.button-primary:hover { background:#fff; border-color:#fff; color:var(--invert)!important; }
+body .bg-blue-600 { background-color:var(--signal)!important; }
+body .hover\:bg-blue-700:hover { background-color:#fff!important; color:var(--invert)!important; }
+.project-cta .button-primary { background:var(--signal); border-color:var(--signal); }
+.project-cta .button-primary:hover { background:#fff; border-color:#fff; color:var(--invert)!important; }
+
+/* ---- Selected state inverts to paper-on-ink instead ---------------------- */
+body[data-page="solutions"] .system-tab-btn.active,
+body[data-page="shop"] .brand-filter-btn.active {
+  background:var(--ink)!important; color:var(--paper)!important; border-color:var(--ink)!important;
+}
+
+.industry-links a:hover { background:var(--signal); color:#fff; }
+.industry-links a:hover svg,.industry-links a:hover b { color:#fff; }
+
+/* ---- Chrome ------------------------------------------------------------- */
+.site-header { background:var(--paper); }
+.utility-bar { background:var(--sunken); }
+.nav-dropdown-panel { box-shadow:6px 6px 0 rgba(0,0,0,.5); }
+footer,body footer.bg-slate-900 { background:var(--sunken)!important; }
+footer :is(p,li,.text-slate-300,.text-slate-400,.text-slate-500) { color:rgba(255,255,255,.5)!important; }
+
+/* ---- The schematic reads brighter against a deeper ground ---------------- */
+.map-node { background:#232b33; }
+.hero-footnote { background:var(--surface); }
+
+/* ---- Product photography is shot on white: keep its plate light ---------- */
+main img.object-contain,
+body[data-page="products"] main>section:nth-of-type(3) .grid>div>div:first-child,
+#shop-quickview-modal .w-40,
+#product-detail-modal img.object-contain {
+  background-color:#e9e6de!important;
+}
+/* Only the photo well takes the light plate — not the title block above it. */
+body[data-page="shop"] #shop-products-grid>div>div:first-child>div:first-child {
+  background:#e9e6de!important;
+  border:1px solid var(--line)!important;
+}
+body[data-page="shop"] #shop-products-grid img { mix-blend-mode:normal; }
+
+/* ---- Partner marks are dark artwork: lift them off the dark rail --------- */
+.partner-strip>a,
+body[data-page="home"] .partner-strip .marquee-track>a {
+  filter:grayscale(1) invert(1) brightness(1.15) contrast(.75);
+  opacity:.6;
+}
+.partner-strip>a:hover,
+body[data-page="home"] .partner-strip .marquee-track>a:hover {
+  filter:grayscale(1) invert(1) brightness(1.35) contrast(.85);
+  opacity:1;
+}
+body[data-page="about"] #partners img { filter:grayscale(1) invert(1) brightness(1.15) contrast(.75); }
+
+/* ---- Inverted panels sit above the page ground, not below it ------------- */
+body[data-page="about"] main>section:last-child,
+body[data-page="case-studies"] main>section:last-child { background:var(--invert)!important; }
+body[data-page="about"] main>section:last-child .bg-white,
+body[data-page="case-studies"] main>section:last-child .bg-white { background:var(--signal)!important; }
+
+/* ---- Forms -------------------------------------------------------------- */
+body[data-page="contact"] input,
+body[data-page="contact"] select,
+body[data-page="contact"] textarea { background:var(--well)!important; border-color:var(--line-strong)!important; }
+input::placeholder,textarea::placeholder { color:var(--faint)!important; }
+
+/* ---- Drawers ------------------------------------------------------------ */
+#cart-drawer-modal .fixed.right-0,#mobile-menu .fixed.right-0 { background:var(--surface)!important; }
+#cart-drawer-modal>button.fixed.inset-0,#mobile-menu>button.fixed.inset-0 { background:rgba(0,0,0,.65)!important; }
+#cart-drawer-modal img { background:#e9e6de!important; }

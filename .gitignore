@@ -1,0 +1,25 @@
+# Deployed to Vercel as a static site: only the pages and assets/ are published.
+
+# Raw source PDFs (published copies live in assets/case-studies/pdf/).
+# Includes proposals and cost estimates with pricing — never commit these.
+/*.pdf
+
+# Internal working notes and extracted data
+/COLLAB.md
+/DTECH_COMPLETE_DOSSIER.md
+/SITE_DATA.md
+/extracted_content.json
+/shop_products.json
+
+# Local tooling, backups and credentials
+/odoo-test/
+/.design-backup/
+/.21st/
+.env
+.env.*
+__pycache__/
+*.pyc
+
+# OS / editor / Vercel
+.DS_Store
+.vercel
