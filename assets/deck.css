@@ -91,6 +91,23 @@
 }
 .deck-chips.is-brands span { background: rgba(255, 255, 255, .05); color: var(--deck-ink); }
 .deck-brands { margin-top: 6px; display: grid; gap: 12px; }
+
+/* Vendor marks: rendered as white silhouettes so a dozen different brand
+   palettes do not fight the deck. Sources are vector wherever the vendor
+   publishes one, so nothing softens as the camera zooms in. */
+.deck-brand-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.deck-brand { display: inline-flex; align-items: center; }
+.deck-brand img {
+  /* height is set, not max-height: several vendor SVGs carry no intrinsic size,
+     and an auto height collapses them to nothing inside the flex row. */
+  height: 30px; width: auto; max-width: 160px; object-fit: contain;
+  filter: brightness(0) invert(1); opacity: .88;
+}
+.deck-brand.is-tall img { height: 48px; }
+.deck-brand.is-text {
+  padding: 7px 14px; border: 1px solid var(--deck-line); border-radius: 999px;
+  font: 500 15px/1 var(--mono); letter-spacing: .03em; color: var(--deck-soft);
+}
 .deck-brands-label { font: 600 14px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--deck-muted); }
 
 .deck-cover { align-items: flex-start; text-align: left; }
@@ -188,6 +205,10 @@
   .deck-list li { font-size: 16px; padding-left: 22px; }
   .deck-list li::before { top: 9px; width: 10px; }
   .deck-chips span { font-size: 13px; padding: 6px 12px; }
+  .deck-brand-row { gap: 10px 16px; }
+  .deck-brand img { height: 22px; max-width: 110px; }
+  .deck-brand.is-tall img { height: 36px; }
+  .deck-brand.is-text { font-size: 12px; padding: 5px 10px; }
   .deck-eyebrow { font-size: 12px; }
   .deck-logo { width: 150px; }
   .deck-hub { border-radius: 20px; }
@@ -199,3 +220,7 @@
   }
   .deck-cta .button { padding: 13px 18px; font-size: 13px; }
 }
+
+/* Trademark note on the closing frame: the marks stay the property of their
+   owners and are shown only to identify what we integrate. */
+.deck-credit { font-size: 14px; line-height: 1.5; max-width: 70ch; opacity: .8; }
