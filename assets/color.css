@@ -32,9 +32,9 @@
 html body main :is([class~="text-blue-500"],[class~="text-blue-600"],[class~="text-blue-700"],
                   [class~="text-purple-600"],[class~="text-purple-700"]) { color:var(--signal-deep)!important; }
 html body main :is([class~="text-emerald-400"],[class~="text-emerald-500"],[class~="text-emerald-600"],
-                  [class~="text-emerald-700"],[class~="text-emerald-800"]) { color:var(--c-green)!important; }
+                  [class~="text-emerald-700"],[class~="text-emerald-800"]) { color:var(--c-green-text)!important; }
 html body main :is([class~="text-amber-300"],[class~="text-amber-400"],[class~="text-amber-500"],[class~="text-amber-600"],
-                  [class~="text-orange-500"],[class~="text-orange-600"]) { color:var(--c-orange)!important; }
+                  [class~="text-orange-500"],[class~="text-orange-600"]) { color:var(--c-orange-text)!important; }
 html body main :is([class~="text-red-500"],[class~="text-red-600"],[class~="text-rose-600"]) { color:var(--c-red)!important; }
 html body main .group:hover [class~="group-hover:text-blue-600"] { color:var(--signal-deep)!important; }
 
@@ -135,6 +135,6 @@ html[data-theme="dark"] body .partner-strip>span { color:#576e82; }
   padding:5px 9px; border-radius:999px; color:#fff; white-space:nowrap;
 }
 .case-cat-chip[data-cat="network"] { background:var(--signal-deep); }
-.case-cat-chip[data-cat="services"] { background:var(--c-green); }
-.case-cat-chip[data-cat="safety"] { background:var(--c-orange); }
+.case-cat-chip[data-cat="services"] { background:var(--c-green-solid); }
+.case-cat-chip[data-cat="safety"] { background:var(--c-orange-solid); }
 @media (max-width:640px) { .case-cat-chip { display:none; } }

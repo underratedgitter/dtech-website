@@ -33,8 +33,8 @@
   /* --- Ink ------------------------------------------------------------ */
   --ink:#142b41;          /* headings */
   --ink-soft:#576e82;     /* running text */
-  --muted:#66798a;        /* secondary text */
-  --faint:#91a9ba;        /* captions */
+  --muted:#607182;        /* secondary text */
+  --faint:#59778d;        /* captions */
 
   --invert:#071d34;       /* the deck's navy panel — dark in both themes */
   --invert-2:#0b2f52;     /* the lighter navy used inside those panels */
@@ -47,8 +47,9 @@
   --grid-line:rgba(7,29,52,.045);
 
   /* --- Signal + support ----------------------------------------------- */
+  /* The deck's own colours, used for bars, fills, icons and dots, where
+     they carry no text and their full brightness is the point. */
   --signal:#27b6da;
-  --signal-deep:#008ccf;
   --signal-soft:#1aadcc;
   --signal-wash:rgba(39,182,218,.10);
 
@@ -56,6 +57,17 @@
   --c-orange:#ff7a1a;     --c-orange-wash:rgba(255,122,26,.10);
   --c-red:#ef3d2f;        --c-red-wash:#fdeeee;
   --c-cyan-wash:#ecf4fa;
+
+  /* Text-safe depths of those same hues. The deck is print, where its cyan
+     and green sit on large type; on screen at 10-13px they fall under 3:1.
+     These keep the hue and saturation and lower only the lightness, far
+     enough to clear WCAG AA, so the palette still reads as the deck's. */
+  --signal-deep:#0075ae;     /* links, eyebrows, button grounds  4.5+ / 5.0 */
+  --c-green-text:#279f6d;    /* large figures                    3.0 */
+  --c-orange-text:#eb6200;   /* large figures                    3.0 */
+  --c-green-solid:#21865c;   /* chip grounds under white text    4.5 */
+  --c-orange-solid:#c75300;  /* chip grounds under white text    4.5 */
+  --c-red-solid:#e82112;     /* chip grounds under white text    4.5 */
 
   /* --- Shape ---------------------------------------------------------- */
   --r-plate:12px;
@@ -151,7 +163,9 @@ body .bg-purple-100 { background-color:var(--well)!important; }
 body .text-slate-900,body .text-slate-800 { color:var(--ink)!important; }
 body .text-slate-700,body .text-slate-600 { color:var(--ink-soft)!important; }
 body .text-slate-500,body .text-slate-400 { color:var(--muted)!important; }
-body .text-slate-300,body .text-slate-200 { color:var(--faint)!important; }
+/* These land on grounds this file cannot predict, so they take the tone that
+   clears AA on the darkest of them rather than the lightest caption grey. */
+body .text-slate-300,body .text-slate-200 { color:var(--muted)!important; }
 
 body [class*="border-slate-"],body [class*="divide-slate-"]>*+* { border-color:var(--line)!important; }
 
@@ -390,7 +404,9 @@ input,select,textarea {
   border-radius:var(--r-control)!important;
   font-family:var(--text-face)!important;
 }
-input::placeholder,textarea::placeholder { color:var(--faint)!important; }
+/* Placeholders sit on the sunken input ground, where the caption grey falls
+   just under AA, so they take the secondary tone instead. */
+input::placeholder,textarea::placeholder { color:var(--muted)!important; }
 input:focus,select:focus,textarea:focus {
   border-color:var(--signal)!important; outline:none;
   box-shadow:0 0 0 3px var(--signal-wash)!important;
@@ -606,8 +622,8 @@ body[data-page="home"] main>section:nth-of-type(3) h2 { font-size:clamp(28px,2.6
   font-variant-numeric:tabular-nums;
   color:var(--signal-deep)!important;
 }
-.home-hero+div+section .grid>div:nth-child(2) .text-2xl { color:var(--c-green)!important; }
-.home-hero+div+section .grid>div:nth-child(3) .text-2xl { color:var(--c-orange)!important; }
+.home-hero+div+section .grid>div:nth-child(2) .text-2xl { color:var(--c-green-text)!important; }
+.home-hero+div+section .grid>div:nth-child(3) .text-2xl { color:var(--c-orange-text)!important; }
 .home-hero+div+section .grid>div:nth-child(4) .text-2xl { color:var(--c-red)!important; }
 .home-hero+div+section .uppercase,
 .home-hero+div+section .text-xs {
@@ -685,8 +701,10 @@ body[data-page="home"] main>section:nth-of-type(3) h2 { font-size:clamp(28px,2.6
 
 /* One accent per discipline, as the deck codes its numbered cards. */
 .tone-blue .capability-art>span,.tone-blue .capability-copy h3 span { color:var(--signal); }
-.tone-clay .capability-art>span,.tone-clay .capability-copy h3 span { color:var(--c-green); }
-.tone-sage .capability-art>span,.tone-sage .capability-copy h3 span { color:var(--c-orange); }
+.tone-clay .capability-art>span { color:var(--c-green); }
+.tone-clay .capability-copy h3 span { color:var(--c-green-text); }
+.tone-sage .capability-art>span { color:var(--c-orange); }
+.tone-sage .capability-copy h3 span { color:var(--c-orange-text); }
 .tone-blue .capability-copy { box-shadow:inset 0 3px 0 var(--signal); }
 .tone-clay .capability-copy { box-shadow:inset 0 3px 0 var(--c-green); }
 .tone-sage .capability-copy { box-shadow:inset 0 3px 0 var(--c-orange); }
@@ -1191,11 +1209,28 @@ body[data-page="home"] .partner-strip.marquee-on:hover .marquee-track { animatio
   .partner-strip>a { min-width:0; height:46px; }
   .partner-strip>a:last-child { grid-column:1/-1; }
 
+  /* On a phone the caption beside the rail leaves room for barely one logo,
+     so it sits above the lane instead and the logos take the full width. */
+  body[data-page="home"] .partner-strip.marquee-on {
+    flex-direction:column; align-items:stretch; gap:12px;
+  }
+  body[data-page="home"] .partner-strip.marquee-on>span {
+    padding-right:0; border-right:0;
+  }
+  body[data-page="home"] .marquee-lane {
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);
+  }
+  body[data-page="home"] .partner-strip .marquee-track>* { margin:0 18px; }
+
   main>section:not(.home-hero) { padding-top:52px!important; padding-bottom:52px!important; }
   .home-hero+div+section { padding-top:34px!important; padding-bottom:34px!important; }
   .home-hero+div+section .grid { gap:12px!important; }
   .home-hero+div+section .grid>div { padding:18px 18px 18px 20px!important; }
-  .home-hero+div+section .text-2xl { font-size:25px; }
+  .home-hero+div+section .text-2xl { font-size:21px; letter-spacing:-.02em; }
+  .home-hero+div+section .grid>div { padding:16px 14px 16px 16px!important; }
+  .home-hero+div+section .uppercase,
+  .home-hero+div+section .text-xs { font-size:8px!important; letter-spacing:.1em; margin-top:7px; }
 
   .section-heading { flex-direction:column; align-items:flex-start; gap:18px; margin-bottom:28px; }
   .section-heading h2,.confidence-layout h2 { font-size:32px; }
