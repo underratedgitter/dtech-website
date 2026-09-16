@@ -1,476 +1,116 @@
 /* ==========================================================================
-   D-TECH · COLOUR layer (v1) — loaded last on every page.
-   skin.css deliberately reduces the site to graphite + one orange. This file
-   brings a full industrial palette back on top of it: deep navy panels, an
-   electric-blue secondary, and a coded accent per discipline (blue · teal ·
-   violet · amber). Presentation only; delete the <link> to revert.
+   D-TECH · ACCENT layer (v2) — loaded last on every page.
+
+   skin.css already carries the Petronet LNG deck's palette. This file is the
+   thin remainder: it re-points the Tailwind accent utilities still written
+   into the markup (blue / emerald / purple / amber) onto the deck's own four
+   accents, so no page's class attributes have to change.
+
+     cyan   #27b6da / #008ccf   the primary signal
+     green  #2cb67d             confirmation, compliance, "OK"
+     orange #ff7a1a             attention, duration, commercial figures
+     red    #ef3d2f             exception, denial, expiry
+
+   Presentation only; delete the <link> to fall back to skin.css alone.
    ========================================================================== */
 
-/* ==================== 1 · TOKENS ==================== */
-
 :root {
-  --c-orange:#f0561d;
-  --c-orange-2:#ff8a3d;
-  --c-blue:#2563eb;
-  --c-blue-2:#3b82f6;
-  --c-teal:#0d9488;
-  --c-teal-2:#14b8a6;
-  --c-violet:#7c3aed;
-  --c-violet-2:#a78bfa;
-  --c-amber:#d97706;
-  --c-amber-2:#fbbf24;
+  --c-blue:var(--signal-deep);
+  --c-blue-2:var(--signal);
+  --c-teal:var(--c-green);
+  --c-violet:var(--signal-deep);
+  --c-amber:var(--c-orange);
 
-  --c-navy:#0b1a33;
-  --c-navy-2:#12305c;
-
-  --c-orange-wash:rgba(240,86,29,.10);
-  --c-blue-wash:rgba(37,99,235,.09);
-  --c-teal-wash:rgba(13,148,136,.10);
-  --c-violet-wash:rgba(124,58,237,.09);
-  --c-amber-wash:rgba(217,119,6,.11);
-
-  --g-signal:linear-gradient(120deg,var(--c-orange) 0%,var(--c-orange-2) 100%);
-  --g-cool:linear-gradient(120deg,var(--c-blue) 0%,var(--c-teal-2) 100%);
-  --g-spectrum:linear-gradient(90deg,var(--c-orange) 0%,var(--c-amber-2) 25%,var(--c-teal-2) 55%,var(--c-blue-2) 78%,var(--c-violet) 100%);
-  --g-panel:
-    radial-gradient(120% 90% at 100% 0%,rgba(59,130,246,.38) 0%,transparent 55%),
-    radial-gradient(90% 80% at 0% 100%,rgba(240,86,29,.28) 0%,transparent 55%),
-    linear-gradient(160deg,var(--c-navy-2) 0%,var(--c-navy) 70%);
-
-  /* Graphite panels become navy site-wide. */
-  --invert:var(--c-navy);
-  --signal:var(--c-orange);
-  --signal-deep:#c9410f;
-  --signal-wash:var(--c-orange-wash);
+  --c-blue-wash:var(--c-cyan-wash);
+  --c-teal-wash:var(--c-green-wash);
+  --c-violet-wash:var(--c-cyan-wash);
+  --c-amber-wash:var(--c-orange-wash);
 }
 
-html[data-theme="dark"] {
-  --c-blue:#60a5fa;
-  --c-blue-2:#93c5fd;
-  --c-teal:#2dd4bf;
-  --c-violet:#a78bfa;
-  --c-amber:#fbbf24;
-  --c-orange:#ff6a3d;
+/* ==================== 1 · TEXT + FILL UTILITIES ==================== */
 
-  --c-navy:#0a1426;
-  --c-navy-2:#132a4f;
+html body main :is([class~="text-blue-500"],[class~="text-blue-600"],[class~="text-blue-700"],
+                  [class~="text-purple-600"],[class~="text-purple-700"]) { color:var(--signal-deep)!important; }
+html body main :is([class~="text-emerald-400"],[class~="text-emerald-500"],[class~="text-emerald-600"],
+                  [class~="text-emerald-700"],[class~="text-emerald-800"]) { color:var(--c-green)!important; }
+html body main :is([class~="text-amber-300"],[class~="text-amber-400"],[class~="text-amber-500"],[class~="text-amber-600"],
+                  [class~="text-orange-500"],[class~="text-orange-600"]) { color:var(--c-orange)!important; }
+html body main :is([class~="text-red-500"],[class~="text-red-600"],[class~="text-rose-600"]) { color:var(--c-red)!important; }
+html body main .group:hover [class~="group-hover:text-blue-600"] { color:var(--signal-deep)!important; }
 
-  --c-orange-wash:rgba(255,106,61,.16);
-  --c-blue-wash:rgba(96,165,250,.14);
-  --c-teal-wash:rgba(45,212,191,.13);
-  --c-violet-wash:rgba(167,139,250,.15);
-  --c-amber-wash:rgba(251,191,36,.13);
+html body main :is(.bg-blue-50,.bg-blue-100,.bg-blue-50\/50,.bg-purple-100) { background-color:var(--c-cyan-wash)!important; }
+html body main :is(.bg-emerald-50,.bg-emerald-100) { background-color:var(--c-green-wash)!important; }
+html body main :is(.bg-amber-50,.bg-amber-100,.bg-orange-50,.bg-orange-100) { background-color:var(--c-orange-wash)!important; }
+html body main :is(.bg-red-50,.bg-red-100,.bg-rose-50) { background-color:var(--c-red-wash)!important; }
 
-  --paper:#0b1220;
-  --surface:#111a2b;
-  --well:#172238;
-  --sunken:#070d18;
-  --line:#1f2c44;
-  --line-strong:#33415c;
-  --invert:#101d36;
-}
+html body main [class*="border-blue-"],
+html body main [class*="border-purple-"] { border-color:rgba(39,182,218,.42)!important; }
+html body main [class*="border-emerald-"] { border-color:rgba(44,182,125,.42)!important; }
+html body main [class*="border-amber-"],
+html body main [class*="border-orange-"] { border-color:rgba(255,122,26,.42)!important; }
+html body main [class*="border-red-"] { border-color:rgba(239,61,47,.42)!important; }
 
-/* ==================== 2 · BASE ACCENTS ==================== */
+/* Status pills in the deck are a pale wash with a bold coloured label. */
+html body main :is(.bg-emerald-50,.bg-emerald-100).rounded-full,
+html body main :is(.bg-emerald-50,.bg-emerald-100)[class*="rounded"] { color:#1d8a5c!important; }
+html body main :is(.bg-red-50,.bg-red-100)[class*="rounded"] { color:#c9291c!important; }
 
-html body ::selection { background:var(--c-blue); color:#fff; }
+/* ==================== 2 · SELECTION + FOCUS ==================== */
 
-.eyebrow::before,main .eyebrow::before { background:var(--g-signal); width:34px; height:3px; }
+html body ::selection { background:var(--signal); color:#071d34; }
+html body :focus-visible { outline-color:var(--signal-deep)!important; }
 
-html body .text-link { border-image:var(--g-signal) 1; }
-html body .text-link:hover { color:var(--c-orange); }
+/* ==================== 3 · HEADINGS THAT CARRY A NUMBER ====================
+   The deck prefixes almost every card with an 01 / 02 / 03 index in cyan.  */
 
-/* Tailwind accent utilities speak colour again. */
-html body main :is([class~="text-blue-500"],[class~="text-blue-600"],[class~="text-blue-700"]) { color:var(--c-blue)!important; }
-html body main :is([class~="text-emerald-500"],[class~="text-emerald-600"],[class~="text-emerald-700"],[class~="text-emerald-800"]) { color:var(--c-teal)!important; }
-html body main :is([class~="text-purple-600"],[class~="text-purple-700"]) { color:var(--c-violet)!important; }
-html body main .group:hover :is([class~="group-hover:text-blue-600"]) { color:var(--c-blue)!important; }
-html body main .text-amber-400 { color:var(--c-amber-2)!important; }
-html body main :is(.bg-blue-50,.bg-blue-100,.bg-blue-50\/50) { background-color:var(--c-blue-wash)!important; }
-html body main :is(.bg-emerald-50,.bg-emerald-100) { background-color:var(--c-teal-wash)!important; }
-html body main .bg-purple-100 { background-color:var(--c-violet-wash)!important; }
-html body main [class*="border-emerald-"] { border-color:rgba(13,148,136,.35)!important; }
-html body main [class*="border-blue-"] { border-color:rgba(37,99,235,.28)!important; }
+html body main h3>span:first-child:not([class]),
+html body main h4>span:first-child:not([class]) { color:var(--signal-deep); }
 
-/* ==================== 3 · CONTROLS ==================== */
+/* ==================== 4 · DARK BANDS ==================== */
 
-html body .button-primary,
-html body .bg-blue-600 {
-  background:var(--g-signal)!important;
-  border-color:transparent!important;
-  color:#fff!important;
-  box-shadow:0 6px 18px -8px rgba(240,86,29,.65);
-}
-html body .button-primary:hover,
-html body .bg-blue-600:hover,
-html body .hover\:bg-blue-700:hover {
-  background:var(--g-cool)!important;
-  border-color:transparent!important;
-  color:#fff!important;
-  box-shadow:0 6px 18px -8px rgba(37,99,235,.7);
-}
-html body .button-secondary { border-color:var(--c-blue)!important; color:var(--c-blue)!important; }
-html body .button-secondary:hover { background:var(--c-blue-wash)!important; }
-html[data-theme="dark"] body .button-secondary { color:var(--c-blue-2)!important; }
-
-html body :is(input,select,textarea):focus {
-  border-color:var(--c-blue)!important;
-  box-shadow:0 0 0 3px var(--c-blue-wash)!important;
-}
-html body :focus-visible { outline-color:var(--c-blue)!important; }
-
-/* ==================== 4 · CHROME ==================== */
-
-html body .utility-bar { background:linear-gradient(90deg,var(--c-navy) 0%,var(--c-navy-2) 60%,#1c3f7a 100%); }
-html body .utility-bar a span { color:var(--c-orange-2); }
-
-html body .site-header { border-bottom:0; }
-html body .site-header::after {
-  content:''; position:absolute; left:0; right:0; bottom:0; height:2px;
-  background:var(--g-spectrum); opacity:.9;
-}
-html body .restored-nav>a[aria-current="page"]:after,
-html body .restored-nav summary[aria-current="page"]:after { background:var(--g-signal); height:3px; }
-html body .restored-nav>a:hover,html body .restored-nav summary:hover { color:var(--c-blue); }
-html body .nav-dropdown-panel { border-top:3px solid var(--c-blue); border-color:var(--c-blue) var(--line) var(--line); }
-html body .nav-dropdown-panel a:hover { background:var(--c-blue-wash); color:var(--c-blue); }
-
-html body .header-cta { box-shadow:none; }
-
-/* ==================== 5 · HOME ==================== */
-
-html body .home-hero {
-  background-color:var(--paper);
-  background-image:
-    radial-gradient(40% 55% at 8% 12%,rgba(240,86,29,.13) 0%,transparent 70%),
-    radial-gradient(45% 60% at 92% 30%,rgba(37,99,235,.16) 0%,transparent 70%),
-    radial-gradient(35% 45% at 55% 100%,rgba(13,148,136,.12) 0%,transparent 70%),
-    repeating-linear-gradient(90deg,var(--grid-line) 0 1px,transparent 1px 88px),
-    repeating-linear-gradient(0deg,var(--grid-line) 0 1px,transparent 1px 88px);
-}
-html body .hero-copy h1 em {
-  background:linear-gradient(100deg,var(--c-orange) 0%,var(--c-amber-2) 55%,var(--c-orange-2) 100%);
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-html body .hero-footnote { border-color:rgba(13,148,136,.4); background:var(--c-teal-wash); }
-html body .hero-footnote svg { color:var(--c-teal); }
-
-/* Schematic: navy glow panel, each discipline in its own colour. */
-html body .hero-visual,html body .system-visual {
-  border-color:transparent;
-  background:
-    repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 40px),
-    repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 40px),
-    var(--g-panel);
-  box-shadow:0 30px 60px -30px rgba(11,26,51,.55);
-}
-html body .map-orbit { border-color:rgba(147,197,253,.28); }
-html body .map-orbit:before { background:var(--c-orange-2); }
-html body .map-orbit:after { background:var(--c-teal-2); }
-html body .map-node { background:#15294a; border-width:1px; }
-html body .node-data { border-color:var(--c-blue-2); box-shadow:inset 0 3px 0 var(--c-blue-2); }
-html body .node-data svg { color:#93c5fd; }
-html body .node-auto { border-color:var(--c-violet-2); box-shadow:inset 0 3px 0 var(--c-violet-2); }
-html body .node-auto svg { color:#c4b5fd; }
-html body .node-safe { border-color:var(--c-teal-2); box-shadow:inset 0 3px 0 var(--c-teal-2); }
-html body .node-safe svg { color:#5eead4; }
-html body .node-site { border-color:var(--c-amber-2); box-shadow:inset 0 3px 0 var(--c-amber-2); }
-html body .node-site svg { color:#fcd34d; }
-html body .node-core {
-  background:var(--g-signal); border-color:transparent;
-  box-shadow:0 0 0 6px rgba(240,86,29,.18),0 18px 40px -10px rgba(240,86,29,.6);
-}
-html body .system-visual figcaption,html body .hero-visual figcaption { background:rgba(11,26,51,.72); }
-html body .image-topline span:last-child,
-html body .system-visual figcaption a { color:var(--c-orange-2); }
-
-/* Partner rail: logos in their real brand colours. */
-html body .partner-strip>a { filter:none; opacity:1; }
-html[data-theme="dark"] body .partner-strip { background:#eef2f8; }
-html[data-theme="dark"] body .partner-strip>span { color:#475569; }
-html[data-theme="dark"] body .partner-strip>a,
-html[data-theme="dark"] body[data-page="home"] .partner-strip .marquee-track>a { filter:none; opacity:1; }
-
-/* Metric ribbon: one colour per figure. */
-html body .home-hero+div+section .grid>div { border-top-width:3px; }
-html body .home-hero+div+section .grid>div:nth-child(1) { border-top-color:var(--c-orange); background:linear-gradient(180deg,var(--c-orange-wash),transparent 70%); }
-html body .home-hero+div+section .grid>div:nth-child(2) { border-top-color:var(--c-blue); background:linear-gradient(180deg,var(--c-blue-wash),transparent 70%); }
-html body .home-hero+div+section .grid>div:nth-child(3) { border-top-color:var(--c-teal); background:linear-gradient(180deg,var(--c-teal-wash),transparent 70%); }
-html body .home-hero+div+section .grid>div:nth-child(4) { border-top-color:var(--c-violet); background:linear-gradient(180deg,var(--c-violet-wash),transparent 70%); }
-html body .home-hero+div+section .grid>div:nth-child(1) .text-2xl { color:var(--c-orange)!important; }
-html body .home-hero+div+section .grid>div:nth-child(2) .text-2xl { color:var(--c-blue)!important; }
-html body .home-hero+div+section .grid>div:nth-child(3) .text-2xl { color:var(--c-teal)!important; }
-html body .home-hero+div+section .grid>div:nth-child(4) .text-2xl { color:var(--c-violet)!important; }
-
-/* Capability cards: blue · teal · violet art panels. */
-html body .tone-blue .capability-art {
-  background:
-    repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 34px),
-    repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 34px),
-    linear-gradient(140deg,#1d4ed8 0%,#0b1a33 100%);
-}
-html body .tone-clay .capability-art {
-  background:
-    repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 34px),
-    repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 34px),
-    linear-gradient(140deg,#0f9f8f 0%,#073b3a 100%);
-}
-html body .tone-sage .capability-art {
-  background:
-    repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 34px),
-    repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 34px),
-    linear-gradient(140deg,#7c3aed 0%,#2a1052 100%);
-}
-html body .capability-art>span { color:#fff; opacity:.85; }
-html body .capability-art>b { background:var(--c-amber-2); }
-html body .tone-blue .capability-copy { box-shadow:inset 0 3px 0 var(--c-blue); }
-html body .tone-clay .capability-copy { box-shadow:inset 0 3px 0 var(--c-teal); }
-html body .tone-sage .capability-copy { box-shadow:inset 0 3px 0 var(--c-violet); }
-html body .tone-blue .capability-copy h3 span { color:var(--c-blue); }
-html body .tone-clay .capability-copy h3 span { color:var(--c-teal); }
-html body .tone-sage .capability-copy h3 span { color:var(--c-violet); }
-
-html body .delivery-strip>*:nth-child(2) b { color:var(--c-blue); }
-html body .delivery-strip>*:nth-child(3) b { color:var(--c-teal); }
-html body .delivery-strip>*:nth-child(4) b { color:var(--c-violet); }
-html body .delivery-strip a:hover { background:var(--c-blue-wash); color:var(--c-blue); }
-
-/* Confidence points: coloured icon tiles. */
-html body .confidence-points svg {
-  box-sizing:content-box; width:22px; height:22px; padding:11px; border-radius:10px; margin-bottom:26px;
-}
-html body .confidence-points>div:nth-child(1) svg { color:var(--c-orange); background:var(--c-orange-wash); }
-html body .confidence-points>div:nth-child(2) svg { color:var(--c-teal); background:var(--c-teal-wash); }
-html body .confidence-points>div:nth-child(3) svg { color:var(--c-blue); background:var(--c-blue-wash); }
-
-/* Industry tiles. */
-html body .industry-links svg { box-sizing:content-box; padding:9px; border-radius:10px; }
-html body .industry-links a:nth-child(1) svg { color:var(--c-orange); background:var(--c-orange-wash); }
-html body .industry-links a:nth-child(2) svg { color:var(--c-teal); background:var(--c-teal-wash); }
-html body .industry-links a:nth-child(3) svg { color:var(--c-blue); background:var(--c-blue-wash); }
-html body .industry-links a:nth-child(1):hover { background:linear-gradient(120deg,#f0561d,#f59e0b); color:#fff; }
-html body .industry-links a:nth-child(2):hover { background:linear-gradient(120deg,#0d9488,#14b8a6); color:#fff; }
-html body .industry-links a:nth-child(3):hover { background:linear-gradient(120deg,#1d4ed8,#3b82f6); color:#fff; }
-html body .industry-links a:hover :is(svg,b) { color:#fff; background:rgba(255,255,255,.18); }
-
-/* ==================== 6 · DARK PANELS (CTA, INNER HEADERS, BANDS) ==================== */
-
-html body .project-cta,
-html body[data-page]:not([data-page="home"]) main>section:first-child,
-html body[data-page="about"] main>section:last-child,
-html body[data-page="case-studies"] main>section:last-child {
-  background:
-    repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 76px),
-    repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 76px),
-    var(--g-panel)!important;
-}
-html body .project-cta .button-primary:hover { background:#fff!important; color:var(--c-navy)!important; }
-
-html body[data-page]:not([data-page="home"]) main>section:first-child h1 {
-  color:#fff!important;
-  -webkit-text-fill-color:#fff;
-}
-html body[data-page]:not([data-page="home"]) main>section:first-child::after {
-  content:''; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--g-spectrum);
-}
-html body main>section:first-child .inline-flex {
-  border-color:rgba(147,197,253,.35)!important; background:rgba(59,130,246,.12)!important;
-  color:#bfdbfe!important;
-}
-html body main>section:first-child .inline-flex span.text-white { color:var(--c-orange-2)!important; }
-
-/* Second button in dark CTA bands becomes the blue voice. */
+/* Second button inside a navy band becomes the outlined voice. */
 html body[data-page="case-studies"] main>section:last-child a:not(.bg-white),
-html body[data-page="about"] main>section:last-child a:not(.bg-white) { border-color:rgba(147,197,253,.5)!important; }
-html body[data-page="case-studies"] main>section:last-child .bg-white,
-html body[data-page="about"] main>section:last-child .bg-white { background:var(--g-signal)!important; }
-
-/* ==================== 7 · INNER PAGE CONTENT ==================== */
-
-html body[data-page="about"] #intro+section+section .grid>div { border-left:3px solid var(--c-blue)!important; }
-html body[data-page="about"] #intro+section+section .grid>div:nth-child(3n+2) { border-left-color:var(--c-teal)!important; }
-html body[data-page="about"] #intro+section+section .grid>div:nth-child(3n) { border-left-color:var(--c-orange)!important; }
-
-/* Solutions: lifecycle stages + tabs. */
-html body[data-page="solutions"] #systems-catalog+section .grid>div { border-top:3px solid var(--c-blue)!important; }
-html body[data-page="solutions"] #systems-catalog+section .grid>div:nth-child(2) { border-top-color:var(--c-teal)!important; }
-html body[data-page="solutions"] #systems-catalog+section .grid>div:nth-child(3) { border-top-color:var(--c-violet)!important; }
-html body[data-page="solutions"] #systems-catalog+section .grid>div:nth-child(4) { border-top-color:var(--c-orange)!important; }
-html body[data-page="solutions"] .system-tab-btn:hover { border-color:var(--c-blue)!important; color:var(--c-blue)!important; }
-html body[data-page="solutions"] .system-tab-btn.active {
-  background:var(--g-cool)!important; color:#fff!important; border-color:transparent!important;
+html body[data-page="about"] main>section:last-child a:not(.bg-white) {
+  border-color:rgba(255,255,255,.34)!important; color:#fff!important;
 }
-html body[data-page="solutions"] #system-tab-content { border-top:3px solid var(--c-blue)!important; }
-html body[data-page="solutions"] #estimator .rounded-3xl { background:var(--g-panel)!important; }
-html body[data-page="solutions"] input[type="range"] {
-  background:linear-gradient(90deg,var(--c-orange) 0%,var(--c-amber-2) var(--a-fill,20%),rgba(255,255,255,.18) var(--a-fill,20%));
+html body[data-page="case-studies"] main>section:last-child a:not(.bg-white):hover,
+html body[data-page="about"] main>section:last-child a:not(.bg-white):hover {
+  background:rgba(255,255,255,.1)!important; border-color:#fff!important;
 }
 
-/* Case studies: metric ribbon + card metrics + tags. */
-html body[data-page="case-studies"] main>section:nth-of-type(2) .grid>div { border-top:3px solid var(--c-orange); }
-html body[data-page="case-studies"] main>section:nth-of-type(2) .grid>div:nth-child(2) { border-top-color:var(--c-blue); }
-html body[data-page="case-studies"] main>section:nth-of-type(2) .grid>div:nth-child(3) { border-top-color:var(--c-teal); }
-html body[data-page="case-studies"] main>section:nth-of-type(2) .grid>div:nth-child(4) { border-top-color:var(--c-violet); }
-html body[data-page="case-studies"] main>section:nth-of-type(2) .grid>div:nth-child(1) .text-2xl { color:var(--c-orange)!important; }
-html body[data-page="case-studies"] main>section:nth-of-type(2) .grid>div:nth-child(3) .text-2xl { color:var(--c-teal)!important; }
-html body[data-page="case-studies"] main>section:nth-of-type(2) .grid>div:nth-child(4) .text-2xl { color:var(--c-violet)!important; }
-html body[data-page="case-studies"] main .grid>div[id]>div>.h-48 {
-  background:linear-gradient(135deg,var(--c-blue-wash),var(--c-teal-wash))!important;
-}
-html body[data-page="case-studies"] main .grid>div[id] .grid-cols-3>div { border-left:3px solid var(--c-blue)!important; }
-html body[data-page="case-studies"] main .grid>div[id] .grid-cols-3>div:nth-child(2) { border-left-color:var(--c-teal)!important; }
-html body[data-page="case-studies"] main .grid>div[id] .grid-cols-3>div:nth-child(3) { border-left-color:var(--c-orange)!important; }
-html body[data-page="case-studies"] main .grid>div[id] .grid-cols-3>div:nth-child(2) .font-extrabold { color:var(--c-teal)!important; }
-html body[data-page="case-studies"] main .grid>div[id] .grid-cols-3>div:nth-child(3) .font-extrabold { color:var(--c-orange)!important; }
-html body[data-page="case-studies"] main .grid>div[id] .bg-slate-900.text-white {
-  background:var(--c-navy)!important;
-}
-html body[data-page="case-studies"] main .grid>div[id] .bg-slate-900.text-white:hover { background:var(--c-navy-2)!important; }
+/* ==================== 5 · PARTNER LOGOS ==================== */
 
-/* Shop: filter chips + buy buttons. */
-html body[data-page="shop"] .brand-filter-btn:hover { color:var(--c-blue)!important; border-color:var(--c-blue)!important; }
-html body[data-page="shop"] .brand-filter-btn.active { background:var(--g-cool)!important; color:#fff!important; border-color:transparent!important; }
-html body[data-page="shop"] #shop-products-grid span.absolute { color:var(--c-blue)!important; }
+/* The deck prints vendor marks in their real colours; so does the site. */
+html body .partner-strip>a,
+html body[data-page="home"] .partner-strip .marquee-track>a { filter:none; opacity:1; }
+html[data-theme="dark"] body .partner-strip { background:#eef4f9; }
+html[data-theme="dark"] body .partner-strip>span { color:#576e82; }
 
-/* Contact. */
-html body[data-page="contact"] form button[type="submit"] { background:var(--g-signal)!important; color:#fff!important; }
-html body[data-page="contact"] form button[type="submit"]:hover { background:var(--g-cool)!important; }
-html body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-5>div { border-top:3px solid var(--c-teal)!important; }
-html body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-7>div { border-top:3px solid var(--c-orange)!important; }
-
-/* ==================== 8 · FOOTER ==================== */
-
-html body footer,html body footer.bg-slate-900 {
-  background:
-    radial-gradient(60% 80% at 100% 0%,rgba(37,99,235,.22) 0%,transparent 60%),
-    radial-gradient(50% 70% at 0% 100%,rgba(240,86,29,.14) 0%,transparent 60%),
-    var(--c-navy)!important;
-}
-html body footer::before { background:var(--g-spectrum); height:3px; }
-html body footer h4 { color:var(--c-orange-2)!important; }
-html body footer a:hover { color:#93c5fd!important; }
-
-/* ==================== 9 · WHITEPAPER / ACCESS POPUP ==================== */
-
-html body #email-gate-modal { background:rgba(7,15,30,.72)!important; backdrop-filter:none!important; }
-html body :is(#shop-quickview-modal,#product-detail-modal,#case-detail-modal) { backdrop-filter:none!important; }
-html body #email-gate-modal>.relative {
-  border:0!important;
-  border-radius:14px!important;
-  overflow:hidden;
-  padding-top:0!important;
-  box-shadow:0 40px 80px -20px rgba(7,15,30,.6)!important;
-  animation:c-pop .32s var(--ease) both;
-}
-@keyframes c-pop { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } }
-
-/* Header becomes a colour band. */
-html body #email-gate-modal>.relative>div:first-child {
-  margin:0 -24px;
-  padding:22px 24px 20px;
-  background:var(--g-panel);
-  border-bottom:0!important;
-  position:relative;
-}
-@media (min-width:640px) {
-  html body #email-gate-modal>.relative>div:first-child { margin:0 -32px; padding:24px 32px 22px; }
-}
-html body #email-gate-modal>.relative>div:first-child::after {
-  content:''; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--g-spectrum);
-}
-html body #email-gate-modal>.relative>div:first-child h4 { color:#fff!important; }
-html body #email-gate-modal>.relative>div:first-child p { color:rgba(219,234,254,.78)!important; }
-html body #email-gate-modal>.relative>div:first-child .w-10 {
-  background:var(--g-signal)!important; color:#fff!important; border-radius:10px!important;
-  box-shadow:0 8px 20px -8px rgba(240,86,29,.8);
-}
-html body #email-gate-modal>.relative>div:first-child .w-10 svg { color:#fff!important; }
-html body #email-gate-modal>.relative>div:first-child button { color:rgba(255,255,255,.7)!important; border-radius:8px!important; }
-html body #email-gate-modal>.relative>div:first-child button:hover { color:#fff!important; background:rgba(255,255,255,.12)!important; }
-
-/* Selected case study chip. */
-html body #email-gate-modal>.relative>div:nth-child(2) {
-  background:var(--c-blue-wash)!important;
-  border:1px solid rgba(37,99,235,.25)!important;
-  border-left:4px solid var(--c-blue)!important;
-  border-radius:10px!important;
-}
-html body #email-gate-modal>.relative>div:nth-child(2) .font-mono.text-slate-400 { color:var(--c-blue)!important; }
-html body #email-gate-modal>.relative>div:nth-child(2) span.shrink-0 {
-  background:var(--c-teal-wash)!important; color:var(--c-teal)!important;
-  border-color:rgba(13,148,136,.35)!important; border-radius:999px!important; padding:3px 10px!important;
-}
-
-html body #email-gate-modal input { border-radius:8px!important; padding-top:11px; padding-bottom:11px; }
-html body #email-gate-modal label { color:var(--ink)!important; }
-html body #email-gate-modal #gate-submit-btn {
-  border-radius:10px!important; min-height:50px;
-  font-size:14px!important; letter-spacing:.01em;
-}
-html body #email-gate-modal #gate-feedback {
-  background:var(--c-teal-wash)!important; border-color:rgba(13,148,136,.35)!important;
-  color:var(--c-teal)!important; border-radius:10px!important;
-}
-html body #email-gate-modal #gate-feedback svg { color:var(--c-teal)!important; }
-
-/* Other popups get the same softened frame + colour band on top. */
-html body :is(#case-detail-modal,#shop-quickview-modal,#product-detail-modal)>.relative {
-  border:0!important; border-radius:14px!important; overflow:hidden;
-  box-shadow:inset 0 4px 0 var(--c-blue),0 40px 80px -20px rgba(7,15,30,.6)!important;
-}
-
-/* Toast */
-html body #app-toast { background:var(--g-cool)!important; border-color:transparent!important; border-radius:8px!important; }
-
-@media (prefers-reduced-motion:reduce) {
-  html body #email-gate-modal>.relative { animation:none; }
-}
-
-/* ==================== 10 · PERFORMANCE ==================== */
-/* Keep the home partner marquee on its own GPU layer so it never repaints the page. */
-html body[data-page="home"] .partner-strip .marquee-track { will-change:transform; }
-
-/* ==================== 11 · FIXES ==================== */
-/* Dark theme, Products categories: skin-dark.css painted the light photo plate
-   on the whole card body (image + title + text), leaving light text on a light
-   ground. Keep the plate on the photo well only. */
-html[data-theme="dark"] body[data-page="products"] main>section:nth-of-type(3) .grid>div>div:first-child {
-  background-color:transparent!important;
-}
-html[data-theme="dark"] body[data-page="products"] main>section:nth-of-type(3) .grid>div>div:first-child>.h-44 {
-  background-color:#e9e6de!important;
-  border-color:var(--line)!important;
-}
-
-/* Contrast fixes found by audit (text under 3:1 against its ground). */
-html[data-theme="dark"] body .partner-strip>span,
-html[data-theme="dark"] body[data-page="home"] .partner-strip .marquee-track>span { color:#334155!important; }
-html[data-theme="dark"] body[data-page="shop"] #shop-products-grid span.absolute { color:#1d4ed8!important; }
-html:not([data-theme="dark"]) body[data-page="case-studies"] main .grid>div[id] .grid-cols-3>div:nth-child(3) .font-extrabold { color:#b93a0c!important; }
-
-/* ==================== 12 · CASE STUDY TABS ==================== */
+/* ==================== 6 · CASE STUDY TABS + CARDS ====================
+   Page components that live only here. Recoloured to the deck: a pale-blue
+   tab rail, a cyan selected tab, and one accent per project category.      */
 
 .case-tabs {
   display:flex; flex-wrap:wrap; gap:8px;
   margin:0 0 28px; padding:6px;
-  background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-plate);
 }
 .case-tab {
   display:inline-flex; align-items:center; gap:8px;
-  padding:10px 14px; border-radius:8px;
-  font:600 12px/1.2 var(--text-face); color:var(--ink-soft);
+  padding:10px 15px; border-radius:var(--r-control);
+  font:700 12px/1.2 var(--text-face); color:var(--ink-soft);
   background:transparent; border:1px solid transparent;
 }
 .case-tab svg { width:16px; height:16px; }
 .case-tab b {
-  font:600 10px/1 var(--mono); padding:4px 7px; border-radius:999px;
+  font:700 10px/1 var(--mono); padding:4px 7px; border-radius:999px;
   background:var(--well); color:var(--muted);
 }
-.case-tab:hover { color:var(--c-blue); background:var(--c-blue-wash); }
-.case-tab.active { color:#fff; background:var(--g-cool); }
-.case-tab.active b { background:rgba(255,255,255,.22); color:#fff; }
-.case-tab[data-filter="network"] svg { color:var(--c-blue); }
-.case-tab[data-filter="services"] svg { color:var(--c-teal); }
+.case-tab:hover { color:var(--signal-deep); background:var(--c-cyan-wash); }
+.case-tab.active { color:#fff; background:var(--signal-deep); }
+.case-tab.active b { background:rgba(255,255,255,.24); color:#fff; }
+.case-tab[data-filter="network"] svg { color:var(--signal-deep); }
+.case-tab[data-filter="services"] svg { color:var(--c-green); }
 .case-tab[data-filter="safety"] svg { color:var(--c-orange); }
 .case-tab.active svg { color:#fff; }
 @media (max-width:640px) {
@@ -482,34 +122,19 @@ html:not([data-theme="dark"]) body[data-page="case-studies"] main .grid>div[id] 
 /* Text wordmark for clients without a logo file. */
 .case-wordmark {
   display:inline-block; padding:22px 34px; max-width:80%;
-  background:#fff; border:1px solid #dfe3ea; border-radius:16px;
-  font:700 clamp(24px,2.6vw,34px)/1.05 var(--display); letter-spacing:-.03em; color:#0b1a33;
+  background:#fff; border:1px solid var(--line); border-radius:var(--r-panel);
+  font:800 clamp(24px,2.6vw,34px)/1.05 var(--display); letter-spacing:-.03em; color:var(--invert);
   text-align:center;
 }
-.case-card[data-category="network"] .case-wordmark { box-shadow:inset 0 -4px 0 #2563eb; }
-.case-card[data-category="services"] .case-wordmark { box-shadow:inset 0 -4px 0 #0d9488; }
-.case-card[data-category="safety"] .case-wordmark { box-shadow:inset 0 -4px 0 #f0561d; }
+.case-card[data-category="network"] .case-wordmark { box-shadow:inset 0 -4px 0 var(--signal); }
+.case-card[data-category="services"] .case-wordmark { box-shadow:inset 0 -4px 0 var(--c-green); }
+.case-card[data-category="safety"] .case-wordmark { box-shadow:inset 0 -4px 0 var(--c-orange); }
 
 .case-cat-chip {
-  font:700 9px/1 var(--mono); letter-spacing:.1em; text-transform:uppercase;
-  padding:5px 8px; border-radius:999px; color:#fff; white-space:nowrap;
+  font:700 9px/1 var(--label); letter-spacing:.1em; text-transform:uppercase;
+  padding:5px 9px; border-radius:999px; color:#fff; white-space:nowrap;
 }
-.case-cat-chip[data-cat="network"] { background:#2563eb; }
-.case-cat-chip[data-cat="services"] { background:#0d9488; }
-.case-cat-chip[data-cat="safety"] { background:#e0501a; }
+.case-cat-chip[data-cat="network"] { background:var(--signal-deep); }
+.case-cat-chip[data-cat="services"] { background:var(--c-green); }
+.case-cat-chip[data-cat="safety"] { background:var(--c-orange); }
 @media (max-width:640px) { .case-cat-chip { display:none; } }
-/* Case-studies header status chip was ink-on-navy. */
-html body[data-page]:not([data-page="home"]) main>section:first-child .text-emerald-400 { color:#5eead4!important; }
-html[data-theme="dark"] body[data-page="case-studies"] main .grid>div[id] .bg-slate-900.text-white {
-  background:var(--c-navy-2)!important; border:1px solid var(--line-strong)!important;
-}
-
-/* Whitepaper form: failed sends read as errors, not success. */
-html body #email-gate-modal #gate-feedback[data-state="error"] {
-  background:rgba(220,38,38,.09)!important; border-color:rgba(220,38,38,.35)!important; color:#b91c1c!important;
-}
-html[data-theme="dark"] body #email-gate-modal #gate-feedback[data-state="error"] { color:#fca5a5!important; }
-html body #email-gate-modal #gate-feedback[data-state="error"] svg { color:currentColor!important; }
-/* Tall logos (Petronet LNG, GNFC) get less inner padding so they read at the same weight as wide ones. */
-html body[data-page="case-studies"] .case-card img[src*="petronet-lng"],
-html body[data-page="case-studies"] .case-card img[src*="gnfc"] { padding:8px 22px!important; }

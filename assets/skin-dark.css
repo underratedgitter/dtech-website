@@ -1,109 +1,108 @@
 /* ==========================================================================
-   D-TECH · FIELD MANUAL design system (v3) — DARK chapter.
+   D-TECH · CONTROL LAYER design system (v4) — DARK chapter.
    Loaded through <link id="theme-dark-css"> and disabled by the theme
    bootstrap in light mode, so this file is the dark half only.
-   Same structure as skin.css; it re-points tokens and fixes the handful of
-   places where a light-on-dark inversion has to flip the other way.
+
+   The deck already owns a dark ground: #071d34, the navy it prints its
+   callout panels and page headers on. Dark mode simply takes that navy all
+   the way out to the page edge and lets the cyan carry more of the work.
    ========================================================================== */
 
 :root {
-  --paper:#0e1114;
-  --surface:#14181c;
-  --well:#1a1f25;
-  --sunken:#0a0d10;
+  --paper:#04121f;
+  --surface:#071d34;
+  --well:#0b2a49;
+  --sunken:#03101c;
 
-  --ink:#ecebe5;
-  --ink-soft:#c2c8cd;
-  --muted:#8d969e;
-  --faint:#6c757d;
+  --ink:#eaf3fa;
+  --ink-soft:#bcd2e2;
+  --muted:#91a9ba;
+  --faint:#6f8aa0;
 
-  --line:#262d34;
-  --line-strong:#3a434c;
+  --line:#143a5f;
+  --line-strong:#1d5183;
 
-  --invert:#1a2027;
-  --on-invert:#f2f1ec;
-  --rule-strong:#59636d;
+  --invert:#0b2f52;
+  --invert-2:#143a5f;
+  --on-invert:#ffffff;
+  --rule-strong:#ccdee8;
 
-  --signal:#ff6a3d;
-  --signal-deep:#e2521d;
-  --signal-wash:rgba(255,106,61,.16);
+  --signal:#3fc6e6;
+  --signal-deep:#27b6da;
+  --signal-soft:#1aadcc;
+  --signal-wash:rgba(63,198,230,.16);
 
-  --grid-line:rgba(255,255,255,.05);
+  --c-green:#35c98b;   --c-green-wash:rgba(53,201,139,.13);
+  --c-orange:#ff8c38;  --c-orange-wash:rgba(255,140,56,.14);
+  --c-red:#f2564a;     --c-red-wash:rgba(242,86,74,.14);
+  --c-cyan-wash:rgba(63,198,230,.11);
+
+  --grid-line:rgba(255,255,255,.045);
 
   color-scheme:dark;
 }
 
-/* ---- Wordmark: pure black art needs inverting on every dark ground ------- */
-.brand-mark img { filter:invert(1); }
+/* ---- Chrome: the header band is already navy; deepen it. ---------------- */
+.site-header,.utility-bar { background:var(--sunken); }
+.site-header { border-bottom-color:var(--line); }
 
-/* ---- Action colour: on dark, the signal carries the primary action ------- */
-.button-primary { background:var(--signal); border-color:var(--signal); color:#fff!important; }
-.button-primary:hover { background:#fff; border-color:#fff; color:var(--invert)!important; }
-body .bg-blue-600 { background-color:var(--signal)!important; }
-body .hover\:bg-blue-700:hover { background-color:#fff!important; color:var(--invert)!important; }
-.project-cta .button-primary { background:var(--signal); border-color:var(--signal); }
-.project-cta .button-primary:hover { background:#fff; border-color:#fff; color:var(--invert)!important; }
+/* ---- Wordmark is black art; it needs inverting on every dark ground. ---- */
+.brand-mark img,footer img { filter:invert(1) brightness(1.7); }
 
-/* ---- Selected state inverts to paper-on-ink instead ---------------------- */
+/* ---- Actions: on dark the cyan carries the primary voice. --------------- */
+.button-primary { background:var(--signal-deep); border-color:var(--signal-deep); color:#04121f!important; }
+.button-primary:hover { background:#fff; border-color:#fff; color:#04121f!important; }
+body .bg-blue-600 { background-color:var(--signal-deep)!important; color:#04121f!important; }
+body .hover\:bg-blue-700:hover { background-color:#fff!important; color:#04121f!important; }
+.project-cta .button-primary,
+html body[data-page="contact"] form button[type="submit"] {
+  background:var(--signal-deep)!important; border-color:var(--signal-deep)!important; color:#04121f!important;
+}
+.header-cta { background:var(--signal); border-color:var(--signal); color:#04121f!important; }
+
+.button-secondary { background:transparent; color:var(--ink); border-color:var(--line-strong); }
+.button-secondary:hover { background:var(--c-cyan-wash); border-color:var(--signal); color:var(--signal); }
+
+/* ---- Selected states invert to cyan-on-navy. ---------------------------- */
+body[data-page="solutions"] .system-tab-btn,
+body[data-page="shop"] .brand-filter-btn { background:var(--surface)!important; }
 body[data-page="solutions"] .system-tab-btn.active,
 body[data-page="shop"] .brand-filter-btn.active {
-  background:var(--ink)!important; color:var(--paper)!important; border-color:var(--ink)!important;
+  background:var(--signal-deep)!important; color:#04121f!important; border-color:var(--signal-deep)!important;
 }
 
-.industry-links a:hover { background:var(--signal); color:#fff; }
-.industry-links a:hover svg,.industry-links a:hover b { color:#fff; }
-
-/* ---- Chrome ------------------------------------------------------------- */
-.site-header { background:var(--paper); }
-.utility-bar { background:var(--sunken); }
-.nav-dropdown-panel { box-shadow:6px 6px 0 rgba(0,0,0,.5); }
+/* ---- Dark bands on a dark page need a lighter navy to stay legible. ----- */
+.project-cta,
+body[data-page]:not([data-page="home"]) main>section:first-child,
+body[data-page="about"] main>section:last-child,
+body[data-page="case-studies"] main>section:last-child {
+  background-color:var(--invert)!important;
+}
+.hero-visual,.system-visual,.capability-art {
+  background-color:var(--invert)!important; border-color:var(--invert-2);
+}
+.map-node { background:var(--invert-2); }
+body[data-page="solutions"] #estimator .rounded-3xl,
+body[data-page="solutions"] #estimator>div>div:last-child {
+  background:var(--invert)!important; border-color:var(--invert-2)!important;
+}
 footer,body footer.bg-slate-900 { background:var(--sunken)!important; }
-footer :is(p,li,.text-slate-300,.text-slate-400,.text-slate-500) { color:rgba(255,255,255,.5)!important; }
 
-/* ---- The schematic reads brighter against a deeper ground ---------------- */
-.map-node { background:#232b33; }
-.hero-footnote { background:var(--surface); }
-
-/* ---- Product photography is shot on white: keep its plate light ---------- */
+/* ---- Plates: navy cards on a deeper navy ground. ------------------------ */
+body .bg-white,body .bg-white\/95,body .bg-white\/90,body .bg-white\/80 { background-color:var(--surface)!important; }
 main img.object-contain,
-body[data-page="products"] main>section:nth-of-type(3) .grid>div>div:first-child,
-#shop-quickview-modal .w-40,
-#product-detail-modal img.object-contain {
-  background-color:#e9e6de!important;
-}
-/* Only the photo well takes the light plate — not the title block above it. */
-body[data-page="shop"] #shop-products-grid>div>div:first-child>div:first-child {
-  background:#e9e6de!important;
-  border:1px solid var(--line)!important;
-}
+body[data-page="shop"] #shop-products-grid>div>div:first-child { background-color:#e8eef4!important; }
 body[data-page="shop"] #shop-products-grid img { mix-blend-mode:normal; }
 
-/* ---- Partner marks are dark artwork: lift them off the dark rail --------- */
-.partner-strip>a,
-body[data-page="home"] .partner-strip .marquee-track>a {
-  filter:grayscale(1) invert(1) brightness(1.15) contrast(.75);
-  opacity:.6;
-}
-.partner-strip>a:hover,
-body[data-page="home"] .partner-strip .marquee-track>a:hover {
-  filter:grayscale(1) invert(1) brightness(1.35) contrast(.85);
-  opacity:1;
-}
-body[data-page="about"] #partners img { filter:grayscale(1) invert(1) brightness(1.15) contrast(.75); }
-
-/* ---- Inverted panels sit above the page ground, not below it ------------- */
-body[data-page="about"] main>section:last-child,
-body[data-page="case-studies"] main>section:last-child { background:var(--invert)!important; }
-body[data-page="about"] main>section:last-child .bg-white,
-body[data-page="case-studies"] main>section:last-child .bg-white { background:var(--signal)!important; }
-
-/* ---- Forms -------------------------------------------------------------- */
+/* ---- Inputs ------------------------------------------------------------- */
+input,select,textarea,
 body[data-page="contact"] input,
 body[data-page="contact"] select,
-body[data-page="contact"] textarea { background:var(--well)!important; border-color:var(--line-strong)!important; }
-input::placeholder,textarea::placeholder { color:var(--faint)!important; }
+body[data-page="contact"] textarea {
+  background-color:var(--sunken)!important; border-color:var(--line-strong)!important; color:var(--ink)!important;
+}
 
-/* ---- Drawers ------------------------------------------------------------ */
+/* ---- Overlays ----------------------------------------------------------- */
 #cart-drawer-modal .fixed.right-0,#mobile-menu .fixed.right-0 { background:var(--surface)!important; }
-#cart-drawer-modal>button.fixed.inset-0,#mobile-menu>button.fixed.inset-0 { background:rgba(0,0,0,.65)!important; }
-#cart-drawer-modal img { background:#e9e6de!important; }
+#cart-drawer-modal>button.fixed.inset-0,#mobile-menu>button.fixed.inset-0 { background:rgba(2,9,17,.7)!important; }
+#app-toast { background:var(--well)!important; border-color:var(--line-strong)!important; }

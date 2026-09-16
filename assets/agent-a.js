@@ -131,11 +131,12 @@
       var t = localStorage.getItem('dtech-theme');
       if (t === 'light' || t === 'dark') return t;
     } catch (e) {}
-    // Match the inline <head> script; returning 'dark' here flipped OS-light visitors back to dark after load.
+    // The design system is derived from a light document, so light is the
+    // default voice; only an explicit OS dark preference opts into the dark chapter.
     try {
-      if (window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
     } catch (e) {}
-    return 'dark';
+    return 'light';
   }
 
   function paintThemeToggle(t) {

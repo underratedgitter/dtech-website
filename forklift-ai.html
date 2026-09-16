@@ -16,7 +16,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://unpkg.com/lucide@1.46.0/dist/umd/lucide.min.js" integrity="sha384-1avDoIZZ5mKtAlvTbQ2jge+TZA4z+qwhMFHdCpATww/SLVM8wKs7sROOEKMOizyV" crossorigin="anonymous"></script>
@@ -27,13 +27,13 @@
         extend: {
           colors: {
             brand: {
-              blue: '#3b82f6',
-              darkBlue: '#1d4ed8',
-              navBlue: '#4383c2',
-              pillBlue: '#5b9dd9',
-              sky: '#0ea5e9',
-              dark: '#0f172a',
-              slate: '#1e293b',
+              blue: '#27b6da',
+              darkBlue: '#008ccf',
+              navBlue: '#0b2f52',
+              pillBlue: '#1aadcc',
+              sky: '#27b6da',
+              dark: '#071d34',
+              slate: '#142b41',
             }
           },
           fontFamily: {
@@ -73,10 +73,10 @@
       }
     }
     .system-tab-btn.active {
-      background-color: #2563eb;
+      background-color: #008ccf;
       color: #ffffff;
-      border-color: #2563eb;
-      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+      border-color: #008ccf;
+      box-shadow: 0 4px 6px -1px rgba(0, 140, 207, 0.2);
     }
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: #f1f5f9; }
@@ -89,7 +89,7 @@
   <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.css">
   <link rel="stylesheet" href="assets/color.css">
   <link rel="stylesheet" href="assets/jiva.css">
-  <script>try{var __dt=localStorage.getItem('dtech-theme');if(__dt!=='light'&&__dt!=='dark'){try{__dt=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}catch(e){__dt='dark';}}if(__dt!=='dark'){var __dl=document.getElementById('theme-dark-css');if(__dl){__dl.disabled=true;}}document.documentElement.setAttribute('data-theme',__dt);}catch(e){}</script>
+  <script>try{var __dt=localStorage.getItem('dtech-theme');if(__dt!=='light'&&__dt!=='dark'){try{__dt=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}catch(e){__dt='light';}}if(__dt!=='dark'){var __dl=document.getElementById('theme-dark-css');if(__dl){__dl.disabled=true;}}document.documentElement.setAttribute('data-theme',__dt);}catch(e){}</script>
 </head>
 <body data-page="forklift" class="bg-white text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen">
 <a class="skip-link" href="#main-content">Skip to content</a>

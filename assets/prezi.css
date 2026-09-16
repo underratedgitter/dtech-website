@@ -4,17 +4,18 @@
    ========================================================================== */
 
 :root {
-  --deck-ink: #f3f5f8;
-  --deck-soft: #b7c2d0;
-  --deck-muted: #7e8ea2;
-  --deck-navy: #0a1426;
-  --deck-navy-2: #12305c;
-  --deck-line: rgba(255, 255, 255, .14);
-  --deck-orange: #f0561d;
-  --deck-blue: #3b82f6;
+  /* Palette lifted from the Petronet LNG success-story deck. */
+  --deck-ink: #eaf3fa;
+  --deck-soft: #bcd2e2;
+  --deck-muted: #91a9ba;
+  --deck-navy: #071d34;
+  --deck-navy-2: #0b2f52;
+  --deck-line: rgba(255, 255, 255, .13);
+  --deck-orange: #27b6da;   /* the deck's accent is cyan, not orange */
+  --deck-blue: #008ccf;
   --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-  --display: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
-  --text-face: 'IBM Plex Sans', system-ui, sans-serif;
+  --display: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --text-face: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --bar: 64px;
   color-scheme: dark;
 }
@@ -26,14 +27,14 @@
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(90% 70% at 100% 0%, rgba(59, 130, 246, .28) 0%, transparent 60%),
-    radial-gradient(80% 60% at 0% 100%, rgba(240, 86, 29, .22) 0%, transparent 60%),
+    radial-gradient(90% 70% at 100% 0%, rgba(39, 182, 218, .26) 0%, transparent 60%),
+    radial-gradient(80% 60% at 0% 100%, rgba(0, 140, 207, .20) 0%, transparent 60%),
     linear-gradient(160deg, var(--deck-navy-2) 0%, var(--deck-navy) 70%);
   color: var(--deck-ink);
   font-family: var(--text-face);
 }
 
-.deck-skip { position: fixed; left: -9999px; top: 0; z-index: 60; padding: 12px 16px; background: #fff; color: #0a1426; }
+.deck-skip { position: fixed; left: -9999px; top: 0; z-index: 60; padding: 12px 16px; background: #fff; color: #071d34; }
 .deck-skip:focus { left: 16px; top: 16px; }
 
 /* ---- chrome ------------------------------------------------------------- */
@@ -44,7 +45,7 @@
   height: var(--bar);
   padding: 0 clamp(16px, 3vw, 32px);
   padding-top: env(safe-area-inset-top, 0px);
-  background: linear-gradient(180deg, rgba(5, 12, 24, .95), rgba(5, 12, 24, .6));
+  background: linear-gradient(180deg, rgba(7, 29, 52, .95), rgba(7, 29, 52, .6));
   border-bottom: 1px solid var(--deck-line);
 }
 .deck-home img { display: block; height: 34px; width: auto; filter: brightness(0) invert(1); }
@@ -63,7 +64,7 @@
 .deck-stage {
   position: fixed; left: 0; right: 0; bottom: 0;
   top: calc(var(--bar) + env(safe-area-inset-top, 0px));
-  background: #0a1426;
+  background: #071d34;
 }
 /* In full screen the stage owns the whole display, so the bar's offset goes. */
 .deck-stage:fullscreen { top: 0; }
@@ -90,7 +91,7 @@
   display: inline-flex; align-items: center; gap: 12px; padding: 15px 24px; border-radius: 10px;
   font: 600 14px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
 }
-.deck-cta .button-primary { background: linear-gradient(120deg, var(--deck-orange), #ff8a3d); color: #fff; }
+.deck-cta .button-primary { background: linear-gradient(120deg, var(--deck-blue), var(--deck-orange)); color: #fff; }
 .deck-cta .button-secondary { border: 1px solid var(--deck-line); color: var(--deck-ink); }
 
 @media (max-width: 720px) {
