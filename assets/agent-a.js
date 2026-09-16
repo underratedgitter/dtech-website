@@ -89,12 +89,72 @@
     } catch (e) {}
   }
 
+  /* Count the trust figures up when the ribbon first comes into view.
+     Only a figure that STARTS with digits is animated, so "20+ Years" and
+     "500+ Plants" count while "ISO 9001:2015" and "< 4 Hours" are left
+     exactly as written. */
+  function countUp(el, target, suffix, digits) {
+    var start = null;
+    var dur = 1100;
+    function frame(now) {
+      if (start === null) start = now;
+      var t = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - t, 3);
+      var val = Math.round(target * eased);
+      el.textContent = (digits ? String(val).padStart(digits, '0') : String(val)) + suffix;
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function initCounters() {
+    try {
+      if (reducedMotion()) return;
+      if (!('IntersectionObserver' in window)) return;
+      if (!document.body || document.body.getAttribute('data-page') !== 'home') return;
+      var ribbon = document.querySelector('.home-hero + div + section');
+      if (!ribbon) return;
+      var figures = ribbon.querySelectorAll('.text-2xl');
+      if (!figures.length) return;
+
+      var jobs = [];
+      for (var i = 0; i < figures.length; i++) {
+        var raw = (figures[i].textContent || '').trim();
+        var m = /^(\d[\d,]*)([\s\S]*)$/.exec(raw);
+        if (!m) continue;
+        var target = parseInt(m[1].replace(/,/g, ''), 10);
+        if (!isFinite(target) || target <= 0) continue;
+        jobs.push({ el: figures[i], target: target, suffix: m[2] });
+      }
+      if (!jobs.length) return;
+
+      var io = new IntersectionObserver(
+        function (entries) {
+          for (var k = 0; k < entries.length; k++) {
+            if (!entries[k].isIntersecting) continue;
+            io.disconnect();
+            /* Zero out only now, as the count begins. If this observer never
+               fires, the figures stay exactly as authored in the markup. */
+            for (var j = 0; j < jobs.length; j++) {
+              jobs[j].el.textContent = '0' + jobs[j].suffix;
+              countUp(jobs[j].el, jobs[j].target, jobs[j].suffix, 0);
+            }
+            return;
+          }
+        },
+        { threshold: 0.4 }
+      );
+      io.observe(ribbon);
+    } catch (e) {}
+  }
+
   function init() {
     initTheme();
     initSliders();
     initHeader();
     initReveal();
     initMarquee();
+    initCounters();
   }
 
   /* Single allowed marquee (home partner rail). Cloned half is
@@ -107,6 +167,11 @@
       if (!strip || strip.querySelector('.marquee-track')) return;
       var kids = Array.prototype.slice.call(strip.children);
       if (kids.length < 2) return;
+      /* The "Technology partners" caption is a label for the rail, not one of
+         the logos: it stays pinned while only the logos travel. */
+      var label = kids.filter(function (n) { return n.tagName === 'SPAN'; });
+      kids = kids.filter(function (n) { return n.tagName !== 'SPAN'; });
+      if (!kids.length) return;
       var track = document.createElement('div');
       track.className = 'marquee-track';
       kids.forEach(function (n) { track.appendChild(n); });
@@ -120,7 +185,11 @@
         if (c.tagName === 'A' || c.tagName === 'BUTTON') c.tabIndex = -1;
         track.appendChild(c);
       });
-      strip.appendChild(track);
+      var lane = document.createElement('div');
+      lane.className = 'marquee-lane';
+      lane.appendChild(track);
+      label.forEach(function (n) { strip.appendChild(n); });
+      strip.appendChild(lane);
       strip.classList.add('marquee-on');
     } catch (e) {}
   }

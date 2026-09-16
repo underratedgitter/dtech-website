@@ -1104,9 +1104,22 @@ footer img { background:transparent!important; padding:0!important; filter:inver
 .home-hero .hero-copy>*:nth-child(5) { animation-delay:320ms; }
 .home-hero .hero-visual { animation:a-rise 760ms var(--ease) 160ms both; }
 
-body[data-page="home"] .partner-strip.marquee-on { display:flex; align-items:center; overflow:hidden; gap:0; }
+/* The caption is pinned; only the logo lane travels, and it fades out at
+   both ends so logos enter and leave instead of being cut off. */
+body[data-page="home"] .partner-strip.marquee-on {
+  display:flex; align-items:center; gap:28px; overflow:hidden;
+}
+body[data-page="home"] .partner-strip.marquee-on>span {
+  flex:0 0 auto; max-width:none; white-space:nowrap;
+  padding-right:28px; border-right:1px solid var(--line);
+}
+body[data-page="home"] .marquee-lane {
+  flex:1 1 auto; min-width:0; overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);
+}
 body[data-page="home"] .partner-strip .marquee-track {
-  display:flex; align-items:center; width:max-content; animation:a-strip 52s linear infinite;
+  display:flex; align-items:center; width:max-content; animation:a-strip 46s linear infinite;
 }
 body[data-page="home"] .partner-strip .marquee-track>* { flex:0 0 auto; margin:0 28px; }
 body[data-page="home"] .partner-strip .marquee-track>a {
@@ -1210,4 +1223,198 @@ body[data-page="home"] .partner-strip.marquee-on:hover .marquee-track { animatio
   body[data-page]:not([data-page="home"]) main>section:first-child h1 { font-size:34px; }
   body[data-page="shop"] #shop-catalog>.executive-container>div:first-child { position:static; }
   body[data-page="shop"] #shop-products-grid { gap:12px!important; }
+}
+
+/* ==========================================================================
+   24 · LANDING PAGE · PRESENCE
+   The deck opens on a full-bleed photograph and a row of hard figures. The
+   home page has no photograph, so the energy has to come from light and
+   motion: a drifting cyan aurora behind the hero, a gate diagram that reads
+   as live, and figures that count themselves up. Palette is unchanged —
+   every colour here is still the deck's cyan, green, orange and navy.
+   ========================================================================== */
+
+/* ---- Hero: a slow aurora, and a horizon rule that anchors the fold ------ */
+
+.home-hero { isolation:isolate; }
+.home-hero::before {
+  content:''; position:absolute; inset:-25% -10% auto -10%; height:150%;
+  z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(38% 46% at 78% 18%,rgba(39,182,218,.30) 0%,transparent 68%),
+    radial-gradient(32% 40% at 18% 78%,rgba(0,140,207,.20) 0%,transparent 68%),
+    radial-gradient(26% 34% at 52% 8%,rgba(44,182,125,.13) 0%,transparent 70%);
+  filter:blur(8px);
+  animation:a-aurora 22s ease-in-out infinite alternate;
+}
+@keyframes a-aurora {
+  0%   { transform:translate3d(0,0,0) scale(1); }
+  50%  { transform:translate3d(-2.5%,1.5%,0) scale(1.07); }
+  100% { transform:translate3d(2%,-1.5%,0) scale(1.03); }
+}
+
+/* The cyan word in the headline gets a soft swash, drawn on load. */
+.hero-copy h1 em { position:relative; display:inline-block; }
+.hero-copy h1 em::after {
+  /* Sits below the descenders, so it never cuts through a "g" or "y". */
+  content:''; position:absolute; left:0; right:12%; bottom:-.01em; height:.07em;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--signal) 0%,var(--signal) 55%,rgba(39,182,218,0) 100%);
+  transform-origin:left center;
+  animation:a-swash 900ms var(--ease) 620ms both;
+}
+@keyframes a-swash { from { transform:scaleX(0); opacity:0; } to { transform:scaleX(1); opacity:1; } }
+
+/* Primary action: a cyan glow that breathes once on arrival. */
+.hero-actions .button-primary {
+  background:linear-gradient(135deg,var(--signal-deep),var(--signal));
+  border-color:transparent;
+  box-shadow:0 12px 30px -12px rgba(0,140,207,.9);
+}
+.hero-actions .button-primary:hover {
+  background:var(--invert); box-shadow:0 14px 32px -12px rgba(7,29,52,.75);
+}
+
+/* ---- The gate diagram reads as live ------------------------------------ */
+
+/* A pulse ring leaves the core, the way an access decision propagates. */
+.node-core::after {
+  content:''; position:absolute; inset:0; border-radius:var(--r-plate);
+  border:1px solid var(--signal);
+  animation:a-ping 2.8s var(--ease) infinite;
+  pointer-events:none;
+}
+@keyframes a-ping {
+  0%   { transform:scale(1); opacity:.85; }
+  70%  { transform:scale(1.5); opacity:0; }
+  100% { transform:scale(1.5); opacity:0; }
+}
+
+/* The outer measurement frame drifts, so the panel is never quite static. */
+.orbit-two { animation:a-drift 9s ease-in-out infinite alternate; }
+@keyframes a-drift {
+  from { transform:translate(-50%,-50%) scale(1); }
+  to   { transform:translate(-50%,-50%) scale(1.035); }
+}
+
+/* Each edge node breathes on its own beat: four independent subsystems. */
+.node-data,.node-auto,.node-safe,.node-site { animation:a-breathe 5.5s ease-in-out infinite; }
+.node-auto { animation-delay:.7s; }
+.node-safe { animation-delay:1.4s; }
+.node-site { animation-delay:2.1s; }
+@keyframes a-breathe {
+  0%,100% { border-color:rgba(255,255,255,.16); }
+  50%     { border-color:rgba(39,182,218,.55); }
+}
+
+/* ---- Trust ribbon: figures that respond ------------------------------- */
+
+.home-hero+div+section .grid>div {
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease);
+}
+.home-hero+div+section .grid>div:hover {
+  transform:translateY(-3px);
+  box-shadow:0 18px 36px -22px rgba(7,29,52,.42);
+}
+.home-hero+div+section .text-2xl { font-variant-numeric:tabular-nums; }
+
+/* ---- Capability cards: a sheen crosses the art on hover ---------------- */
+
+.capability-art::after {
+  content:''; position:absolute; top:0; bottom:0; left:-60%; width:45%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);
+  transform:skewX(-18deg);
+  transition:left .65s var(--ease);
+  pointer-events:none; z-index:2;
+}
+.capability-card:hover .capability-art::after { left:125%; }
+
+/* ---- Section reveal: children arrive in sequence, not all at once ------ */
+
+@media (prefers-reduced-motion:no-preference) {
+  .a-pre .visual-capabilities>*,
+  .a-pre .confidence-points>*,
+  .a-pre .industry-links>*,
+  .a-pre .home-hero+div+section .grid>* { opacity:0; transform:translateY(12px); }
+  .a-in .visual-capabilities>*,
+  .a-in .confidence-points>*,
+  .a-in .industry-links>*,
+  .a-in .grid>* {
+    opacity:1; transform:none;
+    transition:opacity .5s var(--ease),transform .5s var(--ease);
+  }
+  .a-in :is(.visual-capabilities,.confidence-points,.industry-links)>*:nth-child(2) { transition-delay:.09s; }
+  .a-in :is(.visual-capabilities,.confidence-points,.industry-links)>*:nth-child(3) { transition-delay:.18s; }
+  .a-in :is(.visual-capabilities,.confidence-points,.industry-links)>*:nth-child(4) { transition-delay:.27s; }
+}
+
+/* ---- Closing CTA: the cyan edge the deck ends its panels with ---------- */
+
+.project-cta { position:relative; overflow:hidden; }
+.project-cta::after {
+  content:''; position:absolute; left:0; right:0; bottom:0; height:3px;
+  background:linear-gradient(90deg,var(--signal),var(--c-green),var(--c-orange),var(--c-red));
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .home-hero::before,.node-core::after,.orbit-two,
+  .node-data,.node-auto,.node-safe,.node-site,
+  .hero-copy h1 em::after { animation:none!important; }
+  .hero-copy h1 em::after { transform:none; opacity:1; }
+}
+
+/* ---- More presence at the fold ---------------------------------------- */
+
+/* The aurora carries further and sits a touch stronger behind the copy. */
+.home-hero::before {
+  background:
+    radial-gradient(40% 50% at 80% 14%,rgba(39,182,218,.42) 0%,transparent 66%),
+    radial-gradient(34% 44% at 14% 80%,rgba(0,140,207,.26) 0%,transparent 66%),
+    radial-gradient(26% 34% at 50% 4%,rgba(44,182,125,.16) 0%,transparent 70%);
+}
+
+/* A halo behind the gate panel, so it reads as lit rather than pasted on. */
+.hero-visual::before,.system-visual::before {
+  content:''; position:absolute; inset:-14%; z-index:-1; pointer-events:none;
+  border-radius:50%;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(39,182,218,.30) 0%,transparent 70%);
+  filter:blur(26px);
+  animation:a-halo 7s ease-in-out infinite alternate;
+}
+@keyframes a-halo { from { opacity:.6; } to { opacity:1; } }
+
+/* The eyebrow gets a live indicator, the way the deck marks an active gate. */
+.hero-copy .eyebrow::before {
+  content:''!important; width:7px; height:7px; flex:none;
+  border-radius:999px; background:var(--c-green);
+  box-shadow:0 0 0 0 rgba(44,182,125,.55);
+  animation:a-live 2.4s ease-out infinite;
+}
+@keyframes a-live {
+  0%   { box-shadow:0 0 0 0 rgba(44,182,125,.55); }
+  70%  { box-shadow:0 0 0 7px rgba(44,182,125,0); }
+  100% { box-shadow:0 0 0 0 rgba(44,182,125,0); }
+}
+
+/* Navigation: the cyan rule draws in from the left on hover. */
+.restored-nav>a::after,.desktop-nav a::after {
+  content:''; position:absolute; left:0; right:0; bottom:16px; height:2px;
+  border-radius:2px; background:var(--signal);
+  transform:scaleX(0); transform-origin:left center;
+  transition:transform .22s var(--ease);
+}
+.restored-nav>a:hover::after,.desktop-nav a:hover::after { transform:scaleX(1); }
+.restored-nav>a[aria-current="page"]::after,
+.desktop-nav a[aria-current]::after { transform:scaleX(1); }
+
+/* Section headings carry a short cyan rule, as the deck rules its titles. */
+.section-heading { position:relative; }
+.section-heading::after {
+  content:''; position:absolute; left:0; bottom:-1px; width:72px; height:3px;
+  border-radius:3px; background:var(--signal);
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .hero-visual::before,.system-visual::before,
+  .hero-copy .eyebrow::before { animation:none!important; }
 }
