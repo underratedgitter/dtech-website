@@ -33,6 +33,29 @@ Set these in Vercel → Project → Settings → Environment Variables, then red
 
 The function only accepts JSON posts from the site's own origin, has a hidden bot trap field, sanitises the name used in the greeting, and rate-limits by IP and by recipient. These limits live in memory per instance; add a CAPTCHA (e.g. Cloudflare Turnstile) or a shared store before heavy public use.
 
+
+## Careers: live jobs and applications from Odoo
+
+`careers.html` lists the jobs published in Odoo Recruitment and lets people apply on this site. Applications create a candidate (`hr.applicant`) in Odoo with the CV attached, exactly like applying on the Odoo careers site, so HR sees them in the same pipeline.
+
+| Endpoint | What it does |
+|---|---|
+| `GET /api/jobs` | Published jobs from `hr.job`, cached for 10 minutes. Falls back to the static list in the page if Odoo is unreachable. |
+| `POST /api/apply` | Creates `hr.applicant` and attaches the CV as an `ir.attachment` on that record. |
+
+Set these in Vercel → Project → Settings → Environment Variables:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `ODOO_URL` | yes | e.g. `https://d-tech-live-database.odoo.com` |
+| `ODOO_DB` | yes | database name, e.g. `odoo-ps-psin-dtech-master-6996813` |
+| `ODOO_USERNAME` | yes | login of the website user |
+| `ODOO_API_KEY` | yes | API key for that user (Preferences → Account Security → New API Key) |
+
+Use a dedicated Odoo user with recruitment access only, never an administrator: the key can do anything that user can do. The key is read server-side and never reaches the browser.
+
+Protections on `/api/apply`: same-origin JSON only, a hidden bot-trap field, 5 applications per hour per IP and 3 per day per email address, CVs limited to PDF or Word and 3 MB.
+
 ## Security headers
 
 `vercel.json` sets a Content-Security-Policy, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, a referrer policy and a permissions policy for every page. If you add a new external script, font, image host or embed, allow its host in the CSP or the browser will block it.
