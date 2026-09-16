@@ -4,7 +4,9 @@
 // application in the same pipeline as applications made on the Odoo site.
 //
 // Body (JSON):
-//   { jobId, name, email, phone, message, cv: { filename, type, dataBase64 }, website }
+//   { jobId, jobTitle, name, email, phone, message, cv: { filename, type, dataBase64 }, website }
+//   jobId is optional: without it the application is filed as a speculative
+//   application, with any role the person named kept in the description.
 //   "website" is a hidden bot-trap field and must stay empty.
 //
 // Needs ODOO_URL, ODOO_DB, ODOO_USERNAME and ODOO_API_KEY (see _odoo.js).
@@ -85,7 +87,8 @@ module.exports = async function handler(req, res) {
 
   if (!applicant.name) return res.status(400).json({ ok: false, error: 'Please enter your name.' });
   if (!EMAIL_RE.test(applicant.email)) return res.status(400).json({ ok: false, error: 'Please enter a valid email address.' });
-  if (!Number.isInteger(jobId) || jobId <= 0) return res.status(400).json({ ok: false, error: 'Please choose a role to apply for.' });
+  const wantedRole = clean(body.jobTitle, 120);
+  const hasJob = Number.isInteger(jobId) && jobId > 0;
 
   const ip = String(req.headers['x-real-ip'] || req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
   if (overLimit('ip:' + ip, 5, 60 * 60 * 1000) || overLimit('mail:' + applicant.email.toLowerCase(), 3, 24 * 60 * 60 * 1000)) {
@@ -105,17 +108,23 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const [job] = await call('hr.job', 'read', [[jobId]], { fields: ['name', 'department_id'] });
-    if (!job) return res.status(400).json({ ok: false, error: 'That role is no longer open.' });
+    let job = null;
+    if (hasJob) {
+      [job] = await call('hr.job', 'read', [[jobId]], { fields: ['name', 'department_id'] });
+      if (!job) return res.status(400).json({ ok: false, error: 'That role is no longer open.' });
+    }
 
+    const roleLine = job ? job.name : (wantedRole || 'Speculative application');
     const values = {
       partner_name: applicant.name,
       email_from: applicant.email,
-      job_id: jobId,
-      description: `<p><strong>Applied through dtechindia.com</strong></p><p>${esc(applicant.message) || 'No message provided.'}</p>`,
+      description: `<p><strong>Applied through dtechindia.com</strong><br/>Role: ${esc(roleLine)}</p><p>${esc(applicant.message) || 'No message provided.'}</p>`,
     };
+    if (job) {
+      values.job_id = jobId;
+      if (Array.isArray(job.department_id) && job.department_id[0]) values.department_id = job.department_id[0];
+    }
     if (applicant.phone) values.partner_phone = applicant.phone;
-    if (Array.isArray(job.department_id) && job.department_id[0]) values.department_id = job.department_id[0];
 
     const applicantId = await call('hr.applicant', 'create', [values]);
 
@@ -133,7 +142,7 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    return res.status(200).json({ ok: true, reference: applicantId, job: job.name });
+    return res.status(200).json({ ok: true, reference: applicantId, job: roleLine });
   } catch (err) {
     console.error('Odoo application failed:', err.message);
     return res.status(502).json({ ok: false, error: 'We could not submit your application right now. Please try again or email sales@dtechindia.com.' });

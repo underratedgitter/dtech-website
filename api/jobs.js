@@ -1,13 +1,15 @@
 // GET /api/jobs
-// Returns the jobs published on the D-TECH Odoo recruitment site, so the
-// careers page always matches what HR has posted. Results are cached briefly
-// so Odoo is not queried on every page view.
+// Returns the roles D-TECH is currently recruiting for, read straight from the
+// Odoo Recruitment app. It does NOT depend on Odoo's website module, so the
+// Odoo website can be switched off: a job appears here as soon as it is active
+// in Recruitment with at least one expected employee ("Start Recruitment").
+// Results are cached briefly so Odoo is not queried on every page view.
 //
 // Response: { ok: true, source: "odoo"|"static", jobs: [...], fetchedAt }
 // If Odoo is not configured or unreachable, the page falls back to the static
 // list it ships with, so the careers page never breaks.
 
-const { call, publishedFieldName, stripHtml, isConfigured } = require('./_odoo');
+const { call, stripHtml, isConfigured } = require('./_odoo');
 
 const CACHE_MS = 10 * 60 * 1000;
 let cache = { at: 0, jobs: null };
@@ -27,7 +29,7 @@ async function locationsFor(addressIds) {
 }
 
 function shape(job, locations) {
-  const full = stripHtml(job.website_description || job.description || '');
+  const full = stripHtml(job.description || '');
   const summary = full.split('\n').map(s => s.trim()).filter(Boolean)[0] || '';
   return {
     id: job.id,
@@ -53,9 +55,15 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ ok: true, source: 'odoo', cached: true, jobs: cache.jobs, fetchedAt: new Date(cache.at).toISOString() });
   }
   try {
-    const published = await publishedFieldName();
-    const rows = await call('hr.job', 'search_read', [[[published, '=', true]]], {
-      fields: ['name', 'department_id', 'address_id', 'no_of_recruitment', 'description', 'website_description'],
+    // Recruiting = the job is active and HR expects to hire at least one person.
+    // ODOO_JOB_DOMAIN can override this with a JSON Odoo domain if ever needed.
+    let domain = [['active', '=', true], ['no_of_recruitment', '>', 0]];
+    if (process.env.ODOO_JOB_DOMAIN) {
+      try { domain = JSON.parse(process.env.ODOO_JOB_DOMAIN); }
+      catch (e) { console.error('ODOO_JOB_DOMAIN is not valid JSON; using the default'); }
+    }
+    const rows = await call('hr.job', 'search_read', [domain], {
+      fields: ['name', 'department_id', 'address_id', 'no_of_recruitment', 'description'],
       order: 'name asc',
       limit: 100,
     });

@@ -40,7 +40,7 @@ The function only accepts JSON posts from the site's own origin, has a hidden bo
 
 | Endpoint | What it does |
 |---|---|
-| `GET /api/jobs` | Published jobs from `hr.job`, cached for 10 minutes. Falls back to the static list in the page if Odoo is unreachable. |
+| `GET /api/jobs` | Roles being recruited from `hr.job` (active, with at least one expected employee), cached for 10 minutes. Falls back to the static list in the page if Odoo is unreachable. Does not need Odoo's website module, so the Odoo website can be switched off. |
 | `POST /api/apply` | Creates `hr.applicant` and attaches the CV as an `ir.attachment` on that record. |
 
 Set these in Vercel → Project → Settings → Environment Variables:
@@ -51,6 +51,9 @@ Set these in Vercel → Project → Settings → Environment Variables:
 | `ODOO_DB` | yes | database name, e.g. `odoo-ps-psin-dtech-master-6996813` |
 | `ODOO_USERNAME` | yes | login of the website user |
 | `ODOO_API_KEY` | yes | API key for that user (Preferences → Account Security → New API Key) |
+| `ODOO_JOB_DOMAIN` | no | JSON Odoo domain overriding which jobs are listed, e.g. `[["active","=",true]]` |
+
+**Posting a job:** in Odoo open Recruitment → the job position → set Expected New Employees to 1 or more and keep it active ("Start Recruitment"). It appears on the careers page within 10 minutes. Stop recruitment or archive it to take it down.
 
 Use a dedicated Odoo user with recruitment access only, never an administrator: the key can do anything that user can do. The key is read server-side and never reaches the browser.
 
