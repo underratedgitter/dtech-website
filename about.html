@@ -88,6 +88,7 @@
   <script src="assets/agent-a.js" defer></script>
   <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.css">
   <link rel="stylesheet" href="assets/color.css">
+  <link rel="stylesheet" href="assets/jiva.css">
   <script>try{var __dt=localStorage.getItem('dtech-theme');if(__dt!=='light'&&__dt!=='dark'){try{__dt=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}catch(e){__dt='dark';}}if(__dt!=='dark'){var __dl=document.getElementById('theme-dark-css');if(__dl){__dl.disabled=true;}}document.documentElement.setAttribute('data-theme',__dt);}catch(e){}</script>
 </head>
 <body data-page="about" class="bg-white text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen">
@@ -200,44 +201,34 @@
             <div class="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
               <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">Live From Deployed Site</h4>
               <p class="text-xs text-slate-600 leading-relaxed">
-                This overview mirrors the deployed Odoo page
-                <span class="font-mono">/about-us-2</span> — including the interactive Prezi below
-                from <span class="font-mono">/dtech-intro</span>.
+                Company facts, partner recognitions and the interactive introduction below
+                are maintained here on dtechindia.com.
               </p>
             </div>
           </div>
 
         </div>
 
-        <!-- Interactive company introduction (mirrors deployed /dtech-intro Prezi) -->
-        <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-4 space-y-3">
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Explore the D-TECH story interactively</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                The same introduction published on the deployed site — a guided Prezi walkthrough
-                of who we are, what we integrate, and how we deliver turnkey projects across PAN India.
-              </p>
-              <div class="flex flex-wrap items-center gap-3 pt-1">
-                <a href="https://prezi.com/view/WUH9rqAFTcB7IAT8LCnc/" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-colors">
-                  Open interactive deck ↗
-                </a>
-                <a href="case-studies.html" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-white text-slate-700 font-semibold text-xs transition-colors">
-                  See field proof
-                </a>
-              </div>
+        <!-- Interactive company introduction (self-hosted, replaces the old Prezi embed) -->
+        <div class="intro-deck" id="intro-deck">
+          <div class="intro-deck-head">
+            <div>
+              <span class="eyebrow">D-TECH intro</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">The D-TECH story in six chapters</h3>
+              <p class="text-sm text-slate-600">Step through who we are, what we integrate, where we work and how we deliver.</p>
             </div>
-            <div class="lg:col-span-8">
-              <div class="rounded-2xl overflow-hidden border border-slate-200 bg-white">
-                <div class="relative w-full" style="padding-top:56.25%">
-                  <iframe src="https://prezi.com/p/embed/WUH9rqAFTcB7IAT8LCnc/" title="D-TECH interactive company introduction (Prezi)" class="absolute inset-0 w-full h-full" frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
-                </div>
-                <div class="flex items-center justify-between px-4 py-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">
-                  <span>Touch / click to navigate the deck</span>
-                  <span class="hidden sm:inline">If the embed is blocked, use “Open interactive deck ↗”</span>
-                </div>
-              </div>
+            <div class="intro-controls">
+              <button type="button" class="intro-arrow" data-intro-prev aria-label="Previous chapter">&#8592;</button>
+              <span class="intro-count"><b id="intro-current">1</b> / 6</span>
+              <button type="button" class="intro-arrow" data-intro-next aria-label="Next chapter">&#8594;</button>
             </div>
+          </div>
+          <div class="intro-stage"><article class="intro-slide" id="intro-slide-0" role="tabpanel" aria-label="Who we are"><span class="intro-num">01</span><span class="eyebrow">Who we are</span><h3>D-TECH Solution Integrators</h3><div class="intro-copy"><p>Started in 1999 in Bharuch, Gujarat, and incorporated as D-TECH Solution Integrators Private Limited in 2003.</p><p>An ISO 9001:2015 certified turnkey systems integrator for industrial IT, automation and managed services.</p></div><div class="intro-stats"><div class="intro-stat"><strong>1999</strong><span>Started trading</span></div><div class="intro-stat"><strong>2003</strong><span>Incorporated</span></div><div class="intro-stat"><strong>ISO 9001:2015</strong><span>Certified</span></div></div></article><article class="intro-slide" id="intro-slide-1" role="tabpanel" aria-label="What we integrate" hidden><span class="intro-num">02</span><span class="eyebrow">What we integrate</span><h3>From the cable tray to the control room</h3><div class="intro-copy"><p>Industrial IT and networks: optical backbones, structured cabling, switching, Wi-Fi, servers and data centres.</p><p>Automation with JIVA: engineering services, system integration, turnkey lines, special-purpose machines and heavy lifting.</p><p>Safety and operations: AI video analytics, forklift pedestrian safety, safety training kiosks, tanker fleet and cafeteria management.</p></div><div class="intro-stats"><div class="intro-stat"><strong>3</strong><span>Practice areas</span></div><div class="intro-stat"><strong>9</strong><span>Solution systems</span></div><div class="intro-stat"><strong>83</strong><span>Catalogue items</span></div></div></article><article class="intro-slide" id="intro-slide-2" role="tabpanel" aria-label="Where we work" hidden><span class="intro-num">03</span><span class="eyebrow">Where we work</span><h3>Gujarat's industrial corridors, and beyond</h3><div class="intro-copy"><p>Head office in Bharuch, with work across Dahej PCPIR, Ankleshwar, Jhagadia, Vadodara and Ahmedabad.</p><p>Support reaches customers PAN-India.</p></div><div class="intro-stats"><div class="intro-stat"><strong>200+</strong><span>Support locations</span></div><div class="intro-stat"><strong>4,500+</strong><span>Customers</span></div><div class="intro-stat"><strong>PAN-India</strong><span>Coverage</span></div></div></article><article class="intro-slide" id="intro-slide-3" role="tabpanel" aria-label="How we deliver" hidden><span class="intro-num">04</span><span class="eyebrow">How we deliver</span><h3>One team, from plan to plant</h3><div class="intro-copy"><p>Consult and design: site survey, bill of material and a single engineered scope.</p><p>Integrate and deliver: installation, configuration, testing and commissioning.</p><p>Maintain and support: AMC and FMS teams, spares and documented service levels.</p></div><div class="intro-stats"><div class="intro-stat"><strong>Survey</strong><span>Step one</span></div><div class="intro-stat"><strong>Commission</strong><span>Step two</span></div><div class="intro-stat"><strong>Support</strong><span>Step three</span></div></div></article><article class="intro-slide" id="intro-slide-4" role="tabpanel" aria-label="Proof of delivery" hidden><span class="intro-num">05</span><span class="eyebrow">Proof of delivery</span><h3>Documented projects, not slogans</h3><div class="intro-copy"><p>Eleven case studies with client documents: MRF, GNFC, Petronet LNG, ROCKWOOL, Indofil, Bostik, Krystal Ingredients and Veer Pharma.</p><p>Multi-year managed services, greenfield plant networks, safety kiosks and tanker automation.</p></div><div class="intro-stats"><div class="intro-stat"><strong>11</strong><span>Case studies</span></div><div class="intro-stat"><strong>2013–2026</strong><span>Repeat clients</span></div><div class="intro-stat"><strong>24×7</strong><span>Onsite FMS</span></div></div></article><article class="intro-slide" id="intro-slide-5" role="tabpanel" aria-label="Who we work with" hidden><span class="intro-num">06</span><span class="eyebrow">Who we work with</span><h3>Partners behind the projects</h3><div class="intro-copy"><p>HP, Dell Technologies, Siemens, Motorola Solutions, Synobiz and Matrix, alongside the JIVA Group for automation.</p></div><div class="intro-stats"><div class="intro-stat"><strong>HP · Dell</strong><span>IT infrastructure</span></div><div class="intro-stat"><strong>Siemens</strong><span>Automation</span></div><div class="intro-stat"><strong>Motorola</strong><span>Communications</span></div></div></article></div>
+          <div class="intro-progress"><span id="intro-bar" style="width:16%"></span></div>
+          <div class="intro-dots" role="tablist" aria-label="Chapters"><button type="button" role="tab" aria-controls="intro-slide-0" aria-selected="true" aria-label="Chapter 1: Who we are" data-intro-go="0"></button><button type="button" role="tab" aria-controls="intro-slide-1" aria-selected="false" aria-label="Chapter 2: What we integrate" data-intro-go="1"></button><button type="button" role="tab" aria-controls="intro-slide-2" aria-selected="false" aria-label="Chapter 3: Where we work" data-intro-go="2"></button><button type="button" role="tab" aria-controls="intro-slide-3" aria-selected="false" aria-label="Chapter 4: How we deliver" data-intro-go="3"></button><button type="button" role="tab" aria-controls="intro-slide-4" aria-selected="false" aria-label="Chapter 5: Proof of delivery" data-intro-go="4"></button><button type="button" role="tab" aria-controls="intro-slide-5" aria-selected="false" aria-label="Chapter 6: Who we work with" data-intro-go="5"></button></div>
+          <div class="intro-foot">
+            <a class="button button-primary" href="contact.html">Talk to our team <span>&#8599;</span></a>
+            <a class="button button-secondary" href="case-studies.html">See the case studies <span>&#8594;</span></a>
           </div>
         </div>
       </div>
@@ -799,6 +790,50 @@
       clearTimeout(showToast.timer);
       showToast.timer = setTimeout(() => { toast.style.opacity = '0'; }, duration);
     }
+  </script>
+
+  <script>
+    (function () {
+      var deck = document.getElementById('intro-deck');
+      if (!deck) return;
+      var slides = [].slice.call(deck.querySelectorAll('.intro-slide'));
+      var dots = [].slice.call(deck.querySelectorAll('[data-intro-go]'));
+      var bar = document.getElementById('intro-bar');
+      var current = document.getElementById('intro-current');
+      var index = 0;
+
+      function show(next) {
+        index = (next + slides.length) % slides.length;
+        slides.forEach(function (s, i) { s.hidden = i !== index; });
+        dots.forEach(function (d, i) { d.setAttribute('aria-selected', i === index ? 'true' : 'false'); });
+        bar.style.width = Math.round(((index + 1) / slides.length) * 100) + '%';
+        current.textContent = index + 1;
+      }
+
+      deck.addEventListener('click', function (event) {
+        var go = event.target.closest('[data-intro-go]');
+        if (go) return show(Number(go.getAttribute('data-intro-go')));
+        if (event.target.closest('[data-intro-next]')) return show(index + 1);
+        if (event.target.closest('[data-intro-prev]')) return show(index - 1);
+      });
+
+      deck.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowRight') { show(index + 1); event.preventDefault(); }
+        if (event.key === 'ArrowLeft') { show(index - 1); event.preventDefault(); }
+      });
+
+      var startX = null;
+      deck.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+      deck.addEventListener('touchend', function (e) {
+        if (startX === null) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+        startX = null;
+      }, { passive: true });
+
+      deck.setAttribute('tabindex', '0');
+      show(0);
+    })();
   </script>
 </body>
 </html>
