@@ -273,7 +273,6 @@ body[data-page="news"] main h2,body[data-page="careers"] main h2 { letter-spacin
 .news-meta svg { width:14px; height:14px; margin-right:4px; vertical-align:-2px; }
 .news-foot { margin-top:16px; }
 .news-badge { padding:4px 10px; border-radius:999px; background:var(--c-teal-wash,rgba(13,148,136,.12)); color:var(--c-teal,#0d9488); font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-.news-tag { padding:4px 10px; border:1px solid var(--line); border-radius:999px; }
 .news-list .news-item:nth-child(5n+1) { border-left-color:#2563eb; }
 .news-list .news-item:nth-child(5n+2) { border-left-color:#0d9488; }
 .news-list .news-item:nth-child(5n+3) { border-left-color:#7c3aed; }
@@ -305,21 +304,6 @@ body[data-page="news"] main h2,body[data-page="careers"] main h2 { letter-spacin
 .apply-actions { display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end; }
 .news-foot .button { padding:10px 16px; min-height:40px; gap:12px; }
 .apply-dialog [hidden] { display:none !important; }
-
-/* ---- News cards -------------------------------------------------------- */
-.news-cards { display:grid; gap:24px; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); }
-.news-card { display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line); overflow:hidden; }
-.news-card .news-media { position:relative; display:block; background:var(--well); }
-.news-card .news-media img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
-.news-card .news-play {
-  position:absolute; inset:0; margin:auto; width:56px; height:56px; border-radius:50%;
-  display:grid; place-items:center; background:rgba(240,86,29,.92); color:#fff; font-size:20px; padding-left:4px;
-}
-.news-card .news-media:hover .news-play { background:#f0561d; }
-.news-card-body { padding:22px; display:flex; flex-direction:column; gap:10px; flex:1; }
-.news-card-body h3 { margin:0; font-size:20px; line-height:1.25; }
-.news-card-body p { margin:0; color:var(--ink-soft); font-size:15px; line-height:1.6; flex:1; }
-.news-card .news-foot { margin-top:6px; gap:18px; }
 
 /* ---- About: self-hosted interactive company intro ----------------------- */
 .intro-deck { margin-top:48px; padding:28px; background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--c-orange,#f0561d); }
