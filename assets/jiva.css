@@ -262,3 +262,25 @@ body[data-page="video-analytics"] main h2 { letter-spacing:-.03em; }
 .jiva-gallery.is-pair .jiva-figure img[src*="video-analytics"] { object-position:50% 40%; }
 .jiva-figure img[src*="intrusion-perimeter-fence-camera"] { object-position:50% 88% !important; }
 .jiva-figure img[src*="forklift-container-loading"] { object-position:50% 70% !important; }
+
+/* ---- News and careers lists -------------------------------------------- */
+body[data-page="news"] main h2,body[data-page="careers"] main h2 { letter-spacing:-.03em; }
+.news-list { display:grid; gap:16px; }
+.news-item { padding:24px; background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--jiva-c,var(--c-blue,#2563eb)); }
+.news-item h3 { margin:10px 0 8px; font-size:20px; line-height:1.25; }
+.news-item p { margin:0; color:var(--ink-soft); font-size:15px; line-height:1.65; }
+.news-meta,.news-foot { display:flex; flex-wrap:wrap; align-items:center; gap:14px; font:500 12px/1.4 var(--mono); color:var(--muted); }
+.news-meta svg { width:14px; height:14px; margin-right:4px; vertical-align:-2px; }
+.news-foot { margin-top:16px; }
+.news-badge { padding:4px 10px; border-radius:999px; background:var(--c-teal-wash,rgba(13,148,136,.12)); color:var(--c-teal,#0d9488); font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.news-tag { padding:4px 10px; border:1px solid var(--line); border-radius:999px; }
+.news-list .news-item:nth-child(5n+1) { border-left-color:#2563eb; }
+.news-list .news-item:nth-child(5n+2) { border-left-color:#0d9488; }
+.news-list .news-item:nth-child(5n+3) { border-left-color:#7c3aed; }
+.news-list .news-item:nth-child(5n+4) { border-left-color:#f0561d; }
+.news-list .news-item:nth-child(5n+5) { border-left-color:#d97706; }
+.career-facts { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); margin-top:36px; }
+.career-fact { padding:22px; background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--c-orange,#f0561d); }
+.career-fact strong { display:block; font:600 32px/1 var(--display); letter-spacing:-.03em; color:var(--ink); }
+.career-fact span { display:block; margin-top:8px; font:600 11px/1.4 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.career-quote { margin:8px 0 0; padding-left:18px; border-left:3px solid var(--c-orange,#f0561d); font-size:18px; font-style:italic; color:var(--ink); }
