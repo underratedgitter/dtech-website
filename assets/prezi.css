@@ -1,0 +1,101 @@
+/* ==========================================================================
+   D-TECH corporate introduction: the Prezi deck, given the whole viewport.
+   The page is chrome plus one frame, so the deck itself is the interface.
+   ========================================================================== */
+
+:root {
+  --deck-ink: #f3f5f8;
+  --deck-soft: #b7c2d0;
+  --deck-muted: #7e8ea2;
+  --deck-navy: #0a1426;
+  --deck-navy-2: #12305c;
+  --deck-line: rgba(255, 255, 255, .14);
+  --deck-orange: #f0561d;
+  --deck-blue: #3b82f6;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --display: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+  --text-face: 'IBM Plex Sans', system-ui, sans-serif;
+  --bar: 64px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+.deck-body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 70% at 100% 0%, rgba(59, 130, 246, .28) 0%, transparent 60%),
+    radial-gradient(80% 60% at 0% 100%, rgba(240, 86, 29, .22) 0%, transparent 60%),
+    linear-gradient(160deg, var(--deck-navy-2) 0%, var(--deck-navy) 70%);
+  color: var(--deck-ink);
+  font-family: var(--text-face);
+}
+
+.deck-skip { position: fixed; left: -9999px; top: 0; z-index: 60; padding: 12px 16px; background: #fff; color: #0a1426; }
+.deck-skip:focus { left: 16px; top: 16px; }
+
+/* ---- chrome ------------------------------------------------------------- */
+
+.deck-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  height: var(--bar);
+  padding: 0 clamp(16px, 3vw, 32px);
+  padding-top: env(safe-area-inset-top, 0px);
+  background: linear-gradient(180deg, rgba(5, 12, 24, .95), rgba(5, 12, 24, .6));
+  border-bottom: 1px solid var(--deck-line);
+}
+.deck-home img { display: block; height: 34px; width: auto; filter: brightness(0) invert(1); }
+.deck-chapter { font: 600 13px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--deck-soft); }
+.deck-tools { display: flex; align-items: center; gap: 10px; }
+.deck-tools button, .deck-exit {
+  padding: 9px 14px; border: 1px solid var(--deck-line); border-radius: 8px; background: rgba(255, 255, 255, .05);
+  color: var(--deck-ink); font: 600 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+}
+.deck-tools button:hover, .deck-exit:hover { border-color: var(--deck-orange); color: #fff; }
+.deck-tools button:focus-visible, .deck-exit:focus-visible { outline: 2px solid var(--deck-blue); outline-offset: 2px; }
+
+/* ---- the deck ----------------------------------------------------------- */
+
+.deck-stage {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  top: calc(var(--bar) + env(safe-area-inset-top, 0px));
+  background: #0a1426;
+}
+/* In full screen the stage owns the whole display, so the bar's offset goes. */
+.deck-stage:fullscreen { top: 0; }
+.deck-stage:-webkit-full-screen { top: 0; }
+
+.deck-frame-embed {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* Sits behind the frame: the visitor reads this only if Prezi never loads. */
+.deck-fallback {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; flex-direction: column; justify-content: center; gap: 18px;
+  padding: clamp(24px, 6vw, 64px);
+  text-align: left;
+}
+.deck-fallback h1 { margin: 0; font: 600 clamp(28px, 5vw, 54px)/1.06 var(--display); letter-spacing: -.04em; }
+.deck-fallback p { margin: 0; max-width: 56ch; font-size: clamp(15px, 2vw, 20px); line-height: 1.6; color: var(--deck-soft); }
+
+.deck-cta { display: flex; flex-wrap: wrap; gap: 14px; }
+.deck-cta .button {
+  display: inline-flex; align-items: center; gap: 12px; padding: 15px 24px; border-radius: 10px;
+  font: 600 14px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
+}
+.deck-cta .button-primary { background: linear-gradient(120deg, var(--deck-orange), #ff8a3d); color: #fff; }
+.deck-cta .button-secondary { border: 1px solid var(--deck-line); color: var(--deck-ink); }
+
+@media (max-width: 720px) {
+  :root { --bar: 58px; }
+  .deck-chapter { display: none; }
+  .deck-home img { height: 28px; }
+  .deck-tools button, .deck-exit { padding: 8px 10px; font-size: 10px; letter-spacing: .06em; }
+}
