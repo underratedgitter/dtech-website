@@ -23,6 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!event.shiftKey && document.activeElement === last) {event.preventDefault();first.focus();}
     }
   });
+  // Escape closes whichever overlay is open: the cart drawer on every page,
+  // and the page-level modals where they exist. Topmost (last in DOM) first.
+  const overlays = [
+    ['cart-drawer-modal', 'toggleCartDrawer'],
+    ['shop-quickview-modal', 'closeShopQuickView'],
+    ['product-detail-modal', 'closeProductModal'],
+    ['case-detail-modal', 'closeCaseModal'],
+    ['email-gate-modal', 'closeEmailGateModal'],
+  ];
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const open = overlays
+      .map(([id, fn]) => [document.getElementById(id), fn])
+      .filter(([el, fn]) => el && !el.classList.contains('hidden') && typeof window[fn] === 'function');
+    if (!open.length) return;
+    open.sort(([a], [b]) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? 1 : -1));
+    window[open[0][1]]();
+  });
+
   const current = location.pathname.split('/').pop() || 'index.html';
   if (current === 'solutions.html') {
     document.querySelectorAll('.nav-dropdown summary').forEach(summary => {

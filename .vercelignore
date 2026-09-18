@@ -1,0 +1,3 @@
+# Build sources for assets/tailwind.css, assets/lucide.js and assets/og-image.png;
+# the site only needs their outputs.
+tools/

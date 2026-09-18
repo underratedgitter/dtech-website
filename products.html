@@ -10,41 +10,24 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Products & Hardware Catalog | D-TECH SIPL">
   <meta property="og:description" content="Turnkey industrial hardware, servers, surveillance, telecom, optical backbones, and custom floor-standing industrial kiosks.">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Products & Hardware Catalog | D-TECH SIPL">
   <meta name="twitter:description" content="Turnkey industrial hardware, servers, surveillance, telecom, optical backbones, and custom floor-standing industrial kiosks.">
+  <link rel="canonical" href="https://www.dtechindia.com/products.html">
+  <meta property="og:url" content="https://www.dtechindia.com/products.html">
+  <meta property="og:site_name" content="D-TECH Solution Integrators">
+  <meta property="og:image" content="https://www.dtechindia.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="D-TECH: Complex systems. Precisely integrated. Industrial IT, automation, safety and security since 2003.">
+  <meta name="twitter:image" content="https://www.dtechindia.com/assets/og-image.png">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://unpkg.com/lucide@1.46.0/dist/umd/lucide.min.js" integrity="sha384-1avDoIZZ5mKtAlvTbQ2jge+TZA4z+qwhMFHdCpATww/SLVM8wKs7sROOEKMOizyV" crossorigin="anonymous"></script>
+  <script src="assets/lucide.js"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              blue: '#27b6da',
-              darkBlue: '#008ccf',
-              navBlue: '#0b2f52',
-              pillBlue: '#1aadcc',
-              sky: '#27b6da',
-              dark: '#071d34',
-              slate: '#142b41',
-            }
-          },
-          fontFamily: {
-            display: ['"Archivo"', '"Plus Jakarta Sans"', 'sans-serif'],
-            sans: ['Inter', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
 
   <style>
     .executive-container {
@@ -88,7 +71,11 @@
   <script src="assets/agent-a.js" defer></script>
   <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.css">
   <link rel="stylesheet" href="assets/color.css">
+  <link rel="stylesheet" href="assets/polish.css">
+  <!-- Built from tools/tailwind; loads last, where the Play CDN used to inject it. -->
+  <link rel="stylesheet" href="assets/tailwind.css">
   <script>try{var __dt=localStorage.getItem('dtech-theme');if(__dt!=='light'&&__dt!=='dark'){try{__dt=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}catch(e){__dt='light';}}if(__dt!=='dark'){var __dl=document.getElementById('theme-dark-css');if(__dl){__dl.disabled=true;}}document.documentElement.setAttribute('data-theme',__dt);}catch(e){}</script>
+  <script src="assets/analytics.js" defer></script>
 </head>
 <body data-page="products" class="bg-white text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -211,7 +198,7 @@
           </div>
           <a href="shop.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition-colors shrink-0 shadow-xs">
             <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-            <span>Browse 83-Item Online Store</span>
+            <span>Browse the Online Store</span>
           </a>
         </div>
 
@@ -220,7 +207,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/cgs-server.png" alt="CGS & Enterprise Servers" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/cgs-server.jpg" alt="CGS & Enterprise Servers" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Compute & Storage</span>
@@ -239,7 +226,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("CGS & Enterprise Servers", "assets/products/cgs-server.png")'
+              onclick='addCategoryToCart("CGS & Enterprise Servers", "assets/products/cgs-server.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add CGS & Enterprise Servers to quote cart"
             >
@@ -252,7 +239,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/cctv.png" alt="CCTV & Surveillance Systems" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/cctv.jpg" alt="CCTV & Surveillance Systems" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Security & Video</span>
@@ -271,7 +258,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("CCTV & Surveillance Systems", "assets/products/cctv.png")'
+              onclick='addCategoryToCart("CCTV & Surveillance Systems", "assets/products/cctv.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add CCTV & Surveillance Systems to quote cart"
             >
@@ -284,7 +271,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/pabx.png" alt="PABX & IP Telephony" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/pabx.jpg" alt="PABX & IP Telephony" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Unified Communications</span>
@@ -303,7 +290,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("PABX & IP Telephony", "assets/products/pabx.png")'
+              onclick='addCategoryToCart("PABX & IP Telephony", "assets/products/pabx.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add PABX & IP Telephony to quote cart"
             >
@@ -316,7 +303,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/acs-ta.png" alt="ACS & Time Attendance System" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/acs-ta.jpg" alt="ACS & Time Attendance System" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Access Control</span>
@@ -335,7 +322,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("ACS & Time Attendance System", "assets/products/acs-ta.png")'
+              onclick='addCategoryToCart("ACS & Time Attendance System", "assets/products/acs-ta.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add ACS & Time Attendance System to quote cart"
             >
@@ -348,7 +335,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/wireless.png" alt="Point-to-Point Industrial Wireless" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/wireless.jpg" alt="Point-to-Point Industrial Wireless" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Wireless Networking</span>
@@ -367,7 +354,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Point-to-Point Industrial Wireless", "assets/products/wireless.png")'
+              onclick='addCategoryToCart("Point-to-Point Industrial Wireless", "assets/products/wireless.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Point-to-Point Industrial Wireless to quote cart"
             >
@@ -380,7 +367,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/data-security.png" alt="Data Security & UTM Firewalls" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/data-security.jpg" alt="Data Security & UTM Firewalls" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Cybersecurity</span>
@@ -399,7 +386,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Data Security & UTM Firewalls", "assets/products/data-security.png")'
+              onclick='addCategoryToCart("Data Security & UTM Firewalls", "assets/products/data-security.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Data Security & UTM Firewalls to quote cart"
             >
@@ -412,7 +399,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/video-conference.png" alt="Video Conferencing Endpoints" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/video-conference.jpg" alt="Video Conferencing Endpoints" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Audio / Video</span>
@@ -431,7 +418,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Video Conferencing Endpoints", "assets/products/video-conference.png")'
+              onclick='addCategoryToCart("Video Conferencing Endpoints", "assets/products/video-conference.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Video Conferencing Endpoints to quote cart"
             >
@@ -444,7 +431,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/fiber-optic.png" alt="Armored Fiber Optic Cables" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/fiber-optic.jpg" alt="Armored Fiber Optic Cables" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Optical Backbones</span>
@@ -463,7 +450,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Armored Fiber Optic Cables", "assets/products/fiber-optic.png")'
+              onclick='addCategoryToCart("Armored Fiber Optic Cables", "assets/products/fiber-optic.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Armored Fiber Optic Cables to quote cart"
             >
@@ -476,7 +463,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/printer.png" alt="Enterprise Printers & Scanners" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/printer.jpg" alt="Enterprise Printers & Scanners" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Office Printing</span>
@@ -495,7 +482,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Enterprise Printers & Scanners", "assets/products/printer.png")'
+              onclick='addCategoryToCart("Enterprise Printers & Scanners", "assets/products/printer.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Enterprise Printers & Scanners to quote cart"
             >
@@ -508,7 +495,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/outdoor-led.png" alt="Outdoor & Indoor LED Displays" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/outdoor-led.jpg" alt="Outdoor & Indoor LED Displays" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Digital Signage</span>
@@ -527,7 +514,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Outdoor & Indoor LED Displays", "assets/products/outdoor-led.png")'
+              onclick='addCategoryToCart("Outdoor & Indoor LED Displays", "assets/products/outdoor-led.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Outdoor & Indoor LED Displays to quote cart"
             >
@@ -540,7 +527,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/raised-floor.png" alt="Datacenter Raised Access Floors" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/raised-floor.jpg" alt="Datacenter Raised Access Floors" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Facility Infrastructure</span>
@@ -559,7 +546,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Datacenter Raised Access Floors", "assets/products/raised-floor.png")'
+              onclick='addCategoryToCart("Datacenter Raised Access Floors", "assets/products/raised-floor.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Datacenter Raised Access Floors to quote cart"
             >
@@ -572,7 +559,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/software.png" alt="Enterprise Software & Licensing" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/software.png" alt="Enterprise Software & Licensing" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Software Solutions</span>
@@ -604,7 +591,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/av-boardroom.png" alt="AV Boardroom Collaboration" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/av-boardroom.jpg" alt="AV Boardroom Collaboration" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Audio / Video</span>
@@ -623,7 +610,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("AV Boardroom Collaboration", "assets/products/av-boardroom.png")'
+              onclick='addCategoryToCart("AV Boardroom Collaboration", "assets/products/av-boardroom.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add AV Boardroom Collaboration to quote cart"
             >
@@ -636,7 +623,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/public-address.png" alt="Public Address & Emergency Evac" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/public-address.jpg" alt="Public Address & Emergency Evac" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Safety & PA</span>
@@ -655,7 +642,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Public Address & Emergency Evac", "assets/products/public-address.png")'
+              onclick='addCategoryToCart("Public Address & Emergency Evac", "assets/products/public-address.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Public Address & Emergency Evac to quote cart"
             >
@@ -668,7 +655,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/automation.png" alt="Industrial Automation Gateways" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/automation.jpg" alt="Industrial Automation Gateways" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Process Control</span>
@@ -687,7 +674,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Industrial Automation Gateways", "assets/products/automation.png")'
+              onclick='addCategoryToCart("Industrial Automation Gateways", "assets/products/automation.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Industrial Automation Gateways to quote cart"
             >
@@ -700,7 +687,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/fire-alarm.png" alt="Addressable Fire Alarm Systems" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/fire-alarm.jpg" alt="Addressable Fire Alarm Systems" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Safety Systems</span>
@@ -719,7 +706,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Addressable Fire Alarm Systems", "assets/products/fire-alarm.png")'
+              onclick='addCategoryToCart("Addressable Fire Alarm Systems", "assets/products/fire-alarm.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Addressable Fire Alarm Systems to quote cart"
             >
@@ -732,7 +719,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/datacenter-rack.png" alt="Datacenter Server Racks" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/datacenter-rack.jpg" alt="Datacenter Server Racks" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Rack Infrastructure</span>
@@ -751,7 +738,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Datacenter Server Racks", "assets/products/datacenter-rack.png")'
+              onclick='addCategoryToCart("Datacenter Server Racks", "assets/products/datacenter-rack.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Datacenter Server Racks to quote cart"
             >
@@ -764,7 +751,7 @@
         <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-[border-color,box-shadow] flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="h-44 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-              <img src="assets/products/ups.png" alt="Online UPS Power Backups" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95">
+              <img src="assets/products/ups.jpg" alt="Online UPS Power Backups" class="max-h-full max-w-full object-contain transition-opacity duration-300 group-hover:opacity-95" loading="lazy" decoding="async">
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Power Protection</span>
@@ -783,7 +770,7 @@
             </button>
             <button 
               type="button" 
-              onclick='addCategoryToCart("Online UPS Power Backups", "assets/products/ups.png")'
+              onclick='addCategoryToCart("Online UPS Power Backups", "assets/products/ups.jpg")'
               class="p-2 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               aria-label="Add Online UPS Power Backups to quote cart"
             >
@@ -868,7 +855,7 @@
             <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
             <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="products.html" class="hover:text-white transition-colors">Products Catalog</a></li>
-            <li><a href="shop.html" class="hover:text-white transition-colors">Online Store (83 Items)</a></li>
+            <li><a href="shop.html" class="hover:text-white transition-colors">Online Store</a></li>
             <li><a href="case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
             
             <li><a href="careers.html" class="hover:text-white transition-colors">Careers</a></li>
@@ -898,7 +885,7 @@
             <li><span>HP Amplify Impact 2026</span></li>
             <li><span>API 2350 Overfill Standard</span></li>
             <li><a href="about.html#governance" class="hover:text-white transition-colors">Corporate Governance</a></li>
-            <li><a href="contact.html" class="hover:text-white transition-colors">Engineering Secretariat</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Our Engineers</a></li>
             <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
             <li><a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
             <li><a href="return-policy.html" class="hover:text-white transition-colors">Return Policy</a></li>
@@ -930,7 +917,7 @@
           <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
           <h3 class="font-bold text-slate-900 text-base">Your Inquiry Cart</h3>
         </div>
-        <button type="button" onclick="toggleCartDrawer()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+        <button type="button" onclick="toggleCartDrawer()" aria-label="Close cart" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
@@ -1076,7 +1063,7 @@
       const cart = getStoredCart();
       const itemsSummary = cart.map(x => `- ${x.title} (Qty: ${x.qty}, Price: ${x.price})`).join('\n');
       sessionStorage.setItem('dtech_rfp_summary', itemsSummary);
-      location.href = 'contact.html';
+      location.href = 'contact.html?subject=shop';
     }
 
     function sendCartWhatsApp() {
@@ -1113,7 +1100,7 @@
 
   <script>
     const productsData = {
-      "cgs-server": {"title": "CGS & Enterprise Servers", "cat": "Compute & Storage", "img": "assets/products/cgs-server.png", "desc": "Enterprise rack & tower servers, blade systems, and compute clusters from HP Enterprise and Dell Technologies.", "specs": ['Brands: HPE ProLiant, Dell PowerEdge', 'Form Factor: 1U/2U/4U Rack & Tower', 'Deployment: High Availability Clusters']},"cctv": {"title": "CCTV & Surveillance Systems", "cat": "Security & Video", "img": "assets/products/cctv.png", "desc": "Industrial IP surveillance, explosion-proof cameras, thermal perimeter sensing, and enterprise NVR storage.", "specs": ['Brands: Hikvision, Matrix, Dahua', 'Resolution: 4K Ultra HD & Thermal', 'Compliance: ONVIF, NDAA Compliant']},"pabx": {"title": "PABX & IP Telephony", "cat": "Unified Communications", "img": "assets/products/pabx.png", "desc": "Hybrid IP-PBX switchboards, digital trunks, VoIP gateway routing, and executive SIP desktop phones.", "specs": ['Brands: Matrix, Panasonic, Grandstream', 'Capacity: 16 to 2,000+ Extensions', 'Protocols: SIP, PRI, GSM Trunks']},"acs-ta": {"title": "ACS & Time Attendance System", "cat": "Access Control", "img": "assets/products/acs-ta.png", "desc": "Biometric fingerprint scanners, RFID smart card turnstiles, and contactless facial recognition terminals.", "specs": ['Brands: Matrix Cosec, eSSL, Suprema', 'Authentication: Face, Palm, Finger, RFID', 'Software: Automated Payroll / ERP Sync']},"wireless": {"title": "Point-to-Point Industrial Wireless", "cat": "Wireless Networking", "img": "assets/products/wireless.png", "desc": "High-throughput carrier-grade outdoor wireless bridges, parabolic dish links, and campus mesh Wi-Fi.", "specs": ['Brands: Ubiquiti, Cambium, Aruba', 'Range: Up to 25 km Point-to-Point', 'Throughput: Up to 1+ Gbps Aggregate']},"data-security": {"title": "Data Security & UTM Firewalls", "cat": "Cybersecurity", "img": "assets/products/data-security.png", "desc": "Next-generation firewalls, intrusion prevention systems (IPS), deep packet inspection, and secure SSL VPNs.", "specs": ['Brands: Sophos, Fortinet, Cyberoam', 'Features: Antivirus, Web Filter, IPS', 'Throughput: Gigabit Firewall Inspection']},"video-conference": {"title": "Video Conferencing Endpoints", "cat": "Audio / Video", "img": "assets/products/video-conference.png", "desc": "Executive boardroom video codecs, 4K auto-tracking PTZ cameras, beamforming microphones, and interactive displays.", "specs": ['Brands: Polycom, Logitech, Yealink', 'Platform: MS Teams, Zoom Rooms, Webex', 'Display: Dual 4K Screen Output']},"fiber-optic": {"title": "Armored Fiber Optic Cables", "cat": "Optical Backbones", "img": "assets/products/fiber-optic.png", "desc": "Multi-strand single-mode and multi-mode armored optical fiber cables engineered for harsh industrial corridors.", "specs": ['Types: Single-Mode OS2, Multi-Mode OM3/OM4', 'Armoring: Corrugated Steel Tape (CST)', 'Sheath: Flame Retardant LSZH']},"printer": {"title": "Enterprise Printers & Scanners", "cat": "Office Printing", "img": "assets/products/printer.png", "desc": "High-volume multifunction network printers, heavy-duty barcode label printers, and document digitizers.", "specs": ['Brands: HP LaserJet, Canon, Zebra', 'Speed: Up to 60 ppm Duplex', 'Connectivity: Gigabit LAN, Cloud Print']},"outdoor-led": {"title": "Outdoor & Indoor LED Displays", "cat": "Digital Signage", "img": "assets/products/outdoor-led.png", "desc": "High-brightness outdoor LED video walls, curved architectural displays, and safety alert information boards.", "specs": ['Pixel Pitch: P2.5 to P10 Outdoor', 'Protection: IP65 Weatherproof Enclosures', 'Brightness: 6,000+ Nits Daylight Visible']},"raised-floor": {"title": "Datacenter Raised Access Floors", "cat": "Facility Infrastructure", "img": "assets/products/raised-floor.png", "desc": "Heavy-duty steel cemented raised flooring panels with adjustable pedestals for underfloor airflow and cabling.", "specs": ['Load Rating: Heavy Industrial Static Load', 'Height: 150mm to 1200mm Adjustable', 'Material: Anti-static HPL Tile Finish']},"software": {"title": "Enterprise Software & Licensing", "cat": "Software Solutions", "img": "assets/products/software.png", "desc": "Genuine commercial software licensing for Microsoft 365, Tally Prime ERP, and Quick Heal endpoint security.", "specs": ['Partners: Microsoft Cloud Partner, Tally Certified', 'Security: Centralized Endpoint Antivirus', 'Licensing: Per-User / Volume Enterprise']},"av-boardroom": {"title": "AV Boardroom Collaboration", "cat": "Audio / Video", "img": "assets/products/av-boardroom.png", "desc": "Full-duplex acoustic echo cancellation conference phones, motorized podium interfaces, and matrix switchers.", "specs": ['Brands: Polycom SoundStation, Crestron', 'Audio: 360° Voice Pickup Array', 'Connectivity: Analog & IP SIP Hybrid']},"public-address": {"title": "Public Address & Emergency Evac", "cat": "Safety & PA", "img": "assets/products/public-address.png", "desc": "Zoned industrial public address systems, long-throw weatherproof horn speakers, and automated emergency sirens.", "specs": ['Brands: Bosch, Ahuja, Bosch Praesideo', 'Standards: EN 54-16 Evacuation Standard', 'Amplifiers: 240W to 1000W Class-D']},"automation": {"title": "Industrial Automation Gateways", "cat": "Process Control", "img": "assets/products/automation.png", "desc": "DIN-rail serial to Ethernet device servers, industrial protocol converters, and edge SCADA gateways.", "specs": ['Brands: Moxa, Siemens, Advantech', 'Protocols: Modbus RTU/TCP, Profinet', 'Isolation: 2 kV Surge Isolation Protection']},"fire-alarm": {"title": "Addressable Fire Alarm Systems", "cat": "Safety Systems", "img": "assets/products/fire-alarm.png", "desc": "Multi-loop intelligent addressable fire alarm control panels, smoke detectors, manual call points, and strobes.", "specs": ['Brands: Morley-IAS, Honeywell, Notifier', 'Loops: 1 to 8 Loops Addressable', 'Certifications: UL Listed, CE, VdS']},"datacenter-rack": {"title": "Datacenter Server Racks", "cat": "Rack Infrastructure", "img": "assets/products/datacenter-rack.png", "desc": "42U / 48U server and networking enclosures with perforated airflow doors, cable trays, and PDU integration.", "specs": ['Brands: Netrack, APC, Schneider', 'Dimensions: 800W x 1000D / 1200D', 'Ventilation: 80% Perforated Mesh Doors']},"ups": {"title": "Online UPS Power Backups", "cat": "Power Protection", "img": "assets/products/ups.png", "desc": "True online double-conversion three-phase and single-phase industrial UPS systems with battery banks.", "specs": ['Brands: APC Schneider, Vertiv Liebert', 'Rating: 1 kVA to 200+ kVA Modular', 'Transfer: Zero Millisecond Transfer Time']}
+      "cgs-server": {"title": "CGS & Enterprise Servers", "cat": "Compute & Storage", "img": "assets/products/cgs-server.jpg", "desc": "Enterprise rack & tower servers, blade systems, and compute clusters from HP Enterprise and Dell Technologies.", "specs": ['Brands: HPE ProLiant, Dell PowerEdge', 'Form Factor: 1U/2U/4U Rack & Tower', 'Deployment: High Availability Clusters']},"cctv": {"title": "CCTV & Surveillance Systems", "cat": "Security & Video", "img": "assets/products/cctv.jpg", "desc": "Industrial IP surveillance, explosion-proof cameras, thermal perimeter sensing, and enterprise NVR storage.", "specs": ['Brands: Hikvision, Matrix, Dahua', 'Resolution: 4K Ultra HD & Thermal', 'Compliance: ONVIF, NDAA Compliant']},"pabx": {"title": "PABX & IP Telephony", "cat": "Unified Communications", "img": "assets/products/pabx.jpg", "desc": "Hybrid IP-PBX switchboards, digital trunks, VoIP gateway routing, and executive SIP desktop phones.", "specs": ['Brands: Matrix, Panasonic, Grandstream', 'Capacity: 16 to 2,000+ Extensions', 'Protocols: SIP, PRI, GSM Trunks']},"acs-ta": {"title": "ACS & Time Attendance System", "cat": "Access Control", "img": "assets/products/acs-ta.jpg", "desc": "Biometric fingerprint scanners, RFID smart card turnstiles, and contactless facial recognition terminals.", "specs": ['Brands: Matrix Cosec, eSSL, Suprema', 'Authentication: Face, Palm, Finger, RFID', 'Software: Automated Payroll / ERP Sync']},"wireless": {"title": "Point-to-Point Industrial Wireless", "cat": "Wireless Networking", "img": "assets/products/wireless.jpg", "desc": "High-throughput carrier-grade outdoor wireless bridges, parabolic dish links, and campus mesh Wi-Fi.", "specs": ['Brands: Ubiquiti, Cambium, Aruba', 'Range: Up to 25 km Point-to-Point', 'Throughput: Up to 1+ Gbps Aggregate']},"data-security": {"title": "Data Security & UTM Firewalls", "cat": "Cybersecurity", "img": "assets/products/data-security.jpg", "desc": "Next-generation firewalls, intrusion prevention systems (IPS), deep packet inspection, and secure SSL VPNs.", "specs": ['Brands: Sophos, Fortinet, Cyberoam', 'Features: Antivirus, Web Filter, IPS', 'Throughput: Gigabit Firewall Inspection']},"video-conference": {"title": "Video Conferencing Endpoints", "cat": "Audio / Video", "img": "assets/products/video-conference.jpg", "desc": "Executive boardroom video codecs, 4K auto-tracking PTZ cameras, beamforming microphones, and interactive displays.", "specs": ['Brands: Polycom, Logitech, Yealink', 'Platform: MS Teams, Zoom Rooms, Webex', 'Display: Dual 4K Screen Output']},"fiber-optic": {"title": "Armored Fiber Optic Cables", "cat": "Optical Backbones", "img": "assets/products/fiber-optic.jpg", "desc": "Multi-strand single-mode and multi-mode armored optical fiber cables engineered for harsh industrial corridors.", "specs": ['Types: Single-Mode OS2, Multi-Mode OM3/OM4', 'Armoring: Corrugated Steel Tape (CST)', 'Sheath: Flame Retardant LSZH']},"printer": {"title": "Enterprise Printers & Scanners", "cat": "Office Printing", "img": "assets/products/printer.jpg", "desc": "High-volume multifunction network printers, heavy-duty barcode label printers, and document digitizers.", "specs": ['Brands: HP LaserJet, Canon, Zebra', 'Speed: Up to 60 ppm Duplex', 'Connectivity: Gigabit LAN, Cloud Print']},"outdoor-led": {"title": "Outdoor & Indoor LED Displays", "cat": "Digital Signage", "img": "assets/products/outdoor-led.jpg", "desc": "High-brightness outdoor LED video walls, curved architectural displays, and safety alert information boards.", "specs": ['Pixel Pitch: P2.5 to P10 Outdoor', 'Protection: IP65 Weatherproof Enclosures', 'Brightness: 6,000+ Nits Daylight Visible']},"raised-floor": {"title": "Datacenter Raised Access Floors", "cat": "Facility Infrastructure", "img": "assets/products/raised-floor.jpg", "desc": "Heavy-duty steel cemented raised flooring panels with adjustable pedestals for underfloor airflow and cabling.", "specs": ['Load Rating: Heavy Industrial Static Load', 'Height: 150mm to 1200mm Adjustable', 'Material: Anti-static HPL Tile Finish']},"software": {"title": "Enterprise Software & Licensing", "cat": "Software Solutions", "img": "assets/products/software.png", "desc": "Genuine commercial software licensing for Microsoft 365, Tally Prime ERP, and Quick Heal endpoint security.", "specs": ['Partners: Microsoft Cloud Partner, Tally Certified', 'Security: Centralized Endpoint Antivirus', 'Licensing: Per-User / Volume Enterprise']},"av-boardroom": {"title": "AV Boardroom Collaboration", "cat": "Audio / Video", "img": "assets/products/av-boardroom.jpg", "desc": "Full-duplex acoustic echo cancellation conference phones, motorized podium interfaces, and matrix switchers.", "specs": ['Brands: Polycom SoundStation, Crestron', 'Audio: 360° Voice Pickup Array', 'Connectivity: Analog & IP SIP Hybrid']},"public-address": {"title": "Public Address & Emergency Evac", "cat": "Safety & PA", "img": "assets/products/public-address.jpg", "desc": "Zoned industrial public address systems, long-throw weatherproof horn speakers, and automated emergency sirens.", "specs": ['Brands: Bosch, Ahuja, Bosch Praesideo', 'Standards: EN 54-16 Evacuation Standard', 'Amplifiers: 240W to 1000W Class-D']},"automation": {"title": "Industrial Automation Gateways", "cat": "Process Control", "img": "assets/products/automation.jpg", "desc": "DIN-rail serial to Ethernet device servers, industrial protocol converters, and edge SCADA gateways.", "specs": ['Brands: Moxa, Siemens, Advantech', 'Protocols: Modbus RTU/TCP, Profinet', 'Isolation: 2 kV Surge Isolation Protection']},"fire-alarm": {"title": "Addressable Fire Alarm Systems", "cat": "Safety Systems", "img": "assets/products/fire-alarm.jpg", "desc": "Multi-loop intelligent addressable fire alarm control panels, smoke detectors, manual call points, and strobes.", "specs": ['Brands: Morley-IAS, Honeywell, Notifier', 'Loops: 1 to 8 Loops Addressable', 'Certifications: UL Listed, CE, VdS']},"datacenter-rack": {"title": "Datacenter Server Racks", "cat": "Rack Infrastructure", "img": "assets/products/datacenter-rack.jpg", "desc": "42U / 48U server and networking enclosures with perforated airflow doors, cable trays, and PDU integration.", "specs": ['Brands: Netrack, APC, Schneider', 'Dimensions: 800W x 1000D / 1200D', 'Ventilation: 80% Perforated Mesh Doors']},"ups": {"title": "Online UPS Power Backups", "cat": "Power Protection", "img": "assets/products/ups.jpg", "desc": "True online double-conversion three-phase and single-phase industrial UPS systems with battery banks.", "specs": ['Brands: APC Schneider, Vertiv Liebert', 'Rating: 1 kVA to 200+ kVA Modular', 'Transfer: Zero Millisecond Transfer Time']}
     };
 
     function openProductModal(key) {

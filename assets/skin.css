@@ -295,13 +295,13 @@ body .animate-pulse { animation:none!important; }
 .desktop-nav a:hover,.restored-nav>a:hover,
 .restored-nav summary:hover,.restored-nav details[open]>summary { color:#fff; }
 
-.desktop-nav a[aria-current]:after,
+.desktop-nav>a[aria-current]:after,
 .restored-nav>a[aria-current="page"]:after,
 .restored-nav summary[aria-current="page"]:after {
   content:''; position:absolute; left:0; right:0; bottom:16px;
   height:2px; border-radius:2px; background:var(--signal);
 }
-.desktop-nav a[aria-current],
+.desktop-nav>a[aria-current],
 .restored-nav>a[aria-current="page"],
 .restored-nav summary[aria-current="page"] { color:#fff; }
 
@@ -320,6 +320,7 @@ body .animate-pulse { animation:none!important; }
   display:block; padding:9px 11px; border-radius:7px;
   color:var(--ink-soft);
   font:500 13px/1.35 var(--text-face);
+  white-space:normal;
 }
 .nav-dropdown-panel a:hover { background:var(--c-cyan-wash); color:var(--signal-deep); }
 .nav-dropdown-panel a:first-child {
@@ -1432,15 +1433,15 @@ body[data-page="home"] .partner-strip.marquee-on:hover .marquee-track { animatio
 }
 
 /* Navigation: the cyan rule draws in from the left on hover. */
-.restored-nav>a::after,.desktop-nav a::after {
+.restored-nav>a::after,.desktop-nav>a::after {
   content:''; position:absolute; left:0; right:0; bottom:16px; height:2px;
   border-radius:2px; background:var(--signal);
   transform:scaleX(0); transform-origin:left center;
   transition:transform .22s var(--ease);
 }
-.restored-nav>a:hover::after,.desktop-nav a:hover::after { transform:scaleX(1); }
+.restored-nav>a:hover::after,.desktop-nav>a:hover::after { transform:scaleX(1); }
 .restored-nav>a[aria-current="page"]::after,
-.desktop-nav a[aria-current]::after { transform:scaleX(1); }
+.desktop-nav>a[aria-current]::after { transform:scaleX(1); }
 
 /* Section headings carry a short cyan rule, as the deck rules its titles. */
 .section-heading { position:relative; }
