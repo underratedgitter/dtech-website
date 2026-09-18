@@ -1,6 +1,6 @@
 # D-TECH Solution Integrators — Website
 
-Static marketing site for D-TECH Solution Integrators Pvt. Ltd.: home, about, products, online shop, solutions, case studies, contact and legal pages.
+Static marketing site for D-TECH Solution Integrators Pvt. Ltd.: home, about, online shop, solutions, case studies, contact and legal pages.
 
 Plain HTML, CSS and JavaScript. Styling is a prebuilt Tailwind file (`assets/tailwind.css`) plus the layers in `assets/` (`skin.css`, `skin-dark.css`, `color.css`, `polish.css`). Icons are a Lucide subset in `assets/lucide.js`. Nothing is loaded from third-party script hosts.
 

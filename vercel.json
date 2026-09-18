@@ -5,6 +5,18 @@
       "maxDuration": 15
     }
   },
+  "redirects": [
+    {
+      "source": "/products.html",
+      "destination": "/solutions.html",
+      "permanent": true
+    },
+    {
+      "source": "/products",
+      "destination": "/solutions.html",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
