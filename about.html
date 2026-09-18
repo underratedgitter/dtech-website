@@ -88,6 +88,7 @@
   <script src="assets/agent-a.js" defer></script>
   <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.css">
   <link rel="stylesheet" href="assets/color.css">
+  <link rel="stylesheet" href="assets/polish.css">
   <link rel="stylesheet" href="assets/jiva.css">
   <script>try{var __dt=localStorage.getItem('dtech-theme');if(__dt!=='light'&&__dt!=='dark'){try{__dt=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}catch(e){__dt='light';}}if(__dt!=='dark'){var __dl=document.getElementById('theme-dark-css');if(__dl){__dl.disabled=true;}}document.documentElement.setAttribute('data-theme',__dt);}catch(e){}</script>
 </head>
@@ -612,7 +613,7 @@
           <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
           <h3 class="font-bold text-slate-900 text-base">Your Inquiry Cart</h3>
         </div>
-        <button type="button" onclick="toggleCartDrawer()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+        <button type="button" onclick="toggleCartDrawer()" aria-label="Close cart" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
@@ -758,7 +759,7 @@
       const cart = getStoredCart();
       const itemsSummary = cart.map(x => `- ${x.title} (Qty: ${x.qty}, Price: ${x.price})`).join('\n');
       sessionStorage.setItem('dtech_rfp_summary', itemsSummary);
-      location.href = 'contact.html';
+      location.href = 'contact.html?subject=shop';
     }
 
     function sendCartWhatsApp() {

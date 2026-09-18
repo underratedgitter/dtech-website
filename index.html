@@ -88,6 +88,7 @@
   <script src="assets/agent-a.js" defer></script>
   <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.css">
   <link rel="stylesheet" href="assets/color.css">
+  <link rel="stylesheet" href="assets/polish.css">
   <script>try{var __dt=localStorage.getItem('dtech-theme');if(__dt!=='light'&&__dt!=='dark'){try{__dt=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}catch(e){__dt='light';}}if(__dt!=='dark'){var __dl=document.getElementById('theme-dark-css');if(__dl){__dl.disabled=true;}}document.documentElement.setAttribute('data-theme',__dt);}catch(e){}</script>
 </head>
 <body data-page="home" class="bg-white text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen">
@@ -124,7 +125,7 @@
       <div class="hero-copy"><div class="eyebrow"><span></span> ENGINEERING BUSINESS CONTINUITY · SINCE 2003</div>
       <h1>Complex systems.<br>Precisely <em>integrated.</em></h1>
       <p>Industrial IT, automation, and security. Expertly connected by one accountable partner.</p>
-      <div class="hero-footnote"><i data-lucide="shield-check"></i><span>ISO 9001:2015 certified <b> / </b> Turnkey systems integration</span></div>
+      <div class="hero-footnote"><i data-lucide="shield-check"></i><span>ISO 9001:2015 certified <b aria-hidden="true"> / </b> Turnkey systems integration</span></div>
       <div class="hero-actions"><a class="button button-primary" href="contact.html">Contact Us <span>↗</span></a><a class="button button-secondary" href="solutions.html">Explore our solutions <span>→</span></a></div></div>
       <figure class="hero-visual system-visual" aria-label="D-TECH integrated systems diagram"><div class="image-topline"><span>ONE CONNECTED SYSTEM</span><span>D-TECH SIPL</span></div><div class="system-map" aria-hidden="true"><span class="map-orbit orbit-one"></span><span class="map-orbit orbit-two"></span><div class="map-node node-core"><i data-lucide="network"></i><span>D-TECH</span><small>INTEGRATION</small></div><div class="map-node node-data"><i data-lucide="server"></i><span>IT</span></div><div class="map-node node-auto"><i data-lucide="cpu"></i><span>OT</span></div><div class="map-node node-safe"><i data-lucide="shield-check"></i><span>SAFETY</span></div><div class="map-node node-site"><i data-lucide="factory"></i><span>SITE</span></div></div><figcaption><h2>Every layer. Working as one.</h2><a href="solutions.html">Explore the system <span>↗</span></a></figcaption></figure>
       </div></section>
@@ -260,7 +261,7 @@
           <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
           <h3 class="font-bold text-slate-900 text-base">Your Inquiry Cart</h3>
         </div>
-        <button type="button" onclick="toggleCartDrawer()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+        <button type="button" onclick="toggleCartDrawer()" aria-label="Close cart" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
@@ -406,7 +407,7 @@
       const cart = getStoredCart();
       const itemsSummary = cart.map(x => `- ${x.title} (Qty: ${x.qty}, Price: ${x.price})`).join('\n');
       sessionStorage.setItem('dtech_rfp_summary', itemsSummary);
-      location.href = 'contact.html';
+      location.href = 'contact.html?subject=shop';
     }
 
     function sendCartWhatsApp() {

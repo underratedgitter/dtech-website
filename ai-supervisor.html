@@ -88,6 +88,7 @@
   <script src="assets/agent-a.js" defer></script>
   <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.css">
   <link rel="stylesheet" href="assets/color.css">
+  <link rel="stylesheet" href="assets/polish.css">
   <link rel="stylesheet" href="assets/jiva.css">
   <script>try{var __dt=localStorage.getItem('dtech-theme');if(__dt!=='light'&&__dt!=='dark'){try{__dt=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}catch(e){__dt='light';}}if(__dt!=='dark'){var __dl=document.getElementById('theme-dark-css');if(__dl){__dl.disabled=true;}}document.documentElement.setAttribute('data-theme',__dt);}catch(e){}</script>
 </head>
@@ -138,7 +139,7 @@
             <span class="eyebrow">AI video analytics</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Make your cameras smarter</h2>
             <p class="lead">Unlock insights with AI-powered computer vision. Our AI safety software makes your cameras smarter, for better business intelligence and greater efficiency.</p>
-            <div class="hero-actions"><a class="button button-primary" href="contact.html">Contact Us <span>↗</span></a><a class="button button-secondary" href="assets/downloads/ai-supervisor-requirement-template.xlsx" download>Requirement template <span>↓</span></a></div>
+            <div class="hero-actions"><a class="button button-primary" href="contact.html?subject=cctv">Contact Us <span>↗</span></a><a class="button button-secondary" href="assets/downloads/ai-supervisor-requirement-template.xlsx" download>Requirement template <span>↓</span></a></div>
           </div>
           <figure class="jiva-figure jiva-lead-photo"><button type="button" data-jiva-zoom aria-label="Enlarge image: Robotic assembly line"><img src="assets/ai-supervisor/ai-vision-robotic-factory.webp" alt="Robots welding car bodies on an automotive assembly line" width="1024" height="630" decoding="async"></button><figcaption>Robotic assembly line</figcaption></figure>
         </div>
@@ -183,7 +184,7 @@
       </div>
     </section>
 
-    <section class="project-cta"><div class="executive-container"><div><span class="eyebrow">AI SUPERVISOR · D-TECH</span><h2>Connect with us</h2><p>Tell us about your cameras and the incidents you want to catch, and our team will get back to you. Prefer to talk? Call +91 99980 26089.</p></div><a class="button button-primary" href="contact.html">Contact Us <span>↗</span></a></div></section>
+    <section class="project-cta"><div class="executive-container"><div><span class="eyebrow">AI SUPERVISOR · D-TECH</span><h2>Connect with us</h2><p>Tell us about your cameras and the incidents you want to catch, and our team will get back to you. Prefer to talk? Call +91 99980 26089.</p></div><a class="button button-primary" href="contact.html?subject=cctv">Contact Us <span>↗</span></a></div></section>
 
   </main>
 
@@ -267,6 +268,44 @@
 
     </div>
   </footer>
+
+  <!-- Slide-Out Shopping Cart Drawer (Global Across All Pages) -->
+  <div id="cart-drawer-modal" class="hidden fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label="Shopping Cart Drawer">
+    <button type="button" onclick="toggleCartDrawer()" aria-label="Close cart" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs w-full h-full cursor-default focus-visible:outline-none"></button>
+    <div class="fixed right-0 top-0 bottom-0 w-96 max-w-full bg-white shadow-2xl p-6 flex flex-col z-10">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
+          <h3 class="font-bold text-slate-900 text-base">Your Inquiry Cart</h3>
+        </div>
+        <button type="button" onclick="toggleCartDrawer()" aria-label="Close cart" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="cart-items-container" class="flex-1 overflow-y-auto py-4 space-y-3">
+        <!-- Loaded from localStorage -->
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 space-y-3">
+        <div class="flex items-center justify-between text-sm">
+          <span class="font-semibold text-slate-600">Estimated Total:</span>
+          <span id="cart-total-price" class="font-extrabold text-blue-600 font-mono text-base">₹ 0.00</span>
+        </div>
+        <p class="text-[11px] text-slate-500">Official GST billing and commercial volume pricing calculated upon submission.</p>
+        
+        <button type="button" onclick="proceedCartToRFP()" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-center text-xs transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+          Generate Official RFP Quotation
+        </button>
+        
+        <button type="button" onclick="sendCartWhatsApp()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Order / Inquire via WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -386,7 +425,7 @@
       const cart = getStoredCart();
       const itemsSummary = cart.map(x => `- ${x.title} (Qty: ${x.qty}, Price: ${x.price})`).join('\n');
       sessionStorage.setItem('dtech_rfp_summary', itemsSummary);
-      location.href = 'contact.html';
+      location.href = 'contact.html?subject=shop';
     }
 
     function sendCartWhatsApp() {
