@@ -2,7 +2,7 @@
 
 Static marketing site for D-TECH Solution Integrators Pvt. Ltd.: home, about, products, online shop, solutions, case studies, contact and legal pages.
 
-Plain HTML, CSS and JavaScript with no build step. Styling comes from Tailwind (CDN) plus the layers in `assets/` (`skin.css`, `skin-dark.css`, `color.css`).
+Plain HTML, CSS and JavaScript. Styling is a prebuilt Tailwind file (`assets/tailwind.css`) plus the layers in `assets/` (`skin.css`, `skin-dark.css`, `color.css`, `polish.css`). Icons are a Lucide subset in `assets/lucide.js`. Nothing is loaded from third-party script hosts.
 
 ## Run locally
 
@@ -10,6 +10,20 @@ Plain HTML, CSS and JavaScript with no build step. Styling comes from Tailwind (
 python3 -m http.server 8080
 # open http://localhost:8080
 ```
+
+## Rebuilding generated assets
+
+Commit the outputs; Vercel serves them as-is and `tools/` is excluded by `.vercelignore`.
+
+| Output | When to rebuild | Command (from the repo root) |
+|---|---|---|
+| `assets/tailwind.css` | after adding or changing Tailwind classes in any page or script | `npx tailwindcss@3.4.17 -c tools/tailwind/tailwind.config.js -i tools/tailwind/input.css -o assets/tailwind.css --minify` |
+| `assets/lucide.js` | after using a new `data-lucide` icon | `npm --prefix tools/lucide install && node tools/lucide/build.mjs` |
+| `assets/og-image.png` | after editing `tools/og/og-image.html` | `node tools/og/render.mjs` (needs `puppeteer-core` and Chrome) |
+
+## Analytics
+
+`assets/analytics.js` loads Vercel Web Analytics (cookieless, same-origin) on every page except on localhost. Enable it in Vercel → Project → Analytics.
 
 ## Deploy on Vercel
 
