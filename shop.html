@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#17324a">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1522'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='36' font-weight='800' text-anchor='middle' fill='%23e8a33d'%3ED%3C/text%3E%3C/svg%3E">
-  <title>Enterprise Online Shop (83 Products) | D-TECH SIPL</title>
+  <title>Enterprise Online Shop | D-TECH SIPL</title>
   <meta name="description" content="Browse and procure authentic enterprise IT, networking switches, servers, industrial displays, and fiber optics with volume quote generation.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Enterprise Online Shop (83 Products) | D-TECH SIPL">
+  <meta property="og:title" content="Enterprise Online Shop | D-TECH SIPL">
   <meta property="og:description" content="Browse and procure authentic enterprise IT, networking switches, servers, industrial displays, and fiber optics with volume quote generation.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Enterprise Online Shop (83 Products) | D-TECH SIPL">
+  <meta name="twitter:title" content="Enterprise Online Shop | D-TECH SIPL">
   <meta name="twitter:description" content="Browse and procure authentic enterprise IT, networking switches, servers, industrial displays, and fiber optics with volume quote generation.">
   <link rel="canonical" href="https://www.dtechindia.com/shop.html">
   <meta property="og:url" content="https://www.dtechindia.com/shop.html">
@@ -138,7 +138,7 @@
                 type="text" 
                 id="shop-search-input" 
                 oninput="handleShopSearch()" 
-                placeholder="Search across all 83 products by name, brand, or SKU..."
+                placeholder="Search products by name, brand, or SKU..."
                 class="w-full bg-white border border-slate-300 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition-colors"
               >
             </div>
@@ -309,7 +309,7 @@
             <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
             <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="products.html" class="hover:text-white transition-colors">Products Catalog</a></li>
-            <li><a href="shop.html" class="hover:text-white transition-colors">Online Store (83 Items)</a></li>
+            <li><a href="shop.html" class="hover:text-white transition-colors">Online Store</a></li>
             <li><a href="case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
             
             <li><a href="careers.html" class="hover:text-white transition-colors">Careers</a></li>
@@ -339,7 +339,7 @@
             <li><span>HP Amplify Impact 2026</span></li>
             <li><span>API 2350 Overfill Standard</span></li>
             <li><a href="about.html#governance" class="hover:text-white transition-colors">Corporate Governance</a></li>
-            <li><a href="contact.html" class="hover:text-white transition-colors">Engineering Secretariat</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Our Engineers</a></li>
             <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
             <li><a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
             <li><a href="return-policy.html" class="hover:text-white transition-colors">Return Policy</a></li>
@@ -588,6 +588,20 @@
       shopState.currentPage = 1;
       renderShopGrid();
     }
+
+    // Brand chips show live counts from shopProductsData, so they can't drift.
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.brand-filter-btn').forEach(btn => {
+        const brand = (btn.getAttribute('onclick') || '').match(/filterByBrand\('([^']+)'\)/)?.[1];
+        if (!brand) return;
+        const n = brand === 'All' ? shopProductsData.length : shopProductsData.filter(p => p.brand === brand).length;
+        const walker = document.createTreeWalker(btn, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+          const t = walker.currentNode;
+          if (/\(\d+\)/.test(t.textContent)) { t.textContent = t.textContent.replace(/\(\d+\)/, `(${n})`); break; }
+        }
+      });
+    });
 
     function filterByBrand(brand) {
       shopState.currentBrand = brand;
