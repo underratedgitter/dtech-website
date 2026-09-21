@@ -1445,3 +1445,14 @@ body[data-page="home"] .partner-strip.marquee-on:hover .marquee-track { animatio
   .hero-visual::before,.system-visual::before,
   .hero-copy .eyebrow::before { animation:none!important; }
 }
+
+/* Small-phone tightening for case-study stat chips (labels run to 19ch). */
+@media (max-width:480px) {
+  .chip-label { font-size:8px!important; letter-spacing:-.02em!important; }
+}
+
+@media (max-width:480px) {
+  .chip-grid { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
+  .chip { padding:6px!important; }
+  .chip-value { font-size:11px!important; }
+}

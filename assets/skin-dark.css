@@ -93,6 +93,9 @@ body .bg-white,body .bg-white\/95,body .bg-white\/90,body .bg-white\/80 { backgr
 main img.object-contain,
 body[data-page="shop"] #shop-products-grid>div>div:first-child { background-color:#e8eef4!important; }
 body[data-page="shop"] #shop-products-grid img { mix-blend-mode:normal; }
+/* The card media well stays light in dark mode, so its text must stay dark. */
+html[data-theme="dark"] body[data-page="shop"] #shop-products-grid>div>div:first-child h4 { color:#0f172a!important; }
+html[data-theme="dark"] body[data-page="shop"] #shop-products-grid>div>div:first-child .text-slate-400 { color:#475569!important; }
 
 /* ---- Inputs ------------------------------------------------------------- */
 input,select,textarea,

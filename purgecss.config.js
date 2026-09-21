@@ -5,5 +5,7 @@ module.exports = {
   css: ['assets/bundle.min.css'],
   output: '/tmp/purged/',
   safelist: ['hidden', 'a-in', 'a-pre', 'marquee-on'],
-  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+  // Standard Tailwind extractor: keeps arbitrary values (text-[10px],
+  // w-[calc(...)], ...) that naive word matchers split apart.
+  defaultExtractor: (content) => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
 };
