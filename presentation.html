@@ -18,15 +18,48 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1522'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='36' font-weight='800' text-anchor='middle' fill='%23e8a33d'%3ED%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/prezi.css">
-  <script src="assets/analytics.js" defer></script>
-</head>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="assets/prezi.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "D-Tech Solution Integrators Private Limited",
+    "alternateName": "D-TECH SIPL",
+    "url": "https://www.dtechindia.com/presentation.html",
+    "email": "sales@dtechindia.com",
+    "telephone": ["+91-99980-26089", "+91-99989-03042"],
+    "foundingDate": "2003",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "8, Shalimar Complex, Behind Shalimar Hotel, Station Road",
+      "addressLocality": "Bharuch",
+      "addressRegion": "Gujarat",
+      "postalCode": "392001",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }],
+    "areaServed": ["Bharuch", "Dahej", "Ankleshwar", "Jhagadia", "Vadodara", "Ahmedabad", "India"],
+    "hasMap": "https://g.page/d-tech-solution-integrators--848?share"
+  }
+  </script>
+  <script src="assets/analytics.min.js" defer></script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/dtech-logo.webp" fetchpriority="high">
+  </head>
 <body class="deck-body">
   <a class="deck-skip" href="about.html">Skip the presentation and read the About page</a>
 
   <header class="deck-bar">
-    <a class="deck-home" href="index.html" aria-label="D-TECH home"><img src="assets/dtech-logo.png" alt="D-TECH" width="120" height="42"></a>
+    <a class="deck-home" href="index.html" aria-label="D-TECH home"><img src="assets/dtech-logo.webp" alt="D-TECH" width="120" height="42"></a>
     <span class="deck-chapter">Corporate introduction</span>
     <div class="deck-tools">
       <button type="button" id="deck-full" title="Full screen (press F)">Full screen</button>
@@ -89,5 +122,6 @@
       });
     })();
   </script>
+<script>if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js');});}</script>
 </body>
 </html>
