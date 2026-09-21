@@ -1,4 +1,5 @@
 {
+  "outputDirectory": ".",
   "functions": {
     "api/send-whitepaper.js": {
       "includeFiles": "assets/case-studies/**/*.pdf",
