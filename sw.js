@@ -1,9 +1,11 @@
-/* D-TECH offline cache. Bump VERSION to invalidate old caches. */
-var VERSION = 'dtech-v1';
+/* D-TECH offline cache.
+ * Bump VERSION on every deploy: the byte change is what tells browsers
+ * to install the new worker, which then deletes the previous cache.
+ * Forgetting this serves stale CSS/JS to returning visitors. */
+var VERSION = 'dtech-v2';
 var CORE = [
   '/',
   '/assets/bundle.min.css',
-  '/assets/skin.min.css',
   '/assets/dtech-logo.webp',
   '/assets/icon-192.png'
 ];
@@ -37,7 +39,22 @@ self.addEventListener('fetch', function (event) {
   if (url.origin !== location.origin) return;
   if (url.pathname.indexOf('/_vercel/') === 0) return;
   event.respondWith(
-    caches.match(req, { ignoreSearch: true }).then(function (hit) {
+    // Navigations go network-first so returning visitors always get the
+    // newest HTML (which points at the newest assets); offline falls back
+    // to cache. Static assets stay cache-first for speed.
+    (req.mode === 'navigate' ? fetch(req).then(function (res) {
+      if (res && res.status === 200) {
+        var copy = res.clone();
+        caches.open(VERSION).then(function (cache) {
+          cache.put(req, copy);
+        });
+      }
+      return res;
+    }).catch(function () {
+      return caches.match(req, { ignoreSearch: true }).then(function (hit) {
+        return hit || caches.match('/');
+      });
+    }) : caches.match(req, { ignoreSearch: true }).then(function (hit) {
       if (hit) return hit;
       return fetch(req).then(function (res) {
         if (res && res.status === 200 && res.type === 'basic') {
@@ -50,6 +67,6 @@ self.addEventListener('fetch', function (event) {
       }).catch(function () {
         if (req.mode === 'navigate') return caches.match('/');
       });
-    })
+    }))
   );
 });
