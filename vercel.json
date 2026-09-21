@@ -1,5 +1,6 @@
 {
   "outputDirectory": ".",
+  "buildCommand": "echo 'static prebuilt site: CSS/JS committed, nothing to build'",
   "functions": {
     "api/send-whitepaper.js": {
       "includeFiles": "assets/case-studies/**/*.pdf",

@@ -8,7 +8,8 @@
     "build:js": "for f in assets/lucide.js assets/agent-a.js assets/refined.js assets/analytics.js; do npx -y terser \"$f\" -c -m -o \"${f%.js}.min.js\"; done",
     "build": "npm run build:css && npm run build:js",
     "serve": "python3 -m http.server 8000",
-    "check:links": "python3 tools/check-links.py"
+    "check:links": "python3 tools/check-links.py",
+    "verify": "npm ci && npm run build && npm run check:links && node --check sw.js && node --check assets/agent-a.min.js && echo VERIFY-OK"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.3",
