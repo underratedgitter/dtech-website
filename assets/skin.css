@@ -1455,4 +1455,6 @@ body[data-page="home"] .partner-strip.marquee-on:hover .marquee-track { animatio
   .chip-grid { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
   .chip { padding:6px!important; }
   .chip-value { font-size:11px!important; }
+  /* 16px+ inputs stop iOS Safari auto-zooming on focus. */
+  input, select, textarea { font-size:16px!important; }
 }
