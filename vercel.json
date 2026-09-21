@@ -1,54 +1,33 @@
 {
-  "functions": {
-    "api/send-whitepaper.js": {
-      "includeFiles": "assets/case-studies/**/*.pdf",
-      "maxDuration": 15
-    }
-  },
-  "redirects": [
-    {
-      "source": "/products.html",
-      "destination": "/solutions.html",
-      "permanent": true
-    },
-    {
-      "source": "/products",
-      "destination": "/solutions.html",
-      "permanent": true
-    }
-  ],
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
         {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://i.ytimg.com; connect-src 'self'; frame-src https://prezi.com https://*.prezi.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
-        },
-        {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
         },
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
         },
         {
-          "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
-        }
-      ]
-    },
-    {
-      "source": "/api/(.*)",
-      "headers": [
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
         {
-          "key": "Cache-Control",
-          "value": "no-store"
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
         }
       ]
     }
