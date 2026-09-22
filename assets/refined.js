@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // Escape closes whichever page-level modal is open, topmost (last in DOM) first.
   const overlays = [
-    ['product-detail-modal', 'closeProductModal'],
     ['case-detail-modal', 'closeCaseModal'],
     ['email-gate-modal', 'closeEmailGateModal'],
   ];

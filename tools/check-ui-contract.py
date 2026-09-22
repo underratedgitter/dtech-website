@@ -35,7 +35,7 @@ def check_leadership_contract(problems):
     if "--anchor-offset:104px" not in css.replace(" ", ""):
         problems.append("skin.css does not define the sticky-header anchor offset")
     compact_css = css.replace(" ", "").replace("\n", "")
-    if "body.leadership-director-copyp,body.org-directorp{" not in compact_css:
+    if "body.leadership-director-copyp{" not in compact_css:
         problems.append("dark leadership panels do not own their paragraph contrast")
 
 
@@ -93,8 +93,8 @@ def check_marquee_contract(problems):
 
 def check_cache_contract(problems):
     worker = (ROOT / "sw.js").read_text(encoding="utf-8")
-    if "var VERSION = 'dtech-v12';" not in worker:
-        problems.append("service worker cache was not advanced to dtech-v12")
+    if "var VERSION = 'dtech-v13';" not in worker:
+        problems.append("service worker cache was not advanced to dtech-v13")
     for asset in ("/assets/bundle.min.css", "/assets/dtech-logo.webp"):
         if asset not in worker:
             problems.append(f"service worker core cache missing {asset}")

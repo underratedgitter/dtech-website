@@ -202,8 +202,7 @@ body[data-page="about"] #partners .grid>div,
 body[data-page="solutions"] #systems-catalog+section .grid>div,
 body[data-page="case-studies"] main>section:nth-of-type(3)>.executive-container>.grid>div,
 body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-7>div,
-body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-5>div,
-body[data-page="shop"] #shop-products-grid>div {
+body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-5>div {
   background-image:var(--p-sheen)!important;
   box-shadow:var(--p-drop),var(--p-edge)!important;
   transition:border-color .2s ease,box-shadow .3s var(--ease),transform .3s var(--ease)!important;
@@ -211,8 +210,7 @@ body[data-page="shop"] #shop-products-grid>div {
 body[data-page="about"] #intro+section+section .grid>div:hover,
 body[data-page="about"] #partners .grid>div:hover,
 body[data-page="solutions"] #systems-catalog+section .grid>div:hover,
-body[data-page="case-studies"] main .grid>div[id]:hover,
-body[data-page="shop"] #shop-products-grid>div:hover {
+body[data-page="case-studies"] main .grid>div[id]:hover {
   box-shadow:var(--p-lift),var(--p-edge)!important;
   transform:translateY(-3px);
 }
@@ -250,23 +248,6 @@ html { scrollbar-color:var(--line-strong) var(--paper); }
 .hero-copy h1 em::after { bottom:-.16em; height:.06em; }
 .hero-copy h1 { margin-bottom:30px; }
 
-/* ==================== 13 · SHOP CARD PHOTO WELL ==================== */
-/* skin.css and skin-dark.css paint the pale photo backing onto the card's
-   whole upper block, so in dark mode the white product title sat on
-   #e8eef4 and disappeared. Clear the block; paint only the photo well. */
-body[data-page="shop"] #shop-products-grid>div>div:first-child {
-  background:transparent!important; border-radius:0!important;
-}
-body[data-page="shop"] #shop-products-grid>div>div:first-child>div:first-child {
-  background:var(--sunken)!important; border-color:transparent!important;
-  border-radius:var(--r-control)!important;
-}
-html[data-theme="dark"] body[data-page="shop"] #shop-products-grid>div>div:first-child>div:first-child {
-  background:#e8eef4!important;
-}
-html[data-theme="dark"] body[data-page="shop"] #shop-products-grid h4 { color:var(--ink)!important; }
-html[data-theme="dark"] body[data-page="shop"] #shop-products-grid .text-slate-400 { color:var(--muted)!important; }
-
 /* ==================== 14 · CONTRAST (WCAG AA) ====================
    Fixes from a site-wide contrast audit. Same hues, only the shade moves:
    a deeper green/cyan where small text sits on a pale wash, and the dark
@@ -303,11 +284,6 @@ html:not([data-theme="dark"]) .jiva-accent>*:nth-child(5n+5) .jiva-num { color:v
 /* Home: the gate panel's caption. */
 .image-topline>span:first-child { color:rgba(255,255,255,.62)!important; }
 
-/* Shop: brand pills now sit on the pale photo well in dark mode too. */
-html[data-theme="dark"] body[data-page="shop"] #shop-products-grid span.absolute {
-  background:rgba(255,255,255,.85)!important; color:#005f8d!important;
-}
-
 /* ==================== 15 · 404 PAGE ==================== */
 /* The 404 inherits the navy inner-page header, which left its light-page
    greys and navy "404" unreadable and its title left-aligned. */
@@ -337,25 +313,18 @@ html:not([data-theme="dark"]) body[data-page] main>section:first-child .text-eme
 /* The cart counter is a navy pill inside the cyan button; keep its digits white. */
 html[data-theme="dark"] body .bg-blue-600 span.bg-white.bg-white.bg-white { color:#fff!important; }
 
-/* ==================== 16 · CART DRAWER ==================== */
-/* The drawer sits outside <main>, so color.css's accent remap never reached
-   it: Tailwind blue stayed on the navy panel in dark mode (≈2:1). */
-#cart-drawer-modal :is(.text-blue-600,.text-blue-700) { color:var(--signal-deep)!important; }
-html[data-theme="dark"] #cart-drawer-modal img { background:#e8eef4!important; }
-#cart-drawer-modal .text-slate-400,#cart-drawer-modal .text-slate-500 { color:var(--muted)!important; }
-
 /* ==================== 17 · OVERLAYS GET THE ACCENT REMAP ====================
    color.css remaps Tailwind blues/greens onto the palette inside <main>
    only. The modals live outside it, so give them the same treatment. */
-:is(#cart-drawer-modal,#shop-quickview-modal,#product-detail-modal,#email-gate-modal,#case-detail-modal)
+:is(#email-gate-modal,#case-detail-modal)
   :is(.text-blue-500,.text-blue-600,.text-blue-700,.text-blue-800,.text-blue-900) { color:var(--signal-deep)!important; }
-:is(#shop-quickview-modal,#product-detail-modal,#email-gate-modal,#case-detail-modal)
+:is(#email-gate-modal,#case-detail-modal)
   :is(.bg-blue-50,.bg-blue-100) { background-color:var(--c-cyan-wash)!important; }
-:is(#shop-quickview-modal,#product-detail-modal,#email-gate-modal,#case-detail-modal)
+:is(#email-gate-modal,#case-detail-modal)
   :is(.bg-emerald-50,.bg-emerald-100) { background-color:var(--c-green-wash)!important; }
-html:not([data-theme="dark"]) :is(#shop-quickview-modal,#product-detail-modal,#email-gate-modal,#case-detail-modal)
+html:not([data-theme="dark"]) :is(#email-gate-modal,#case-detail-modal)
   :is(.text-emerald-500,.text-emerald-600,.text-emerald-700,.text-emerald-800) { color:#1b7a52!important; }
-html[data-theme="dark"] :is(#shop-quickview-modal,#product-detail-modal,#email-gate-modal,#case-detail-modal)
+html[data-theme="dark"] :is(#email-gate-modal,#case-detail-modal)
   :is(.text-emerald-500,.text-emerald-600,.text-emerald-700,.text-emerald-800) { color:var(--c-green)!important; }
 
 /* ==================== 18 · CONTACT PAGE ==================== */
