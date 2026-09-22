@@ -12,7 +12,7 @@
     '.brand-marquee::after{right:0;background:linear-gradient(to left,#fff 0%,transparent 100%)}',
     '.brand-marquee-track{display:flex;align-items:center;gap:48px;width:max-content;animation:bm-scroll 35s linear infinite}',
     '.brand-marquee:hover .brand-marquee-track{animation-play-state:paused}',
-    '.brand-marquee-item{display:flex;align-items:center;gap:10px;padding:8px 20px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;white-space:nowrap;transition:all .3s ease;cursor:default;text-decoration:none}',
+    '.brand-marquee-item{display:flex;align-items:center;gap:10px;padding:8px 20px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;white-space:nowrap;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease,background-color .3s ease;cursor:default;text-decoration:none}',
     '.brand-marquee-item:hover{background:#f1f5f9;border-color:#cbd5e1;transform:translateY(-2px);box-shadow:0 4px 12px -3px rgba(0,0,0,.08)}',
     '.brand-marquee-item .bm-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}',
     '.brand-marquee-item .bm-name{font-size:13px;font-weight:700;color:#1e293b;letter-spacing:-.01em}',

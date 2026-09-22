@@ -37,10 +37,28 @@ def check_leadership_contract(problems):
         problems.append("skin.css does not define the sticky-header anchor offset")
 
 
+def check_authored_style_policy(problems):
+    paths = [
+        ROOT / "about.html",
+        ROOT / "index.html",
+        ROOT / "assets/brand-marquee.js",
+        ROOT / "assets/skin.css",
+    ]
+    forbidden_colors = ("#8b5cf6", "#6366f1", "#ec4899", "#db2777", "#f9a8d4")
+    for path in paths:
+        source = path.read_text(encoding="utf-8").lower()
+        if "transition: all" in source or "transition:all" in source:
+            problems.append(f"{path.relative_to(ROOT)} uses transition: all")
+        for color in forbidden_colors:
+            if color in source:
+                problems.append(f"{path.relative_to(ROOT)} uses non-palette color {color}")
+
+
 def main():
     problems = []
     check_compiled_responsive_contract(problems)
     check_leadership_contract(problems)
+    check_authored_style_policy(problems)
     if problems:
         print(f"{len(problems)} UI contract problem(s):")
         for problem in problems:
