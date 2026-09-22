@@ -4,7 +4,14 @@ module.exports = {
   content: ['*.html', 'assets/agent-a.js', 'assets/refined.js', 'assets/analytics.js', 'assets/brand-marquee.js', 'assets/lucide.js'],
   css: ['assets/bundle.min.css'],
   output: '/tmp/purged/',
-  safelist: ['hidden', 'a-in', 'a-pre', 'marquee-on'],
+  // brand-marquee-* is JS-generated markup (assets/brand-marquee.js builds
+  // it via string concatenation), which has proven unreliable for purgecss's
+  // content scanner to detect consistently across runs. Safelist it outright
+  // rather than depend on that detection.
+  safelist: {
+    standard: ['hidden', 'a-in', 'a-pre', 'marquee-on'],
+    greedy: [/^brand-marquee/],
+  },
   // Standard Tailwind extractor: keeps arbitrary values (text-[10px],
   // w-[calc(...)], ...) that naive word matchers split apart.
   defaultExtractor: (content) => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
