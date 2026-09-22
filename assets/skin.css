@@ -504,7 +504,7 @@ a.brand-marquee-item { cursor:pointer; }
 }
 .brand-marquee-item:hover img,.brand-marquee-item:focus-visible img { opacity:1; }
 .brand-marquee-item img[src$="hp.svg"] { width:46px; }
-.brand-marquee-item img[src$="beetel.png"],.brand-marquee-item img[src$="zkteco.png"] { background:#fff; border-radius:4px; padding:4px 10px; }
+.brand-marquee-item img[src$="zkteco.png"] { background:#fff; border-radius:4px; padding:4px 10px; }
 
 @media (max-width:1023px) {
   body .leadership-team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }

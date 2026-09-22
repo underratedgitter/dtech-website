@@ -21,7 +21,7 @@
     { name: 'APC', logo: 'assets/partners/apc.svg', width: 236, height: 100 },
     { name: 'Acer', logo: 'assets/partners/acer.svg', width: 373, height: 100 },
     { name: 'Apple', logo: 'assets/partners/apple.svg', width: 81, height: 100 },
-    { name: 'Beetel', logo: 'assets/partners/beetel.png', width: 633, height: 118 },
+    { name: 'Beetel', logo: 'assets/partners/beetel.png', width: 100, height: 100 },
     { name: 'Canon', logo: 'assets/partners/canon.svg', width: 472, height: 100 },
     { name: 'D-Link', logo: 'assets/partners/d-link.svg', width: 333, height: 100 },
     { name: 'Panasonic', logo: 'assets/partners/panasonic.svg', width: 653, height: 100 },
