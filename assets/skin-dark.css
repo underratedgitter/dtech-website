@@ -49,6 +49,7 @@
 /* ---- Wordmark is black art; it needs inverting on every dark ground. ---- */
 .brand-mark img,footer img { filter:invert(1) brightness(1.7); }
 .partner-logo-box img,.brand-marquee img { filter:none!important; }
+.partner-logo-box { background:#fff!important; }
 
 /* ---- Actions: on dark the cyan carries the primary voice. --------------- */
 .button-primary { background:var(--signal-deep); border-color:var(--signal-deep); color:#04121f!important; }

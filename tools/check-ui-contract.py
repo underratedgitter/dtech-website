@@ -82,12 +82,29 @@ def check_marquee_contract(problems):
         problems.append("skin.css lacks reduced-motion coverage")
 
 
+def check_cache_contract(problems):
+    worker = (ROOT / "sw.js").read_text(encoding="utf-8")
+    if "var VERSION = 'dtech-v3';" not in worker:
+        problems.append("service worker cache was not advanced to dtech-v3")
+    for asset in ("/assets/bundle.min.css", "/assets/dtech-logo.webp"):
+        if asset not in worker:
+            problems.append(f"service worker core cache missing {asset}")
+
+
+def check_deep_link_contract(problems):
+    script = (ROOT / "assets/refined.js").read_text(encoding="utf-8")
+    if "alignHashTarget" not in script or "hashchange" not in script:
+        problems.append("shared behavior does not realign deep links after layout settles")
+
+
 def main():
     problems = []
     check_compiled_responsive_contract(problems)
     check_leadership_contract(problems)
     check_authored_style_policy(problems)
     check_marquee_contract(problems)
+    check_cache_contract(problems)
+    check_deep_link_contract(problems)
     if problems:
         print(f"{len(problems)} UI contract problem(s):")
         for problem in problems:

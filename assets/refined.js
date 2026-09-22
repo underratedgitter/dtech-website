@@ -68,3 +68,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Re-align initial and same-page deep links after fonts and responsive CSS settle.
+function alignHashTarget() {
+  if (!location.hash) return;
+  let id;
+  try { id = decodeURIComponent(location.hash.slice(1)); } catch (_) { return; }
+  const target = document.getElementById(id);
+  if (!target) return;
+  requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView({block: 'start', behavior: 'instant'})));
+}
+
+window.addEventListener('load', () => {
+  const ready = document.fonts ? document.fonts.ready : Promise.resolve();
+  ready.then(alignHashTarget);
+});
+window.addEventListener('hashchange', alignHashTarget);

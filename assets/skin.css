@@ -86,7 +86,7 @@
 
 /* ==================== 2 · BASE ==================== */
 
-html { scroll-padding-top:var(--anchor-offset); }
+html { scroll-padding-top:0; }
 
 body {
   background:var(--paper)!important;
@@ -147,11 +147,11 @@ img { max-width:100%; }
 .font-sans { font-family:var(--text-face)!important; }
 .font-display { font-family:var(--display)!important; }
 
-main [id],section[id] { scroll-margin-top:var(--anchor-offset); }
+body main [id],body section[id] { scroll-margin-top:var(--anchor-offset); }
 
 /* ==================== 2A · LEADERSHIP & ORGANIZATION ==================== */
 
-.leadership-spotlight {
+body .leadership-spotlight {
   display:grid;
   grid-template-columns:minmax(260px,2fr) minmax(0,3fr);
   gap:32px;
@@ -164,7 +164,7 @@ main [id],section[id] { scroll-margin-top:var(--anchor-offset); }
   border-radius:var(--r-panel);
   background:var(--surface);
 }
-.leadership-photo {
+body .leadership-photo {
   display:block;
   width:100%;
   aspect-ratio:4/3;
@@ -182,8 +182,8 @@ main [id],section[id] { scroll-margin-top:var(--anchor-offset); }
   color:var(--on-invert);
 }
 .leadership-director-copy h3 { color:var(--on-invert); }
-.leadership-director-copy p { color:rgba(255,255,255,.72); }
-.leadership-team-grid {
+.leadership-director-copy p { color:rgba(255,255,255,.72)!important; }
+body .leadership-team-grid {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:24px;
@@ -322,6 +322,8 @@ main [id],section[id] { scroll-margin-top:var(--anchor-offset); }
   background:var(--invert);
   color:var(--on-invert);
 }
+body[data-page="about"] #partners.partner-section { background:var(--invert)!important; }
+.partner-section>.executive-container>.text-center :is(p,.text-slate-400) { color:rgba(255,255,255,.68)!important; }
 .partner-section::before {
   content:"";
   position:absolute;
@@ -359,15 +361,16 @@ main [id],section[id] { scroll-margin-top:var(--anchor-offset); }
   border-color:var(--partner-accent);
   box-shadow:0 18px 40px -24px rgba(7,29,52,.5);
 }
-.partner-accent-cyan { --partner-accent:var(--signal-deep); }
-.partner-accent-green { --partner-accent:var(--c-green-solid); }
-.partner-accent-orange { --partner-accent:var(--c-orange-solid); }
-.partner-accent-red { --partner-accent:var(--c-red-solid); }
+.partner-accent-cyan { --partner-accent:var(--signal-deep); --partner-wash:var(--c-cyan-wash); }
+.partner-accent-green { --partner-accent:var(--c-green-solid); --partner-wash:var(--c-green-wash); }
+.partner-accent-orange { --partner-accent:var(--c-orange-solid); --partner-wash:var(--c-orange-wash); }
+.partner-accent-red { --partner-accent:var(--c-red-solid); --partner-wash:var(--c-red-wash); }
 .partner-logo-box {
   position:relative;
   border:1px solid var(--line);
   background:var(--sunken);
 }
+.partner-accent-green .partner-logo-box,.partner-accent-red .partner-logo-box { width:136px; }
 .partner-highlight {
   display:inline-flex;
   align-items:center;
@@ -375,7 +378,7 @@ main [id],section[id] { scroll-margin-top:var(--anchor-offset); }
   padding:6px 14px;
   border:1px solid var(--partner-accent);
   border-radius:999px;
-  background:var(--c-cyan-wash);
+  background:var(--partner-wash,var(--c-cyan-wash));
   color:var(--partner-accent)!important;
   font-size:11px;
   font-weight:700;
@@ -522,11 +525,11 @@ a.brand-marquee-item { cursor:pointer; }
 .brand-marquee-toggle:hover { border-color:var(--signal); color:var(--ink); }
 
 @media (max-width:1023px) {
-  .leadership-team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  body .leadership-team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .leadership-card:last-child { grid-column:1/-1; max-width:calc(50% - 12px); }
 }
 @media (max-width:700px) {
-  .leadership-spotlight,.leadership-team-grid { grid-template-columns:1fr; }
+  body .leadership-spotlight,body .leadership-team-grid { grid-template-columns:1fr; }
   .leadership-photo-frame .leadership-photo { height:auto; aspect-ratio:4/3; }
   .leadership-card:last-child { grid-column:auto; max-width:none; }
   .org-hbar,.org-hbar+div { display:none; }
