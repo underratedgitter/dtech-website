@@ -49,10 +49,9 @@
     var href = brand.link ? ' href="' + brand.link + '"' : '';
     var tabIndex = duplicate && brand.link ? ' tabindex="-1"' : '';
     var logo = brand.logo
-      ? '<img src="' + brand.logo + '" alt="" width="' + brand.width + '" height="' + brand.height + '" loading="lazy">'
-      : '';
-    return '<' + tag + href + tabIndex + ' class="brand-marquee-item">' + logo +
-      '<span class="bm-name">' + brand.name + '</span></' + tag + '>';
+      ? '<img src="' + brand.logo + '" alt="' + brand.name + '" width="' + brand.width + '" height="' + brand.height + '" loading="lazy">'
+      : brand.name;
+    return '<' + tag + href + tabIndex + ' class="brand-marquee-item">' + logo + '</' + tag + '>';
   }
 
   function buildSet(duplicate) {
@@ -76,28 +75,6 @@
     track.className = 'brand-marquee-track';
     track.innerHTML = buildSet(false) + buildSet(true);
     section.appendChild(track);
-
-    var toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'brand-marquee-toggle';
-    toggle.setAttribute('aria-pressed', 'false');
-    toggle.textContent = 'Pause partner logos';
-    toggle.addEventListener('click', function () {
-      var paused = !section.classList.contains('is-paused');
-      section.classList.toggle('is-paused', paused);
-      section.classList.toggle('is-forced-playing', !paused);
-      toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
-      toggle.textContent = paused ? 'Play partner logos' : 'Pause partner logos';
-    });
-    section.addEventListener('mouseleave', function () {
-      section.classList.remove('is-forced-playing');
-    });
-    section.addEventListener('focusout', function () {
-      window.setTimeout(function () {
-        if (!section.contains(document.activeElement)) section.classList.remove('is-forced-playing');
-      }, 0);
-    });
-    section.appendChild(toggle);
 
     var footer = document.querySelector('footer');
     var homeMetric = document.body && document.body.getAttribute('data-page') === 'home'

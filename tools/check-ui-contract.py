@@ -76,10 +76,10 @@ def check_marquee_contract(problems):
         problems.append("index.html does not use shared brand marquee")
     if '<section class="brand-marquee"' in home:
         problems.append("index.html still duplicates marquee markup")
-    if "brand-marquee-toggle" not in script:
-        problems.append("brand marquee has no pause control")
-    if "is-forced-playing" not in script or "is-forced-playing" not in skin:
-        problems.append("brand marquee play control cannot override hover/focus pause")
+    if ".brand-marquee:hover .brand-marquee-track" not in skin:
+        problems.append("brand marquee cannot be paused on hover")
+    if ".brand-marquee-item:focus)" not in skin:
+        problems.append("brand marquee cannot be paused on keyboard focus")
     if "inert" not in script:
         problems.append("duplicate marquee set remains programmatically interactive")
     if "makeSvg" in script:
@@ -91,9 +91,7 @@ def check_marquee_contract(problems):
     ):
         if logo not in script:
             problems.append(f"brand marquee missing official logo asset {logo}")
-    if ".brand-marquee-toggle" not in skin:
-        problems.append("brand marquee pause control has no authored styling")
-    if ".brand-marquee-toggle" not in bundle:
+    if ".brand-marquee-item img" not in bundle:
         problems.append("compiled bundle dropped brand marquee styling")
     if "prefers-reduced-motion:reduce" not in skin.replace(" ", ""):
         problems.append("skin.css lacks reduced-motion coverage")
@@ -101,8 +99,8 @@ def check_marquee_contract(problems):
 
 def check_cache_contract(problems):
     worker = (ROOT / "sw.js").read_text(encoding="utf-8")
-    if "var VERSION = 'dtech-v4';" not in worker:
-        problems.append("service worker cache was not advanced to dtech-v4")
+    if "var VERSION = 'dtech-v5';" not in worker:
+        problems.append("service worker cache was not advanced to dtech-v5")
     for asset in ("/assets/bundle.min.css", "/assets/dtech-logo.webp"):
         if asset not in worker:
             problems.append(f"service worker core cache missing {asset}")
