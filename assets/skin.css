@@ -170,7 +170,7 @@ body .leadership-photo {
   aspect-ratio:4/3;
   object-fit:cover;
 }
-.leadership-photo-frame .leadership-photo { height:100%; aspect-ratio:auto; }
+.leadership-photo-frame .leadership-photo { height:100%; aspect-ratio:auto; object-position:center 15%; }
 .leadership-director-copy {
   display:flex;
   flex-direction:column;
