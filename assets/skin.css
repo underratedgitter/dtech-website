@@ -79,13 +79,14 @@
   --display:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
   --text-face:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
   --label:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --anchor-offset:104px;
 
   color-scheme:light;
 }
 
 /* ==================== 2 · BASE ==================== */
 
-html { scroll-padding-top:96px; }
+html { scroll-padding-top:var(--anchor-offset); }
 
 body {
   background:var(--paper)!important;
@@ -146,8 +147,185 @@ img { max-width:100%; }
 .font-sans { font-family:var(--text-face)!important; }
 .font-display { font-family:var(--display)!important; }
 
-main [id] { scroll-margin-top:104px; }
-section[id] { scroll-margin-top:104px; }
+main [id],section[id] { scroll-margin-top:var(--anchor-offset); }
+
+/* ==================== 2A · LEADERSHIP & ORGANIZATION ==================== */
+
+.leadership-spotlight {
+  display:grid;
+  grid-template-columns:minmax(260px,2fr) minmax(0,3fr);
+  gap:32px;
+  align-items:stretch;
+  margin-bottom:40px;
+}
+.leadership-photo-frame,.leadership-card {
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:var(--r-panel);
+  background:var(--surface);
+}
+.leadership-photo {
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.leadership-photo-frame .leadership-photo { height:100%; aspect-ratio:auto; }
+.leadership-director-copy {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:16px;
+  padding:clamp(28px,4vw,48px);
+  border-radius:var(--r-panel);
+  background:var(--invert);
+  color:var(--on-invert);
+}
+.leadership-director-copy h3 { color:var(--on-invert); }
+.leadership-director-copy p { color:rgba(255,255,255,.72); }
+.leadership-team-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  margin-bottom:40px;
+}
+.leadership-card>div { padding:20px; }
+
+.org-tree { position:relative; }
+.org-director {
+  position:relative;
+  z-index:2;
+  max-width:420px;
+  margin:0 auto;
+  padding:28px 36px;
+  border-radius:var(--r-panel);
+  background:linear-gradient(135deg,var(--invert),var(--invert-2));
+  color:var(--on-invert);
+  text-align:center;
+  box-shadow:0 12px 40px -8px rgba(7,29,52,.35);
+}
+.org-director h3 { color:var(--on-invert); }
+.org-director::after {
+  content:'';
+  position:absolute;
+  bottom:-48px;
+  left:50%;
+  width:2px;
+  height:48px;
+  background:linear-gradient(to bottom,var(--invert-2),var(--line-strong));
+  transform:translateX(-50%);
+}
+.org-hbar {
+  position:relative;
+  height:2px;
+  margin:0 auto;
+  background:var(--line-strong);
+}
+.org-hbar::before,.org-hbar::after,.org-drop-inner-1,.org-drop-inner-2 {
+  content:'';
+  position:absolute;
+  top:0;
+  width:2px;
+  height:40px;
+  background:var(--line-strong);
+}
+.org-hbar::before { left:10%; }
+.org-hbar::after { right:10%; }
+.org-drop-inner-1 { left:37%; }
+.org-drop-inner-2 { left:63%; }
+.org-dept-head {
+  position:relative;
+  padding:18px 16px 14px;
+  border:2px solid var(--dept-accent);
+  border-radius:var(--r-panel);
+  background:var(--dept-wash);
+  text-align:center;
+  cursor:default;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background-color .2s ease,border-color .2s ease,color .2s ease;
+}
+.org-dept-head:hover {
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px -6px rgba(7,29,52,.16);
+}
+.org-dept-head .dept-icon {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  margin:0 auto 10px;
+  border-radius:var(--r-plate);
+  background:var(--dept-accent);
+  color:var(--on-invert);
+  font-size:18px;
+}
+.org-dept-head>p:nth-of-type(1) { color:var(--dept-accent)!important; }
+.dept-sales { --dept-accent:var(--signal-deep); --dept-wash:var(--c-cyan-wash); }
+.dept-hr { --dept-accent:var(--c-green-solid); --dept-wash:var(--c-green-wash); }
+.dept-accounts { --dept-accent:var(--c-orange-solid); --dept-wash:var(--c-orange-wash); }
+.dept-software { --dept-accent:var(--c-red-solid); --dept-wash:var(--c-red-wash); }
+.org-member {
+  position:relative;
+  padding:12px 14px;
+  border:1.5px solid var(--line);
+  border-radius:var(--r-plate);
+  background:var(--surface);
+  text-align:left;
+  transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,border-color .25s ease,color .25s ease;
+}
+.org-member:hover {
+  border-color:var(--dept-accent,var(--signal));
+  background:var(--dept-wash,var(--signal-wash));
+  transform:translateX(4px);
+}
+.org-branch { position:relative; padding-left:28px; }
+.org-branch::before {
+  content:'';
+  position:absolute;
+  top:0;
+  bottom:20px;
+  left:13px;
+  width:2px;
+  border-radius:2px;
+  background:var(--dept-accent,var(--line-strong));
+  opacity:.45;
+}
+.org-branch .org-member::before {
+  content:'';
+  position:absolute;
+  top:50%;
+  left:-16px;
+  width:16px;
+  height:2px;
+  background:var(--dept-accent,var(--line-strong));
+  opacity:.45;
+}
+.org-dept-details summary { list-style:none; cursor:pointer; }
+.org-dept-details summary::-webkit-details-marker { display:none; }
+.org-dept-details[open] .org-dept-head { box-shadow:0 8px 24px -4px rgba(7,29,52,.12); }
+.org-dept-details .dept-expand-hint {
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:600;
+  transition:color .2s ease;
+}
+.org-dept-details[open] .dept-expand-hint { color:var(--signal-deep); }
+.org-dept-details[open] .dept-expand-hint svg { transform:rotate(180deg); }
+
+@media (max-width:1023px) {
+  .leadership-team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .leadership-card:last-child { grid-column:1/-1; max-width:calc(50% - 12px); }
+}
+@media (max-width:700px) {
+  .leadership-spotlight,.leadership-team-grid { grid-template-columns:1fr; }
+  .leadership-photo-frame .leadership-photo { height:auto; aspect-ratio:4/3; }
+  .leadership-card:last-child { grid-column:auto; max-width:none; }
+  .org-hbar,.org-hbar+div { display:none; }
+}
 
 /* ==================== 3 · UTILITY NEUTRALISATION ====================
    The markup is Tailwind utilities; these retune them to the deck palette
