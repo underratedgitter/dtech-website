@@ -8,7 +8,6 @@
     { name: 'Siemens', logo: 'assets/partners/siemens.svg', width: 126, height: 20 },
     { name: 'Motorola Solutions', link: 'about.html#partner-motorola', logo: 'assets/partners/motorola-solutions.svg', width: 634, height: 73 },
     { name: 'Microsoft', logo: 'assets/partners/microsoft.svg', width: 118, height: 25 },
-    { name: 'Hikvision', logo: 'assets/partners/hikvision.svg', width: 120, height: 16 },
     { name: 'Matrix', logo: 'assets/partners/matrix-comsec.png', width: 90, height: 34 },
     { name: 'Intel', logo: 'assets/partners/intel.svg', width: 90, height: 35 },
     { name: 'Cisco', logo: 'assets/partners/cisco.svg', width: 80, height: 42 },
