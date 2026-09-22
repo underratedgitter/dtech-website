@@ -153,24 +153,15 @@ body main [id],body section[id] { scroll-margin-top:var(--anchor-offset); }
 
 body .leadership-spotlight {
   display:grid;
-  grid-template-columns:minmax(260px,2fr) minmax(0,3fr);
-  gap:32px;
-  align-items:stretch;
+  grid-template-columns:1fr;
   margin-bottom:40px;
 }
-.leadership-photo-frame,.leadership-card {
+.leadership-card {
   overflow:hidden;
   border:1px solid var(--line);
   border-radius:var(--r-panel);
   background:var(--surface);
 }
-body .leadership-photo {
-  display:block;
-  width:100%;
-  aspect-ratio:4/3;
-  object-fit:cover;
-}
-.leadership-photo-frame .leadership-photo { height:100%; aspect-ratio:auto; object-position:center 15%; }
 .leadership-director-copy {
   display:flex;
   flex-direction:column;
@@ -511,8 +502,7 @@ a.brand-marquee-item { cursor:pointer; }
   .leadership-card:last-child { grid-column:1/-1; max-width:calc(50% - 12px); }
 }
 @media (max-width:700px) {
-  body .leadership-spotlight,body .leadership-team-grid { grid-template-columns:1fr; }
-  .leadership-photo-frame .leadership-photo { height:auto; aspect-ratio:4/3; }
+  body .leadership-team-grid { grid-template-columns:1fr; }
   .leadership-card:last-child { grid-column:auto; max-width:none; }
   .org-hbar,.org-hbar+div { display:none; }
   .brand-marquee::before,.brand-marquee::after { width:56px; }

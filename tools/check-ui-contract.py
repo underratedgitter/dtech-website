@@ -13,7 +13,6 @@ def check_compiled_responsive_contract(problems):
     css = (ROOT / "assets/bundle.min.css").read_text(encoding="utf-8")
     required = {
         r".sm\:grid-cols-3": "tablet leadership columns",
-        ".aspect-square": "stable portrait geometry",
         r".sm\:py-32": "partner section responsive spacing",
     }
     for selector, behavior in required.items():
@@ -28,7 +27,6 @@ def check_leadership_contract(problems):
         "leadership-spotlight",
         "leadership-team-grid",
         "leadership-card",
-        "leadership-photo",
     ):
         if f'class="{class_name}' not in html and f" {class_name}" not in html:
             problems.append(f"About leadership missing .{class_name}")
@@ -99,8 +97,8 @@ def check_marquee_contract(problems):
 
 def check_cache_contract(problems):
     worker = (ROOT / "sw.js").read_text(encoding="utf-8")
-    if "var VERSION = 'dtech-v9';" not in worker:
-        problems.append("service worker cache was not advanced to dtech-v9")
+    if "var VERSION = 'dtech-v10';" not in worker:
+        problems.append("service worker cache was not advanced to dtech-v10")
     for asset in ("/assets/bundle.min.css", "/assets/dtech-logo.webp"):
         if asset not in worker:
             problems.append(f"service worker core cache missing {asset}")
