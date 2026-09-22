@@ -43,24 +43,13 @@
     { name: 'ZKTeco', logo: 'assets/partners/zkteco.png', width: 500, height: 115 }
   ];
 
-  function buildItem(brand, duplicate) {
+  function buildItem(brand) {
     var tag = brand.link ? 'a' : 'div';
     var href = brand.link ? ' href="' + brand.link + '"' : '';
-    var tabIndex = duplicate && brand.link ? ' tabindex="-1"' : '';
     var logo = brand.logo
       ? '<img src="' + brand.logo + '" alt="' + brand.name + '" width="' + brand.width + '" height="' + brand.height + '" loading="lazy">'
       : brand.name;
-    return '<' + tag + href + tabIndex + ' class="brand-marquee-item">' + logo + '</' + tag + '>';
-  }
-
-  function buildSet(duplicate) {
-    var hidden = duplicate ? ' aria-hidden="true" inert' : '';
-    var html = '<div class="brand-marquee-set"' + hidden + '>' +
-      '<span class="brand-marquee-label">Authorized technology partners</span>';
-    for (var i = 0; i < brands.length; i += 1) {
-      html += buildItem(brands[i], duplicate);
-    }
-    return html + '</div>';
+    return '<' + tag + href + ' class="brand-marquee-item">' + logo + '</' + tag + '>';
   }
 
   function inject() {
@@ -72,7 +61,11 @@
 
     var track = document.createElement('div');
     track.className = 'brand-marquee-track';
-    track.innerHTML = buildSet(false) + buildSet(true);
+    var html = '<span class="brand-marquee-label">Authorized technology partners</span>';
+    for (var i = 0; i < brands.length; i += 1) {
+      html += buildItem(brands[i]);
+    }
+    track.innerHTML = html;
     section.appendChild(track);
 
     var footer = document.querySelector('footer');

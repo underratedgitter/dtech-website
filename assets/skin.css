@@ -434,44 +434,23 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
 .alliance-accent-orange { color:var(--c-orange-solid); }
 .alliance-accent-red { color:var(--c-red-solid); }
 
-@keyframes brand-marquee-scroll {
-  from { transform:translateX(0); }
-  to { transform:translateX(-50%); }
-}
 .brand-marquee {
   position:relative;
-  overflow:hidden;
-  padding:26px 0;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  padding:26px 24px;
   border-block:1px solid var(--line);
   background:var(--surface);
 }
-.brand-marquee::before,.brand-marquee::after {
-  content:'';
-  position:absolute;
-  z-index:2;
-  top:0;
-  bottom:0;
-  width:140px;
-  pointer-events:none;
-}
-.brand-marquee::before { left:0; background:linear-gradient(to right,var(--surface),transparent); }
-.brand-marquee::after { right:0; background:linear-gradient(to left,var(--surface),transparent); }
 .brand-marquee-track {
   display:flex;
   align-items:center;
-  width:max-content;
-  animation:brand-marquee-scroll 80s linear infinite;
-}
-.brand-marquee-set {
-  display:flex;
-  align-items:center;
   gap:48px;
-  padding-right:48px;
+  width:max-content;
 }
-.brand-marquee:hover .brand-marquee-track,
-.brand-marquee:has(.brand-marquee-item:focus) .brand-marquee-track { animation-play-state:paused; }
 .brand-marquee-label {
-  padding-inline:24px 6px;
   color:var(--faint);
   font:700 10px/1 var(--label);
   letter-spacing:.1em;
@@ -496,6 +475,9 @@ a.brand-marquee-item { cursor:pointer; }
 .brand-marquee-item:hover img,.brand-marquee-item:focus-visible img { opacity:1; }
 .brand-marquee-item img[src$="hp.svg"] { width:46px; }
 .brand-marquee-item img[src$="zkteco.png"] { background:#fff; border-radius:4px; padding:4px 10px; }
+@media (prefers-reduced-motion:reduce) {
+  .partner-card,.partner-cta,.alliance-brand { transition:none; }
+}
 
 @media (max-width:1023px) {
   body .leadership-team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
@@ -505,14 +487,7 @@ a.brand-marquee-item { cursor:pointer; }
   body .leadership-team-grid { grid-template-columns:1fr; }
   .leadership-card:last-child { grid-column:auto; max-width:none; }
   .org-hbar,.org-hbar+div { display:none; }
-  .brand-marquee::before,.brand-marquee::after { width:56px; }
-  .brand-marquee-set { gap:32px; padding-right:32px; }
-}
-@media (prefers-reduced-motion:reduce) {
-  .partner-card,.partner-cta,.alliance-brand { transition:none; }
-  .brand-marquee-track { animation:none; transform:none; }
-  .brand-marquee { overflow-x:auto; }
-  .brand-marquee::after { right:0; }
+  .brand-marquee-track { gap:32px; }
 }
 
 /* ==================== 3 · UTILITY NEUTRALISATION ====================
