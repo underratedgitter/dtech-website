@@ -438,6 +438,7 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
   box-shadow:0 8px 20px -16px rgba(7,29,52,.45);
 }
 .alliance-icon { color:var(--signal-deep); }
+.alliance-brand img { display:block; width:auto; max-width:64px; height:16px; object-fit:contain; }
 .alliance-accent-green { color:var(--c-green-solid); }
 .alliance-accent-orange { color:var(--c-orange-solid); }
 .alliance-accent-red { color:var(--c-red-solid); }
@@ -516,6 +517,7 @@ a.brand-marquee-item { cursor:pointer; }
   object-fit:contain;
 }
 .brand-marquee-item img[src$="hp.svg"] { width:28px; }
+.brand-marquee-item img[src$="beetel.png"],.brand-marquee-item img[src$="zkteco.png"] { background:#fff; border-radius:4px; padding:2px 6px; }
 .brand-marquee-item .bm-name {
   color:var(--ink);
   font-size:13px;
