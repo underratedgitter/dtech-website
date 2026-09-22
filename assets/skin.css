@@ -769,6 +769,7 @@ body[data-page="home"] main>section:nth-of-type(3) h2 { font-size:clamp(28px,2.6
   padding:22px 24px;
   border-top:1px solid rgba(255,255,255,.12);
   background:rgba(7,29,52,.82);
+  -webkit-backdrop-filter:blur(6px);
   backdrop-filter:blur(6px);
 }
 .system-visual h2,.hero-visual h2 {
@@ -1057,6 +1058,7 @@ main>section:first-child .inline-flex {
   font-family:var(--label)!important; font-size:10px!important; font-weight:700;
   letter-spacing:.12em; text-transform:uppercase;
   color:#bfe8f5!important;
+  -webkit-backdrop-filter:none;
   backdrop-filter:none;
 }
 main>section:first-child .inline-flex span { color:inherit!important; }
@@ -1224,8 +1226,8 @@ footer img { background:transparent!important; padding:0!important; filter:inver
 
 #mobile-menu>div:last-child,
 #mobile-menu .fixed.right-0 { box-shadow:-30px 0 60px -30px rgba(7,29,52,.4); background:var(--paper)!important; }
-#mobile-menu>button.fixed.inset-0 { background:rgba(7,29,52,.58)!important; backdrop-filter:blur(3px); }
-#case-detail-modal,#email-gate-modal { backdrop-filter:blur(3px); }
+#mobile-menu>button.fixed.inset-0 { background:rgba(7,29,52,.58)!important; -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
+#case-detail-modal,#email-gate-modal { -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
 #case-detail-modal .relative,#email-gate-modal .relative {
   border:1px solid var(--line); border-radius:var(--r-panel)!important;
   box-shadow:0 40px 80px -40px rgba(7,29,52,.55);

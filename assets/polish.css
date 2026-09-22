@@ -403,7 +403,7 @@ html[data-theme="dark"] .rfp-steps li { background:rgba(255,255,255,.02); }
 .map-label {
   position:absolute; left:12px; bottom:12px;
   display:flex; flex-direction:column; gap:2px; padding:8px 11px; border-radius:8px;
-  background:rgba(4,18,31,.78); backdrop-filter:blur(6px);
+  background:rgba(4,18,31,.78); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
   font-size:11px; font-weight:600; color:var(--signal);
 }
 .map-label b { font-size:13px; color:#fff; }
