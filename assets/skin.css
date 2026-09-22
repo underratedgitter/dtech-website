@@ -182,7 +182,7 @@ body .leadership-photo {
   color:var(--on-invert);
 }
 .leadership-director-copy h3 { color:var(--on-invert); }
-.leadership-director-copy p { color:rgba(255,255,255,.72)!important; }
+body .leadership-director-copy p,body .org-director p { color:rgba(255,255,255,.76)!important; }
 body .leadership-team-grid {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -324,6 +324,16 @@ body .leadership-team-grid {
 }
 body[data-page="about"] #partners.partner-section { background:var(--invert)!important; }
 .partner-section>.executive-container>.text-center :is(p,.text-slate-400) { color:rgba(255,255,255,.68)!important; }
+.partner-eyebrow {
+  border-color:rgba(39,182,218,.34);
+  background:rgba(39,182,218,.1);
+  color:var(--signal);
+}
+.partner-trust-badge { --partner-proof-accent:var(--signal); }
+.partner-trust-badge svg { color:var(--partner-proof-accent); }
+.partner-proof-green { --partner-proof-accent:var(--c-green-solid); }
+.partner-proof-cyan { --partner-proof-accent:var(--signal); }
+.partner-proof-orange { --partner-proof-accent:var(--c-orange-solid); }
 .partner-section::before {
   content:"";
   position:absolute;
@@ -427,6 +437,10 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
   transform:translateY(-1px);
   box-shadow:0 8px 20px -16px rgba(7,29,52,.45);
 }
+.alliance-icon { color:var(--signal-deep); }
+.alliance-accent-green { color:var(--c-green-solid); }
+.alliance-accent-orange { color:var(--c-orange-solid); }
+.alliance-accent-red { color:var(--c-red-solid); }
 
 @keyframes brand-marquee-scroll {
   from { transform:translateX(0); }
@@ -462,8 +476,8 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
   gap:24px;
   padding-right:24px;
 }
-.brand-marquee:hover .brand-marquee-track,
-.brand-marquee:focus-within .brand-marquee-track,
+.brand-marquee:not(.is-forced-playing):hover .brand-marquee-track,
+.brand-marquee:not(.is-forced-playing):has(.brand-marquee-item:focus) .brand-marquee-track,
 .brand-marquee.is-paused .brand-marquee-track { animation-play-state:paused; }
 .brand-marquee-label {
   padding-inline:24px 6px;

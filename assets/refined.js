@@ -54,6 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const desktopDropdowns = [...document.querySelectorAll('.restored-nav .nav-dropdown')];
+  const closeNavigationForHash = link => {
+    let destination;
+    try { destination = new URL(link.href, location.href); } catch (_) { return; }
+    if (destination.pathname !== location.pathname || !destination.hash) return;
+    desktopDropdowns.forEach(dropdown => { dropdown.open = false; });
+    if (menu?.contains(link) && !menu.classList.contains('hidden')) window.toggleMobileMenu();
+  };
   desktopDropdowns.forEach(dropdown => {
     dropdown.addEventListener('toggle', () => {
       if (!dropdown.open) return;
@@ -63,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   document.addEventListener('click', event => {
+    const hashLink = event.target.closest('a[href*="#"]');
+    if (hashLink) closeNavigationForHash(hashLink);
     if (!event.target.closest('.restored-nav .nav-dropdown')) {
       desktopDropdowns.forEach(dropdown => { dropdown.open = false; });
     }

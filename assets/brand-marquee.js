@@ -28,7 +28,7 @@
   }
 
   function buildSet(duplicate) {
-    var hidden = duplicate ? ' aria-hidden="true"' : '';
+    var hidden = duplicate ? ' aria-hidden="true" inert' : '';
     var html = '<div class="brand-marquee-set"' + hidden + '>' +
       '<span class="brand-marquee-label">Authorized technology partners</span>';
     for (var i = 0; i < brands.length; i += 1) {
@@ -55,9 +55,19 @@
     toggle.setAttribute('aria-pressed', 'false');
     toggle.textContent = 'Pause partner logos';
     toggle.addEventListener('click', function () {
-      var paused = section.classList.toggle('is-paused');
+      var paused = !section.classList.contains('is-paused');
+      section.classList.toggle('is-paused', paused);
+      section.classList.toggle('is-forced-playing', !paused);
       toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
       toggle.textContent = paused ? 'Play partner logos' : 'Pause partner logos';
+    });
+    section.addEventListener('mouseleave', function () {
+      section.classList.remove('is-forced-playing');
+    });
+    section.addEventListener('focusout', function () {
+      window.setTimeout(function () {
+        if (!section.contains(document.activeElement)) section.classList.remove('is-forced-playing');
+      }, 0);
     });
     section.appendChild(toggle);
 

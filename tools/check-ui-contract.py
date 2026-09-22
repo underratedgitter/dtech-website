@@ -2,6 +2,7 @@
 """Regression checks for UI contracts that must survive CSS compilation."""
 
 from pathlib import Path
+import re
 import sys
 
 
@@ -35,6 +36,9 @@ def check_leadership_contract(problems):
             problems.append(f"skin.css missing .{class_name}")
     if "--anchor-offset:104px" not in css.replace(" ", ""):
         problems.append("skin.css does not define the sticky-header anchor offset")
+    compact_css = css.replace(" ", "").replace("\n", "")
+    if "body.leadership-director-copyp,body.org-directorp{" not in compact_css:
+        problems.append("dark leadership panels do not own their paragraph contrast")
 
 
 def check_authored_style_policy(problems):
@@ -53,6 +57,15 @@ def check_authored_style_policy(problems):
             if color in source:
                 problems.append(f"{path.relative_to(ROOT)} uses non-palette color {color}")
 
+    about = (ROOT / "about.html").read_text(encoding="utf-8")
+    partner_section = about.split('<section id="partners"', 1)[-1].split("</section>", 1)[0]
+    named_color_utility = re.compile(
+        r"(?:bg|text|border|from|via|to|ring)-(?:blue|indigo|violet|purple|pink|rose|cyan|teal|green|emerald|amber|red)-"
+    )
+    match = named_color_utility.search(partner_section)
+    if match:
+        problems.append(f"partner section bypasses palette tokens with {match.group(0)} utility")
+
 
 def check_marquee_contract(problems):
     home = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -65,6 +78,10 @@ def check_marquee_contract(problems):
         problems.append("index.html still duplicates marquee markup")
     if "brand-marquee-toggle" not in script:
         problems.append("brand marquee has no pause control")
+    if "is-forced-playing" not in script or "is-forced-playing" not in skin:
+        problems.append("brand marquee play control cannot override hover/focus pause")
+    if "inert" not in script:
+        problems.append("duplicate marquee set remains programmatically interactive")
     if "makeSvg" in script:
         problems.append("brand marquee still draws synthetic partner marks")
     for logo in (
@@ -95,6 +112,8 @@ def check_deep_link_contract(problems):
     script = (ROOT / "assets/refined.js").read_text(encoding="utf-8")
     if "alignHashTarget" not in script or "hashchange" not in script:
         problems.append("shared behavior does not realign deep links after layout settles")
+    if "closeNavigationForHash" not in script:
+        problems.append("same-page deep links do not close open navigation")
 
 
 def main():
