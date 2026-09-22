@@ -39,11 +39,13 @@ body[data-page="jiva"] main h2,body[data-page="tfms"] main h2 { letter-spacing:-
 
 /* ---- Photos ------------------------------------------------------------- */
 
-.jiva-figure { margin:0; background:var(--surface); border:1px solid var(--line); }
+.jiva-figure { margin:0; background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 1px 2px rgba(7,29,52,.06),0 12px 32px -20px rgba(7,29,52,.35); }
 .jiva-figure button {
   display:block; width:100%; padding:0; border:0; background:var(--well); cursor:zoom-in; position:relative;
 }
-.jiva-figure img { display:block; width:100%; height:100%; object-fit:cover; }
+.jiva-figure img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s var(--ease); }
+.jiva-figure:hover img { transform:scale(1.045); }
+@media (prefers-reduced-motion:reduce) { .jiva-figure img { transition:none; } .jiva-figure:hover img { transform:none; } }
 .jiva-figure figcaption {
   padding:10px 14px; border-top:1px solid var(--line);
   font:500 11px/1.45 var(--mono); letter-spacing:.04em; color:var(--muted);
