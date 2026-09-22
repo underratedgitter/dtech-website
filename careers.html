@@ -269,18 +269,6 @@
       if (menu) menu.classList.toggle('hidden');
     }
 
-    function toggleSignInModal() {
-      showToast("D-TECH Enterprise Client Portal: Please enter your authorized company credentials. For account provisioning, contact sales@dtechindia.com.");
-    }
-
-    function handleGlobalSearch(e) {
-      e.preventDefault();
-      const input = document.getElementById('global-search-input');
-      if (!input || !input.value.trim()) return;
-      const q = encodeURIComponent(input.value.trim());
-      location.href = 'solutions.html';
-    }
-
 
 
 
