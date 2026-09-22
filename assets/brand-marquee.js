@@ -68,6 +68,17 @@
     track.innerHTML = html;
     section.appendChild(track);
 
+    // A plain mouse wheel only reports vertical delta, and this strip has no
+    // vertical overflow to catch it — without this it just does nothing on
+    // any browser/OS where the visitor isn't using a trackpad. Translate
+    // vertical wheel input into horizontal scroll; let real horizontal
+    // gestures (trackpad swipe, shift+wheel) pass through untouched.
+    section.addEventListener('wheel', function (event) {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      section.scrollLeft += event.deltaY;
+      event.preventDefault();
+    }, { passive: false });
+
     var footer = document.querySelector('footer');
     var homeMetric = document.body && document.body.getAttribute('data-page') === 'home'
       ? document.querySelector('.home-hero + section')
