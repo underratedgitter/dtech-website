@@ -17,9 +17,11 @@ Commit the outputs; Vercel serves them as-is and `tools/` is excluded by `.verce
 
 | Output | When to rebuild | Command (from the repo root) |
 |---|---|---|
-| `assets/tailwind.css` | after adding or changing Tailwind classes in any page or script | `npx tailwindcss@3.4.17 -c tools/tailwind/tailwind.config.js -i tools/tailwind/input.css -o assets/tailwind.css --minify` |
+| `assets/tailwind.css` | after adding or changing Tailwind classes in any page or script | `npm run build:tailwind` |
 | `assets/lucide.js` | after using a new `data-lucide` icon | `npm --prefix tools/lucide install && node tools/lucide/build.mjs` |
 | `assets/og-image.png` | after editing `tools/og/og-image.html` | `node tools/og/render.mjs` (needs `puppeteer-core` and Chrome) |
+
+`npm run build:css` always regenerates Tailwind from the current HTML and JavaScript before minifying and purging the production bundle. Run `npm run verify` before publishing to catch stale responsive utilities and other UI contract regressions.
 
 ## Analytics
 
