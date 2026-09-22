@@ -54,11 +54,40 @@ def check_authored_style_policy(problems):
                 problems.append(f"{path.relative_to(ROOT)} uses non-palette color {color}")
 
 
+def check_marquee_contract(problems):
+    home = (ROOT / "index.html").read_text(encoding="utf-8")
+    script = (ROOT / "assets/brand-marquee.js").read_text(encoding="utf-8")
+    skin = (ROOT / "assets/skin.css").read_text(encoding="utf-8")
+    bundle = (ROOT / "assets/bundle.min.css").read_text(encoding="utf-8")
+    if 'src="assets/brand-marquee.js"' not in home:
+        problems.append("index.html does not use shared brand marquee")
+    if '<section class="brand-marquee"' in home:
+        problems.append("index.html still duplicates marquee markup")
+    if "brand-marquee-toggle" not in script:
+        problems.append("brand marquee has no pause control")
+    if "makeSvg" in script:
+        problems.append("brand marquee still draws synthetic partner marks")
+    for logo in (
+        "assets/partners/hp.svg",
+        "assets/partners/dell-technologies.svg",
+        "assets/partners/motorola-solutions.svg",
+    ):
+        if logo not in script:
+            problems.append(f"brand marquee missing official logo asset {logo}")
+    if ".brand-marquee-toggle" not in skin:
+        problems.append("brand marquee pause control has no authored styling")
+    if ".brand-marquee-toggle" not in bundle:
+        problems.append("compiled bundle dropped brand marquee styling")
+    if "prefers-reduced-motion:reduce" not in skin.replace(" ", ""):
+        problems.append("skin.css lacks reduced-motion coverage")
+
+
 def main():
     problems = []
     check_compiled_responsive_contract(problems)
     check_leadership_contract(problems)
     check_authored_style_policy(problems)
+    check_marquee_contract(problems)
     if problems:
         print(f"{len(problems)} UI contract problem(s):")
         for problem in problems:
