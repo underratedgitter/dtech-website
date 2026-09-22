@@ -23,11 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!event.shiftKey && document.activeElement === last) {event.preventDefault();first.focus();}
     }
   });
-  // Escape closes whichever overlay is open: the cart drawer on every page,
-  // and the page-level modals where they exist. Topmost (last in DOM) first.
+  // Escape closes whichever page-level modal is open, topmost (last in DOM) first.
   const overlays = [
-    ['cart-drawer-modal', 'toggleCartDrawer'],
-    ['shop-quickview-modal', 'closeShopQuickView'],
     ['product-detail-modal', 'closeProductModal'],
     ['case-detail-modal', 'closeCaseModal'],
     ['email-gate-modal', 'closeEmailGateModal'],
