@@ -112,7 +112,7 @@
       if (reducedMotion()) return;
       if (!('IntersectionObserver' in window)) return;
       if (!document.body || document.body.getAttribute('data-page') !== 'home') return;
-      var ribbon = document.querySelector('.home-hero + div + section');
+      var ribbon = document.querySelector('.home-hero + section, .home-hero + div + section');
       if (!ribbon) return;
       var figures = ribbon.querySelectorAll('.text-2xl');
       if (!figures.length) return;

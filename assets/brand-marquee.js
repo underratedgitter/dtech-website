@@ -110,14 +110,14 @@
     /* Section heading */
     var heading = document.createElement('div');
     heading.className = 'brand-marquee-heading';
-    heading.innerHTML = '<span class="brand-marquee-eyebrow">Authorized technology partners</span>'
-                      + '<h2 class="brand-marquee-title">Trusted by the brands that power industry</h2>';
+    heading.innerHTML = '<span class="brand-marquee-eyebrow">OEM & Technology Alliances</span>'
+                      + '<h2 class="brand-marquee-title">Trusted by the enterprises that power industry</h2>';
     section.appendChild(heading);
 
     /* Three rows */
-    section.appendChild(buildRow(tier1, 'left',  'Global leaders'));
-    section.appendChild(buildRow(tier2, 'right', 'Established brands'));
-    section.appendChild(buildRow(tier3, 'left',  'Specialist partners'));
+    section.appendChild(buildRow(tier1, 'left',  'Tier 01 · Global Technology Leaders'));
+    section.appendChild(buildRow(tier2, 'right', 'Tier 02 · Enterprise Infrastructure & Control'));
+    section.appendChild(buildRow(tier3, 'left',  'Tier 03 · Specialized Systems & Hardware'));
 
     /* Pause on hover for accessibility */
     section.addEventListener('mouseenter', function () { section.classList.add('marquee-paused'); });
