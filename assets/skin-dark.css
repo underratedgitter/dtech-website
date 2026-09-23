@@ -51,35 +51,42 @@
 .partner-logo-box img { filter:none!important; }
 .partner-logo-box { background:#fff!important; }
 
-/* ---- Marquee logos: invert dark/black wordmarks to crisp white on dark
-   background. Preserve authentic colors for coloured logos without boxes. */
-.brand-marquee-item img { filter:brightness(0) invert(1); opacity:.88; }
-.brand-marquee-item:hover img { opacity:1; }
+/* ---- Marquee logos in Dark Mode:
+   Preserve authentic brand colors across all logos.
+   Only invert pure black wordmarks (Apple, Sony, Motorola, Logitech, Fingers)
+   to crisp white so they remain legible on the dark surface. ------------- */
+.brand-marquee-item img {
+  filter: none;
+  opacity: .95;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+.brand-marquee-item:hover img {
+  opacity: 1;
+}
 
-/* Coloured brand logos that should keep their original vibrant colors */
-.brand-marquee-item img[src$="google.svg"],
-.brand-marquee-item img[src$="microsoft.svg"],
-.brand-marquee-item img[src$="hp.svg"],
-.brand-marquee-item img[src$="intel.svg"],
-.brand-marquee-item img[src$="siemens.svg"],
-.brand-marquee-item img[src$="bosch.svg"],
-.brand-marquee-item img[src$="canon.svg"],
-.brand-marquee-item img[src$="honeywell.svg"],
-.brand-marquee-item img[src$="oracle.svg"],
-.brand-marquee-item img[src$="lenovo.svg"],
-.brand-marquee-item img[src$="lg.svg"],
-.brand-marquee-item img[src$="exide.svg"],
-.brand-marquee-item img[src$="jbl.svg"],
-.brand-marquee-item img[src$="viewsonic.svg"],
-.brand-marquee-item img[src$="poly.svg"],
-.brand-marquee-item img[src$="polycab.png"],
-.brand-marquee-item img[src$="beetel.png"],
-.brand-marquee-item img[src$="cp-plus.png"],
-.brand-marquee-item img[src$="digisol.png"],
-.brand-marquee-item img[src$="prama.png"] { filter:none; opacity:.92; }
+/* Strictly pure black wordmarks that need inversion to white */
+.brand-marquee-item img[src$="apple.svg"],
+.brand-marquee-item img[src$="sony.svg"],
+.brand-marquee-item img[src$="motorola-solutions.svg"],
+.brand-marquee-item img[src$="logitech.svg"],
+.brand-marquee-item img[src$="fingers.png"] {
+  filter: brightness(0) invert(1);
+  opacity: .92;
+}
 
-/* Transparent backgrounds on all logos in dark mode */
-.brand-marquee-item img { background:transparent!important; border-radius:0!important; padding:0!important; }
+/* Dark blue/green brands: subtle brightness lift so they pop on dark navy */
+.brand-marquee-item img[src$="samsung.svg"],
+.brand-marquee-item img[src$="asus.svg"],
+.brand-marquee-item img[src$="epson.svg"],
+.brand-marquee-item img[src$="panasonic.svg"],
+.brand-marquee-item img[src$="commscope.png"],
+.brand-marquee-item img[src$="acer.svg"] {
+  filter: brightness(1.5) contrast(1.1);
+  opacity: .95;
+}
+
 .brand-marquee-label { background:transparent; border-color:var(--signal); color:var(--signal); }
 .brand-marquee-label-wrap { }
 .brand-marquee-row + .brand-marquee-row { border-top-color:var(--line); }
