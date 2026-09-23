@@ -55,7 +55,7 @@
     { name: 'Matrix',              logo: 'assets/partners/matrix-comsec.png',       width: 90,  height: 34  },
     { name: 'Prama',               logo: 'assets/partners/prama.png',               width: 793, height: 213 },
     { name: 'Digisol',             logo: 'assets/partners/digisol.png',             width: 657, height: 120 },
-    { name: 'Fingers',             logo: 'assets/partners/fingers.png',             width: 96,  height: 96  }
+    { name: 'Fingers',             logo: 'assets/partners/fingers.png',             width: 484, height: 264 }
   ];
 
   /* ---- Build a single logo element ------------------------------------- */
