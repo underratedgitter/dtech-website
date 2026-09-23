@@ -51,20 +51,35 @@
 .partner-logo-box img { filter:none!important; }
 .partner-logo-box { background:#fff!important; }
 
-/* ---- Marquee logos: invert dark wordmarks so they read on the dark
-   surface. No white background boxes — keep the look clean. ----------- */
-.brand-marquee-item img { filter:brightness(0) invert(1); opacity:.8; }
+/* ---- Marquee logos: invert dark/black wordmarks to crisp white on dark
+   background. Preserve authentic colors for coloured logos without boxes. */
+.brand-marquee-item img { filter:brightness(0) invert(1); opacity:.88; }
 .brand-marquee-item:hover img { opacity:1; }
-/* Coloured / photo logos should NOT be inverted */
+
+/* Coloured brand logos that should keep their original vibrant colors */
 .brand-marquee-item img[src$="google.svg"],
 .brand-marquee-item img[src$="microsoft.svg"],
 .brand-marquee-item img[src$="hp.svg"],
-.brand-marquee-item img[src$="beetel.png"],
-.brand-marquee-item img[src$="lg.svg"],
-.brand-marquee-item img[src$="cp-plus.png"],
+.brand-marquee-item img[src$="intel.svg"],
+.brand-marquee-item img[src$="siemens.svg"],
 .brand-marquee-item img[src$="bosch.svg"],
-.brand-marquee-item img[src$="exide.svg"] { filter:brightness(1.2); }
-.brand-marquee-item img[src$="zkteco.png"] { background:transparent; padding:0; border-radius:0; filter:brightness(0) invert(1); }
+.brand-marquee-item img[src$="canon.svg"],
+.brand-marquee-item img[src$="honeywell.svg"],
+.brand-marquee-item img[src$="oracle.svg"],
+.brand-marquee-item img[src$="lenovo.svg"],
+.brand-marquee-item img[src$="lg.svg"],
+.brand-marquee-item img[src$="exide.svg"],
+.brand-marquee-item img[src$="jbl.svg"],
+.brand-marquee-item img[src$="viewsonic.svg"],
+.brand-marquee-item img[src$="poly.svg"],
+.brand-marquee-item img[src$="polycab.png"],
+.brand-marquee-item img[src$="beetel.png"],
+.brand-marquee-item img[src$="cp-plus.png"],
+.brand-marquee-item img[src$="digisol.png"],
+.brand-marquee-item img[src$="prama.png"] { filter:none; opacity:.92; }
+
+/* Transparent backgrounds on all logos in dark mode */
+.brand-marquee-item img { background:transparent!important; border-radius:0!important; padding:0!important; }
 .brand-marquee-label { background:transparent; border-color:var(--signal); color:var(--signal); }
 .brand-marquee-label-wrap { }
 .brand-marquee-row + .brand-marquee-row { border-top-color:var(--line); }
