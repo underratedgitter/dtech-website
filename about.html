@@ -51,12 +51,6 @@
         max-width: 1720px;
       }
     }
-    .system-tab-btn.active {
-      background-color: #008ccf;
-      color: #ffffff;
-      border-color: #008ccf;
-      box-shadow: 0 4px 6px -1px rgba(0, 140, 207, 0.2);
-    }
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: #f1f5f9; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -105,7 +99,8 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" as="image" href="assets/dtech-logo.webp" fetchpriority="high">
-  </head>
+    <link rel="stylesheet" href="assets/refresh.min.css">
+</head>
 <body data-page="about" class="bg-white text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="utility-bar"><div class="executive-container"><span>Industrial technology. Integrated with precision.</span><a href="tel:+919998026089">Speak to our team <span>+91 99980 26089 ↗</span></a></div></div>
@@ -479,7 +474,7 @@
             Direct authorized procurement, warranty fulfilment and engineering support — backed by multi-year alliances with global technology OEMs.
           </p>
           <!-- Trust badges -->
-          <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <div class="flex flex-wrap items-center justify-start gap-3 pt-2">
             <span class="partner-trust-badge partner-proof-green inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono font-semibold text-slate-400">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               ISO 9001:2015

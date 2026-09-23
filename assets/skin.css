@@ -147,7 +147,6 @@ img { max-width:100%; }
 
 .font-mono,main .font-mono { font-family:var(--mono)!important; }
 .font-sans { font-family:var(--text-face)!important; }
-.font-display { font-family:var(--display)!important; }
 
 body main [id],body section[id] { scroll-margin-top:var(--anchor-offset); }
 
@@ -461,15 +460,14 @@ body .bg-white,body .bg-white\/95,body .bg-white\/90,body .bg-white\/80 { backgr
 body .bg-slate-50,body .bg-slate-100 { background-color:var(--well)!important; }
 body .bg-slate-900,body .bg-slate-800 { background-color:var(--invert)!important; }
 body .bg-blue-50,body .bg-blue-100,body .bg-blue-50\/50 { background-color:var(--c-cyan-wash)!important; }
-body .bg-emerald-50,body .bg-emerald-100 { background-color:var(--c-green-wash)!important; }
-body .bg-purple-100 { background-color:var(--well)!important; }
+body .bg-emerald-50 { background-color:var(--c-green-wash)!important; }
 
 body .text-slate-900,body .text-slate-800 { color:var(--ink)!important; }
 body .text-slate-700,body .text-slate-600 { color:var(--ink-soft)!important; }
 body .text-slate-500,body .text-slate-400 { color:var(--muted)!important; }
 /* These land on grounds this file cannot predict, so they take the tone that
    clears AA on the darkest of them rather than the lightest caption grey. */
-body .text-slate-300,body .text-slate-200 { color:var(--muted)!important; }
+body .text-slate-300 { color:var(--muted)!important; }
 
 body [class*="border-slate-"],body [class*="divide-slate-"]>*+* { border-color:var(--line)!important; }
 
@@ -496,7 +494,7 @@ body :is(a,button).bg-slate-900.text-white { color:#fff!important; }
 body .bg-emerald-600.text-white { color:var(--ink)!important; }
 
 /* Rounded geometry — the deck's plates, not the old squared lock. */
-body .rounded-sm,body .rounded,body .rounded-md { border-radius:8px!important; }
+body .rounded,body .rounded-md { border-radius:8px!important; }
 body .rounded-lg,body .rounded-xl { border-radius:var(--r-plate)!important; }
 body .rounded-2xl,body .rounded-3xl { border-radius:var(--r-panel)!important; }
 body .rounded-full { border-radius:999px!important; }
@@ -505,10 +503,9 @@ body :is(button,a)[class*="rounded-full"] { border-radius:999px!important; }
 
 /* Elevation is a soft navy shadow, the way the deck's cards sit on paper. */
 body .shadow-xs,body .shadow-sm { box-shadow:0 1px 2px rgba(7,29,52,.05)!important; }
-body .shadow-md,body .shadow-lg,body .shadow-xl,body .shadow-2xl { box-shadow:0 10px 30px -18px rgba(7,29,52,.28)!important; }
+body .shadow-lg,body .shadow-xl,body .shadow-2xl { box-shadow:0 10px 30px -18px rgba(7,29,52,.28)!important; }
 body main .hover\:shadow-md:hover,body main .hover\:shadow-lg:hover { box-shadow:0 16px 38px -20px rgba(7,29,52,.34)!important; }
 
-body .animate-pulse { animation:none!important; }
 .scrollbar-none { scrollbar-width:none; -ms-overflow-style:none; }
 .scrollbar-none::-webkit-scrollbar { display:none; }
 .group:focus-within>.group-hover\:block { display:block; }
@@ -1045,29 +1042,6 @@ body[data-page="home"] main>section:nth-of-type(3) h2 { font-size:clamp(28px,2.6
 }
 .system-visual figcaption a:hover { color:#fff; }
 
-/* ==================== 10 · HOME · PARTNER RAIL ==================== */
-
-.partner-strip {
-  display:flex; align-items:center; justify-content:space-between; gap:24px;
-  padding-top:22px; padding-bottom:22px;
-  background:var(--surface);
-  border-bottom:1px solid var(--line);
-}
-.partner-strip>span {
-  font:700 10px/1.5 var(--label); letter-spacing:.14em; text-transform:uppercase;
-  color:var(--faint); max-width:120px;
-}
-.partner-strip>a {
-  height:38px; min-width:110px;
-  display:flex; align-items:center; justify-content:center;
-  padding:4px 10px;
-  transition:opacity .18s ease,transform .18s ease;
-}
-.partner-strip>a:hover { transform:translateY(-1px); }
-.partner-strip img { display:block; max-width:132px; max-height:28px; width:auto; height:auto; }
-.partner-strip>a:first-of-type img { max-height:33px; }
-.partner-strip>a:nth-of-type(4) img { max-height:25px; }
-
 /* ==================== 11 · HOME · METRIC RIBBON ====================
    The deck's signature statistic card: pale-blue plate, thick coloured bar
    down the left edge, a large figure, a small uppercase caption.          */
@@ -1309,7 +1283,7 @@ body[data-page]:not([data-page="home"]) main>section:first-child h1 {
 body[data-page]:not([data-page="home"]) main>section:first-child p {
   max-width:62ch; font-size:16px; line-height:1.7; color:rgba(255,255,255,.70)!important;
 }
-body[data-page]:not([data-page="home"]) main>section:first-child :is(.text-white,.text-slate-300,.text-slate-400,.text-slate-200) { color:rgba(255,255,255,.70)!important; }
+body[data-page]:not([data-page="home"]) main>section:first-child :is(.text-white,.text-slate-300,.text-slate-400) { color:rgba(255,255,255,.70)!important; }
 body[data-page]:not([data-page="home"]) main>section:first-child .eyebrow { color:var(--signal); }
 
 /* Breadcrumb chip → the deck's pale pill. */
@@ -1348,7 +1322,6 @@ body[data-page="about"] #intro+section .grid>div,
 body[data-page="about"] #intro+section+section .grid>div,
 body[data-page="about"] #partners .grid>div,
 body[data-page="solutions"] #systems-catalog+section .grid>div,
-body[data-page="case-studies"] main>section:nth-of-type(3)>.executive-container>.grid>div,
 body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-7>div,
 body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-5>div {
   background:var(--surface)!important;
@@ -1360,8 +1333,7 @@ body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-5>div {
 
 body[data-page="about"] #intro+section+section .grid>div:hover,
 body[data-page="about"] #partners .grid>div:hover,
-body[data-page="solutions"] #systems-catalog+section .grid>div:hover,
-body[data-page="case-studies"] main .grid>div[id]:hover {
+body[data-page="solutions"] #systems-catalog+section .grid>div:hover {
   border-color:var(--signal)!important;
   box-shadow:0 18px 40px -24px rgba(7,29,52,.36)!important;
   transform:translateY(-2px);
@@ -1521,39 +1493,10 @@ footer img { background:transparent!important; padding:0!important; filter:inver
 .home-hero .hero-copy>*:nth-child(5) { animation-delay:320ms; }
 .home-hero .hero-visual { animation:a-rise 760ms var(--ease) 160ms both; }
 
-/* The caption is pinned; only the logo lane travels, and it fades out at
-   both ends so logos enter and leave instead of being cut off. */
-body[data-page="home"] .partner-strip.marquee-on {
-  display:flex; align-items:center; gap:28px; overflow:hidden;
-}
-body[data-page="home"] .partner-strip.marquee-on>span {
-  flex:0 0 auto; max-width:none; white-space:nowrap;
-  padding-right:28px; border-right:1px solid var(--line);
-}
-body[data-page="home"] .marquee-lane {
-  flex:1 1 auto; min-width:0; overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);
-  mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);
-}
-body[data-page="home"] .partner-strip .marquee-track {
-  display:flex; align-items:center; width:max-content; animation:a-strip 46s linear infinite;
-}
-body[data-page="home"] .partner-strip .marquee-track>* { flex:0 0 auto; margin:0 28px; }
-body[data-page="home"] .partner-strip .marquee-track>a {
-  height:38px; min-width:110px; display:flex; align-items:center; justify-content:center; padding:4px 10px;
-}
-body[data-page="home"] .partner-strip .marquee-track img { display:block; max-width:132px; max-height:28px; width:auto; height:auto; }
-body[data-page="home"] .partner-strip .marquee-track>span {
-  font:700 10px/1 var(--label); letter-spacing:.14em; text-transform:uppercase; color:var(--faint); white-space:nowrap;
-}
-body[data-page="home"] .partner-strip.marquee-on:hover .marquee-track { animation-play-state:paused; }
-@keyframes a-strip { to { transform:translateX(-50%); } }
-
 @media (prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto!important; }
   *,*:before,*:after { animation:none!important; transition:none!important; }
   .a-pre,.a-in { opacity:1; transform:none; }
-  body[data-page="home"] .partner-strip .marquee-track { animation:none; }
 }
 
 /* ==================== 23 · RESPONSIVE ==================== */
@@ -1602,25 +1545,6 @@ body[data-page="home"] .partner-strip.marquee-on:hover .marquee-track { animatio
   .node-core { width:124px; height:94px; }
   .node-data,.node-auto,.node-safe,.node-site { width:78px; height:66px; }
   .map-node svg { width:17px; height:17px; }
-
-  .partner-strip { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
-  .partner-strip>span { grid-column:1/-1; max-width:none; margin-bottom:4px; }
-  .partner-strip>a { min-width:0; height:46px; }
-  .partner-strip>a:last-child { grid-column:1/-1; }
-
-  /* On a phone the caption beside the rail leaves room for barely one logo,
-     so it sits above the lane instead and the logos take the full width. */
-  body[data-page="home"] .partner-strip.marquee-on {
-    flex-direction:column; align-items:stretch; gap:12px;
-  }
-  body[data-page="home"] .partner-strip.marquee-on>span {
-    padding-right:0; border-right:0;
-  }
-  body[data-page="home"] .marquee-lane {
-    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);
-    mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);
-  }
-  body[data-page="home"] .partner-strip .marquee-track>* { margin:0 18px; }
 
   main>section:not(.home-hero) { padding-top:52px!important; padding-bottom:52px!important; }
   .home-hero+section,
@@ -1726,15 +1650,7 @@ body[data-page="home"] .partner-strip.marquee-on:hover .marquee-track { animatio
 .restored-nav>a[aria-current="page"]::after,
 .desktop-nav>a[aria-current]::after { transform:scaleX(1); }
 
-/* Small-phone tightening for case-study stat chips (labels run to 19ch). */
 @media (max-width:480px) {
-  .chip-label { font-size:8px!important; letter-spacing:-.02em!important; }
-}
-
-@media (max-width:480px) {
-  .chip-grid { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
-  .chip { padding:6px!important; }
-  .chip-value { font-size:11px!important; }
   /* 16px+ inputs stop iOS Safari auto-zooming on focus. */
   input, select, textarea { font-size:16px!important; }
 }

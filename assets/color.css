@@ -38,10 +38,8 @@ html body main :is([class~="text-amber-300"],[class~="text-amber-400"],[class~="
 html body main :is([class~="text-red-500"],[class~="text-red-600"],[class~="text-rose-600"]) { color:var(--c-red)!important; }
 html body main .group:hover [class~="group-hover:text-blue-600"] { color:var(--signal-deep)!important; }
 
-html body main :is(.bg-blue-50,.bg-blue-100,.bg-blue-50\/50,.bg-purple-100) { background-color:var(--c-cyan-wash)!important; }
-html body main :is(.bg-emerald-50,.bg-emerald-100) { background-color:var(--c-green-wash)!important; }
-html body main :is(.bg-amber-50,.bg-amber-100,.bg-orange-50,.bg-orange-100) { background-color:var(--c-orange-wash)!important; }
-html body main :is(.bg-red-50,.bg-red-100,.bg-rose-50) { background-color:var(--c-red-wash)!important; }
+html body main :is(.bg-blue-50,.bg-blue-100,.bg-blue-50\/50) { background-color:var(--c-cyan-wash)!important; }
+html body main .bg-emerald-50 { background-color:var(--c-green-wash)!important; }
 
 html body main [class*="border-blue-"],
 html body main [class*="border-purple-"] { border-color:rgba(39,182,218,.42)!important; }
@@ -51,9 +49,8 @@ html body main [class*="border-orange-"] { border-color:rgba(255,122,26,.42)!imp
 html body main [class*="border-red-"] { border-color:rgba(239,61,47,.42)!important; }
 
 /* Status pills in the deck are a pale wash with a bold coloured label. */
-html body main :is(.bg-emerald-50,.bg-emerald-100).rounded-full,
-html body main :is(.bg-emerald-50,.bg-emerald-100)[class*="rounded"] { color:#1d8a5c!important; }
-html body main :is(.bg-red-50,.bg-red-100)[class*="rounded"] { color:#c9291c!important; }
+html body main .bg-emerald-50.rounded-full,
+html body main .bg-emerald-50[class*="rounded"] { color:#1d8a5c!important; }
 
 /* ==================== 2 · SELECTION + FOCUS ==================== */
 
@@ -77,14 +74,6 @@ html body[data-page="case-studies"] main>section:last-child a:not(.bg-white):hov
 html body[data-page="about"] main>section:last-child a:not(.bg-white):hover {
   background:rgba(255,255,255,.1)!important; border-color:#fff!important;
 }
-
-/* ==================== 5 · PARTNER LOGOS ==================== */
-
-/* The deck prints vendor marks in their real colours; so does the site. */
-html body .partner-strip>a,
-html body[data-page="home"] .partner-strip .marquee-track>a { filter:none; opacity:1; }
-html[data-theme="dark"] body .partner-strip { background:#eef4f9; }
-html[data-theme="dark"] body .partner-strip>span { color:#576e82; }
 
 /* ==================== 6 · CASE STUDY TABS + CARDS ====================
    Page components that live only here. Recoloured to the deck: a pale-blue
@@ -118,17 +107,6 @@ html[data-theme="dark"] body .partner-strip>span { color:#576e82; }
   .case-tabs::-webkit-scrollbar { display:none; }
   .case-tab { flex:0 0 auto; }
 }
-
-/* Text wordmark for clients without a logo file. */
-.case-wordmark {
-  display:inline-block; padding:22px 34px; max-width:80%;
-  background:#fff; border:1px solid var(--line); border-radius:var(--r-panel);
-  font:800 clamp(24px,2.6vw,34px)/1.05 var(--display); letter-spacing:-.03em; color:var(--invert);
-  text-align:center;
-}
-.case-card[data-category="network"] .case-wordmark { box-shadow:inset 0 -4px 0 var(--signal); }
-.case-card[data-category="services"] .case-wordmark { box-shadow:inset 0 -4px 0 var(--c-green); }
-.case-card[data-category="safety"] .case-wordmark { box-shadow:inset 0 -4px 0 var(--c-orange); }
 
 .case-cat-chip {
   font:700 9px/1 var(--label); letter-spacing:.1em; text-transform:uppercase;

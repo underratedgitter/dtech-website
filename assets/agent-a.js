@@ -153,45 +153,7 @@
     initSliders();
     initHeader();
     initReveal();
-    initMarquee();
     initCounters();
-  }
-
-  /* Single allowed marquee (home partner rail). Cloned half is
-     aria-hidden + unfocusable; originals untouched. */
-  function initMarquee() {
-    try {
-      if (reducedMotion()) return;
-      if (!document.body || document.body.getAttribute('data-page') !== 'home') return;
-      var strip = document.querySelector('.partner-strip');
-      if (!strip || strip.querySelector('.marquee-track')) return;
-      var kids = Array.prototype.slice.call(strip.children);
-      if (kids.length < 2) return;
-      /* The "Technology partners" caption is a label for the rail, not one of
-         the logos: it stays pinned while only the logos travel. */
-      var label = kids.filter(function (n) { return n.tagName === 'SPAN'; });
-      kids = kids.filter(function (n) { return n.tagName !== 'SPAN'; });
-      if (!kids.length) return;
-      var track = document.createElement('div');
-      track.className = 'marquee-track';
-      kids.forEach(function (n) { track.appendChild(n); });
-      kids.map(function (n) {
-        var c = n.cloneNode(true);
-        c.setAttribute('aria-hidden', 'true');
-        return c;
-      }).forEach(function (c) {
-        var f = c.querySelectorAll('a, button');
-        for (var i = 0; i < f.length; i++) { f[i].tabIndex = -1; }
-        if (c.tagName === 'A' || c.tagName === 'BUTTON') c.tabIndex = -1;
-        track.appendChild(c);
-      });
-      var lane = document.createElement('div');
-      lane.className = 'marquee-lane';
-      lane.appendChild(track);
-      label.forEach(function (n) { strip.appendChild(n); });
-      strip.appendChild(lane);
-      strip.classList.add('marquee-on');
-    } catch (e) {}
   }
 
   /* Theme: stored pref wins, else OS, else dark. Sheet toggle only. */

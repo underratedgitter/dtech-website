@@ -51,12 +51,6 @@
         max-width: 1720px;
       }
     }
-    .system-tab-btn.active {
-      background-color: #008ccf;
-      color: #ffffff;
-      border-color: #008ccf;
-      box-shadow: 0 4px 6px -1px rgba(0, 140, 207, 0.2);
-    }
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: #f1f5f9; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -64,10 +58,6 @@
   </style>
 
   <style>
-    @keyframes dtFadeSlideUp {
-      0% { opacity: 0; transform: translateY(24px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
     @keyframes dtRadarPulse {
       0% { transform: scale(0.6); opacity: 1; }
       100% { transform: scale(2.4); opacity: 0; }
@@ -87,13 +77,6 @@
       border-radius: 50%;
       border: 1.5px solid #10b981;
       animation: dtRadarPulse 2s infinite cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .group:hover .plant-zoom {
-      transform: scale(1.06);
-      filter: brightness(1.04);
-    }
-    .plant-zoom {
-      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
     }
   </style>
   <script src="assets/refined.min.js" defer></script>

@@ -63,15 +63,6 @@ body { letter-spacing:-.003em; }
   background-color: transparent !important;
   filter: none;
 }
-.partner-logo-box img[src$="motorola-solutions.svg"] {
-  filter: brightness(0) invert(1) !important;
-}
-.partner-logo-box img[src$="dell-technologies.svg"] {
-  filter: brightness(1.6) contrast(1.1) !important;
-}
-.partner-logo-box img[src$="synobiz.webp"] {
-  filter: brightness(1.3) !important;
-}
 
 /* ---- Marquee logos in Dark Mode:
    Preserve authentic brand colors across all logos.
