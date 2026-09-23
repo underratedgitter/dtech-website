@@ -136,10 +136,13 @@ html[data-theme="dark"] .cs-eyebrow { color:var(--signal); }
   display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
   margin:20px 0 0; border:1px solid var(--line); border-radius:var(--r-plate); overflow:hidden;
 }
-@media (min-width:560px) { .cs-metrics { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+/* Four across only when the card itself is wide enough; in the three-up
+   desktop grid the cards are narrow, so metrics stay two by two. */
+.cs-card { container-type:inline-size; }
+@container (min-width:600px) { .cs-metrics { grid-template-columns:repeat(4,minmax(0,1fr)); } }
 .cs-metrics>div { padding:12px 14px; min-width:0; background:var(--well); }
 .cs-metrics>div+div { box-shadow:-1px 0 0 var(--line); }
-@media (max-width:559px) {
+@container (max-width:599px) {
   .cs-metrics>div:nth-child(n+3) { box-shadow:0 -1px 0 var(--line); }
   .cs-metrics>div:nth-child(4) { box-shadow:0 -1px 0 var(--line),-1px 0 0 var(--line); }
 }
@@ -148,7 +151,7 @@ html[data-theme="dark"] .cs-eyebrow { color:var(--signal); }
 }
 .cs-metrics dd {
   margin:5px 0 0; font:800 15px/1.2 var(--display); letter-spacing:-.01em; color:var(--ink);
-  overflow-wrap:anywhere;
+  overflow-wrap:break-word; hyphens:auto;
 }
 
 .cs-where {
@@ -191,4 +194,21 @@ html[data-theme="dark"] .cs-btn-solid:hover { background:#fff; border-color:#fff
   .cs-card,.cs-logo,.cs-wall-tile { transition:none; }
   .cs-card:hover,.cs-wall-tile:hover { transform:none; }
   .cs-card:hover .cs-logo { transform:none; }
+}
+
+/* ---- Preferred partners: logos only, no pills ---------------------------- */
+.cs-partner-logos {
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-start;
+  gap:28px 56px; margin:8px 0 0;
+}
+.cs-partner-logos img {
+  display:block; width:auto; height:40px; max-width:150px; object-fit:contain;
+}
+.cs-partner-logos img[src$="hp.svg"] { height:48px; }
+.cs-partner-logos img[src$="dell-technologies.svg"] { height:auto; width:150px; }
+@media (max-width:640px) {
+  .cs-partner-logos { gap:24px 36px; }
+  .cs-partner-logos img { height:32px; max-width:120px; }
+  .cs-partner-logos img[src$="hp.svg"] { height:40px; }
+  .cs-partner-logos img[src$="dell-technologies.svg"] { width:120px; }
 }
