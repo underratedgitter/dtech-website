@@ -119,10 +119,6 @@
     section.appendChild(buildRow(tier2, 'right', 'Enterprise Infrastructure & Control'));
     section.appendChild(buildRow(tier3, 'left',  'Specialized Systems & Hardware'));
 
-    /* Pause on hover for accessibility */
-    section.addEventListener('mouseenter', function () { section.classList.add('marquee-paused'); });
-    section.addEventListener('mouseleave', function () { section.classList.remove('marquee-paused'); });
-
     /* Stop the three infinite animations while the section is off screen,
        so scrolling the rest of the page is not competing with them. */
     if ('IntersectionObserver' in window) {
