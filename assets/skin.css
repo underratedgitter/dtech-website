@@ -346,14 +346,10 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
 .brand-marquee-label {
   display:inline-block;
   color:var(--signal-deep);
-  font:700 10px/1 var(--label);
-  letter-spacing:.1em;
+  font:700 11px/1 var(--label);
+  letter-spacing:.14em;
   text-transform:uppercase;
   white-space:nowrap;
-  padding:6px 14px;
-  border-radius:20px;
-  background:var(--signal-wash, rgba(0,140,207,.08));
-  border:1px solid var(--signal-deep);
 }
 .brand-marquee-label-wrap {
   padding:0 36px 14px;
@@ -422,7 +418,7 @@ a.brand-marquee-item { cursor:pointer; }
   .leadership-card:last-child { grid-column:auto; max-width:none; }
   .marquee-set { gap:40px; padding:0 20px; }
   .brand-marquee-label-wrap { padding:0 20px 10px; }
-  .brand-marquee-label { font-size:9px; padding:5px 10px; }
+  .brand-marquee-label { font-size:9px; }
   .brand-marquee { padding:40px 0 32px; }
   .brand-marquee-heading { padding-bottom:28px; }
   .brand-marquee-item img { height:44px; max-width:140px; }
