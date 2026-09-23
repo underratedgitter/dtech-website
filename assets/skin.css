@@ -406,7 +406,6 @@ a.brand-marquee-item { cursor:pointer; }
 }
 .brand-marquee-item:hover img,.brand-marquee-item:focus-visible img { opacity:1; }
 .brand-marquee-item img[src$="hp.svg"] { width:56px; }
-.brand-marquee-item img[src$="zkteco.png"] { background:#fff; border-radius:4px; padding:4px 10px; }
 @media (prefers-reduced-motion:reduce) {
   .partner-card,.partner-cta,.alliance-brand { transition:none; }
   .marquee-scroll-left,.marquee-scroll-right { animation:none; }
