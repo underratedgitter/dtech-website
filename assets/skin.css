@@ -243,8 +243,8 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
 .partner-accent-red { --partner-accent:var(--c-red-solid); --partner-wash:var(--c-red-wash); }
 .partner-logo-box {
   position:relative;
-  border:1px solid var(--line);
-  background:var(--sunken);
+  border:none;
+  background:transparent;
 }
 .partner-accent-green .partner-logo-box,.partner-accent-red .partner-logo-box { width:136px; }
 .partner-highlight {
@@ -1245,7 +1245,7 @@ body[data-page="solutions"] input[type="range"]::-moz-range-thumb {
 }
 #calc-budget,#calc-payback { font-variant-numeric:tabular-nums; color:var(--signal)!important; }
 
-main img.object-contain { background-color:var(--surface)!important; }
+main img.object-contain { background-color:transparent!important; }
 
 /* ==================== 19 · CONTACT ==================== */
 
