@@ -148,7 +148,20 @@
     } catch (e) {}
   }
 
+  /* Flag active scrolling so CSS can suspend hover effects until it ends. */
+  function initScrollState() {
+    try {
+      var root = document.documentElement, timer = 0;
+      window.addEventListener('scroll', function () {
+        if (!timer) root.classList.add('is-scrolling');
+        clearTimeout(timer);
+        timer = setTimeout(function () { root.classList.remove('is-scrolling'); timer = 0; }, 150);
+      }, { passive: true });
+    } catch (e) {}
+  }
+
   function init() {
+    initScrollState();
     initTheme();
     initSliders();
     initHeader();

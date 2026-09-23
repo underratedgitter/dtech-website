@@ -9,7 +9,7 @@ module.exports = {
   // content scanner to detect consistently across runs. Safelist it outright
   // rather than depend on that detection.
   safelist: {
-    standard: ['hidden', 'a-in', 'a-pre'],
+    standard: ['hidden', 'a-in', 'a-pre', 'is-scrolling'],
     greedy: [/^brand-marquee/],
   },
   // Standard Tailwind extractor: keeps arbitrary values (text-[10px],
