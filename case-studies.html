@@ -100,6 +100,7 @@
   <script src="assets/agent-a.min.js" defer></script>
   <link rel="stylesheet" href="assets/bundle.min.css">
   <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.min.css">
+  <link rel="stylesheet" href="assets/case-studies.min.css">
   <!-- Built from tools/tailwind; loads last, where the Play CDN used to inject it. -->
   <link rel="stylesheet" href="assets/fonts.min.css" media="print" onload="this.media='all'">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-400.woff2" crossorigin>
@@ -169,36 +170,30 @@
 
       <main id="main-content" class="flex-1" tabindex="-1">
 
-        <!-- PAGE HEADER (With Authentic Plant Photography) -->
-    <section class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white py-14 sm:py-16 border-b border-slate-800 relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
-      
-      <div class="executive-container relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          <div class="lg:col-span-12 max-w-3xl space-y-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-xs font-mono">
-              <span>Home</span> <span class="text-slate-400">/</span> <span class="text-white">Case Studies</span>
-            </div>
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Enterprise Client Case Studies
-            </h1>
-            <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-              Documented turnkey networks, plant safety systems and managed IT services for LNG terminals, chemical and fertilizer majors, pharma and tyre manufacturing across Gujarat.
-            </p>
-            <div class="flex items-center gap-4 pt-1 text-xs font-mono text-slate-400">
-              <span class="flex items-center gap-1 text-emerald-400 font-bold">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>11 Documented Projects</span>
-              </span>
-              <span>•</span>
-              <span>4-Hour SLA Guarantee</span>
-              <span>•</span>
-              <span>ISO 9001:2015</span>
-            </div>
-          </div>
-
+        <!-- PAGE HEADER -->
+    <section class="cs-hero text-white">
+      <div class="executive-container cs-hero-grid">
+        <div class="cs-hero-copy">
+          <p class="cs-crumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Case Studies</span></p>
+          <h1>Enterprise Client Case Studies</h1>
+          <p class="cs-lede">Documented turnkey networks, plant safety systems and managed IT services for LNG terminals, chemical and fertilizer majors, pharma and tyre manufacturing across Gujarat.</p>
+          <ul class="cs-hero-facts">
+            <li><span class="dt-live-dot" aria-hidden="true"></span>11 Documented Projects</li>
+            <li>4-Hour SLA Guarantee</li>
+            <li>ISO 9001:2015</li>
+          </ul>
         </div>
+        <nav class="cs-wall" aria-label="Clients featured in these case studies">
+            <a class="cs-wall-tile" href="#petronet-fms" title="Petronet LNG Limited"><img class="cs-wall-logo" width="429" height="600" src="assets/case-studies/logos/petronet-lng.webp" alt="Petronet LNG Limited logo" decoding="async"></a>
+            <a class="cs-wall-tile" href="#rockwool" title="ROCKWOOL"><img class="cs-wall-logo" width="165" height="30" src="assets/case-studies/logos/rockwool.svg" alt="ROCKWOOL logo" decoding="async"></a>
+            <a class="cs-wall-tile" href="#gnfc-fms" title="GNFC Limited"><img class="cs-wall-logo" width="556" height="567" src="assets/case-studies/logos/gnfc.webp" alt="GNFC Limited logo" decoding="async"></a>
+            <a class="cs-wall-tile" href="#veer-pharma" title="Veer Pharma"><img class="cs-wall-logo" width="198" height="145" src="assets/case-studies/logos/veer-pharmachem.webp" alt="Veer Pharma logo" decoding="async"></a>
+            <a class="cs-wall-tile" href="#krystal" title="Krystal Ingredients Pvt. Ltd."><img class="cs-wall-logo" width="431" height="276" src="assets/case-studies/logos/krystal.webp" alt="Krystal Ingredients Pvt. Ltd. logo" decoding="async"></a>
+            <a class="cs-wall-tile" href="#mrf" title="MRF Limited"><img class="cs-wall-logo" width="353" height="71" src="assets/case-studies/logos/mrf.svg" alt="MRF Limited logo" decoding="async"></a>
+            <a class="cs-wall-tile" href="#indofil" title="Indofil Industries Limited"><img class="cs-wall-logo" width="150" height="50" src="assets/case-studies/logos/indofil.webp" alt="Indofil Industries Limited logo" decoding="async"></a>
+            <a class="cs-wall-tile" href="#bostik" title="Bostik India Pvt. Ltd."><img class="cs-wall-logo" width="300" height="122" src="assets/case-studies/logos/bostik.svg" alt="Bostik India Pvt. Ltd. logo" decoding="async"></a>
+            <a class="cs-wall-tile" href="#balaji" title="Balaji Wafers Private Limited"><img class="cs-wall-logo" width="110" height="85" src="assets/case-studies/logos/balaji.svg" alt="Balaji Wafers Private Limited logo" decoding="async"></a>
+        </nav>
       </div>
     </section>
 
@@ -234,10 +229,10 @@
         <section class="py-16 bg-slate-50/50">
           <div class="executive-container">
 
-            <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-              <span class="text-xs font-mono font-bold uppercase tracking-widest text-blue-600">Executive Proof · Across Business in PAN India</span>
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Turnkey Deployments &amp; Field Impact</h2>
-              <p class="text-sm text-slate-600">11 documented D-TECH engagements across energy, chemicals, pharma, tyre manufacturing and plant safety — from greenfield networks to multi-year managed services. Pick a tab to filter, open a summary, or have the full PDF case study emailed to you.</p>
+            <div class="cs-head">
+              <span class="cs-eyebrow">Executive Proof · Across Business in PAN India</span>
+              <h2>Turnkey Deployments &amp; Field Impact</h2>
+              <p>11 documented D-TECH engagements across energy, chemicals, pharma, tyre manufacturing and plant safety — from greenfield networks to multi-year managed services. Pick a tab to filter, open a summary, or have the full PDF case study emailed to you.</p>
             </div>
 
             <div class="case-tabs" role="tablist" aria-label="Filter case studies by category">
@@ -247,549 +242,185 @@
               <button type="button" role="tab" id="case-tab-safety" class="case-tab" aria-selected="false" aria-controls="case-grid" data-filter="safety" onclick="filterCases('safety')"><i data-lucide="shield-check" class="w-4 h-4"></i><span>Safety, Communication &amp; Automation</span><b>3</b></button>
             </div>
 
-            <div id="case-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8" role="tabpanel" aria-labelledby="case-tab-all">
-        <!-- Summary Card: Petronet LNG Limited (petronet-fms) -->
-        <div id="petronet-fms" data-category="services" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="429" height="600" src="assets/case-studies/logos/petronet-lng.webp" alt="Petronet LNG Limited logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Energy · LNG Terminal</span>
-                <span class="case-cat-chip" data-cat="services">Managed Services</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Dahej LNG Terminal, Bharuch, Gujarat</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Petronet LNG Limited</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">Awarded Sep 2026 · 01 Oct 2026 – 31 May 2028</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>24×7 Onsite Enterprise FMS</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">A newly awarded 20-month facility-management mandate placing two L1 engineers on 24×7 rotational shifts at India&#x27;s LNG gateway, backed by D-TECH&#x27;s L1/L2/L3 escalation.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Engagement</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">20 Months</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Onsite Team</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">2 L1 Engineers</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Coverage</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">24×7 Shifts</span>
-              </div>
-            </div>
+            <div id="case-grid" class="cs-grid" role="tabpanel" aria-labelledby="case-tab-all">
+        <!-- Petronet LNG Limited (petronet-fms) -->
+        <article id="petronet-fms" data-category="services" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="429" height="600" src="assets/case-studies/logos/petronet-lng.webp" alt="Petronet LNG Limited logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Energy · LNG Terminal</span><span class="case-cat-chip" data-cat="services">Managed Services</span></div>
+            <h3 class="cs-client">Petronet LNG Limited</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>24×7 Onsite Enterprise FMS</span></p>
+            <p class="cs-summary">A newly awarded 20-month facility-management mandate placing two L1 engineers on 24×7 rotational shifts at India&#x27;s LNG gateway, backed by D-TECH&#x27;s L1/L2/L3 escalation.</p>
+            <dl class="cs-metrics"><div><dt>Engagement</dt><dd>20 Months</dd></div><div><dt>Onsite Team</dt><dd>2 L1 Engineers</dd></div><div><dt>Coverage</dt><dd>24×7 Shifts</dd></div><div><dt>Escalation</dt><dd>L1 / L2 / L3</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Dahej LNG Terminal, Bharuch, Gujarat</span><span class="cs-dot" aria-hidden="true">·</span><span>Awarded Sep 2026 · 01 Oct 2026 – 31 May 2028</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('petronet-fms')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('petronet-fms')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('petronet-fms')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('petronet-fms')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: ROCKWOOL (rockwool) -->
-        <div id="rockwool" data-category="safety" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="165" height="30" src="assets/case-studies/logos/rockwool.svg" alt="ROCKWOOL logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Manufacturing · Plant Safety</span>
-                <span class="case-cat-chip" data-cat="safety">Safety, Communication &amp; Automation</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">ROCKWOOL plant</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">ROCKWOOL</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">Completion certified 29 May 2026</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>Safety Training &amp; Work Permit Kiosk</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">A turnkey touch kiosk that moves safety induction, biometric verification, safety-pass printing and digital work-permit approvals from paper to one traceable platform.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Training Modules</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">16 Topics</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Languages</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">EN · HI · GU +</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Verification</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">Biometric</span>
-              </div>
-            </div>
+        </article>
+        <!-- ROCKWOOL (rockwool) -->
+        <article id="rockwool" data-category="safety" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="165" height="30" src="assets/case-studies/logos/rockwool.svg" alt="ROCKWOOL logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Manufacturing · Plant Safety</span><span class="case-cat-chip" data-cat="safety">Safety, Communication &amp; Automation</span></div>
+            <h3 class="cs-client">ROCKWOOL</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>Safety Training &amp; Work Permit Kiosk</span></p>
+            <p class="cs-summary">A turnkey touch kiosk that moves safety induction, biometric verification, safety-pass printing and digital work-permit approvals from paper to one traceable platform.</p>
+            <dl class="cs-metrics"><div><dt>Training Modules</dt><dd>16 Topics</dd></div><div><dt>Languages</dt><dd>EN · HI · GU +</dd></div><div><dt>Verification</dt><dd>Biometric</dd></div><div><dt>Customer Sign-off</dt><dd>May 2026</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>ROCKWOOL plant</span><span class="cs-dot" aria-hidden="true">·</span><span>Completion certified 29 May 2026</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('rockwool')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('rockwool')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('rockwool')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('rockwool')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: GNFC Limited (gnfc-fms) -->
-        <div id="gnfc-fms" data-category="services" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="556" height="567" src="assets/case-studies/logos/gnfc.webp" alt="GNFC Limited logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Chemicals &amp; Fertilizers</span>
-                <span class="case-cat-chip" data-cat="services">Managed Services</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Head Office, Bharuch &amp; TDI-II, Dahej</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">GNFC Limited</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">2023 – 2026 · three completed cycles</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>Enterprise IT FMS &amp; Helpdesk</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Resident helpdesk, field engineering, LAN/fibre operations and asset control for roughly 1,720 PCs and laptops across two GNFC sites — renewed and completion-certified three years running.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Endpoints</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">~1,720 PCs &amp; Laptops</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Sites</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">Bharuch + Dahej</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">On-site Coverage</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">6 Days / Week</span>
-              </div>
-            </div>
+        </article>
+        <!-- GNFC Limited (gnfc-fms) -->
+        <article id="gnfc-fms" data-category="services" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="556" height="567" src="assets/case-studies/logos/gnfc.webp" alt="GNFC Limited logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Chemicals &amp; Fertilizers</span><span class="case-cat-chip" data-cat="services">Managed Services</span></div>
+            <h3 class="cs-client">GNFC Limited</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>Enterprise IT FMS &amp; Helpdesk</span></p>
+            <p class="cs-summary">Resident helpdesk, field engineering, LAN/fibre operations and asset control for roughly 1,720 PCs and laptops across two GNFC sites — renewed and completion-certified three years running.</p>
+            <dl class="cs-metrics"><div><dt>Endpoints</dt><dd>~1,720 PCs &amp; Laptops</dd></div><div><dt>Sites</dt><dd>Bharuch + Dahej</dd></div><div><dt>On-site Coverage</dt><dd>6 Days / Week</dd></div><div><dt>Continuity</dt><dd>3 Service Years</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Head Office, Bharuch &amp; TDI-II, Dahej</span><span class="cs-dot" aria-hidden="true">·</span><span>2023 – 2026 · three completed cycles</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('gnfc-fms')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('gnfc-fms')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('gnfc-fms')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('gnfc-fms')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: Veer Pharma (veer-pharma) -->
-        <div id="veer-pharma" data-category="network" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="198" height="145" src="assets/case-studies/logos/veer-pharmachem.webp" alt="Veer Pharma logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Pharmaceuticals</span>
-                <span class="case-cat-chip" data-cat="network">Network &amp; IT Infrastructure</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Jhagadia, Gujarat</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Veer Pharma</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">Turnkey IT &amp; ELV programme</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>Redundant Turnkey IT Infrastructure</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">A secure, redundant, centrally managed IT backbone — servers, SAN/NAS, VMware HA, dual-core network, firewall HA, Wi-Fi, CCTV, IP-PBX and access control — delivered as one programme.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Dell Servers</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">3 · VMware HA</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Segmented VLANs</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">10</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Wi-Fi Access Points</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">8</span>
-              </div>
-            </div>
+        </article>
+        <!-- Veer Pharma (veer-pharma) -->
+        <article id="veer-pharma" data-category="network" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="198" height="145" src="assets/case-studies/logos/veer-pharmachem.webp" alt="Veer Pharma logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Pharmaceuticals</span><span class="case-cat-chip" data-cat="network">Network &amp; IT Infrastructure</span></div>
+            <h3 class="cs-client">Veer Pharma</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>Redundant Turnkey IT Infrastructure</span></p>
+            <p class="cs-summary">A secure, redundant, centrally managed IT backbone — servers, SAN/NAS, VMware HA, dual-core network, firewall HA, Wi-Fi, CCTV, IP-PBX and access control — delivered as one programme.</p>
+            <dl class="cs-metrics"><div><dt>Dell Servers</dt><dd>3 · VMware HA</dd></div><div><dt>Segmented VLANs</dt><dd>10</dd></div><div><dt>Wi-Fi Access Points</dt><dd>8</dd></div><div><dt>Design Availability</dt><dd>99.3%</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Jhagadia, Gujarat</span><span class="cs-dot" aria-hidden="true">·</span><span>Turnkey IT &amp; ELV programme</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('veer-pharma')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('veer-pharma')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('veer-pharma')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('veer-pharma')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: Krystal Ingredients Pvt. Ltd. (krystal) -->
-        <div id="krystal" data-category="safety" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="431" height="276" src="assets/case-studies/logos/krystal.webp" alt="Krystal Ingredients Pvt. Ltd. logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Chemicals · Hazardous Area</span>
-                <span class="case-cat-chip" data-cat="safety">Safety, Communication &amp; Automation</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Dahej, Gujarat</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Krystal Ingredients Pvt. Ltd.</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">Designed, integrated &amp; commissioned by D-TECH</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>IP PA System &amp; FLP Telephones</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Plant-wide IP public-address paging integrated with the existing Matrix PABX, with flameproof telephones in the MPP plant and zone-wise or all-call announcements.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">IP Speakers</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">27</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Outdoor Speakers</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">18</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">FLP Telephones</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">12</span>
-              </div>
-            </div>
+        </article>
+        <!-- Krystal Ingredients Pvt. Ltd. (krystal) -->
+        <article id="krystal" data-category="safety" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="431" height="276" src="assets/case-studies/logos/krystal.webp" alt="Krystal Ingredients Pvt. Ltd. logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Chemicals · Hazardous Area</span><span class="case-cat-chip" data-cat="safety">Safety, Communication &amp; Automation</span></div>
+            <h3 class="cs-client">Krystal Ingredients Pvt. Ltd.</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>IP PA System &amp; FLP Telephones</span></p>
+            <p class="cs-summary">Plant-wide IP public-address paging integrated with the existing Matrix PABX, with flameproof telephones in the MPP plant and zone-wise or all-call announcements.</p>
+            <dl class="cs-metrics"><div><dt>IP Speakers</dt><dd>27</dd></div><div><dt>Outdoor Speakers</dt><dd>18</dd></div><div><dt>FLP Telephones</dt><dd>12</dd></div><div><dt>Paging Consoles</dt><dd>3</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Dahej, Gujarat</span><span class="cs-dot" aria-hidden="true">·</span><span>Designed, integrated &amp; commissioned by D-TECH</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('krystal')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('krystal')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('krystal')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('krystal')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: MRF Limited (mrf) -->
-        <div id="mrf" data-category="network" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="353" height="71" src="assets/case-studies/logos/mrf.svg" alt="MRF Limited logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Automotive Tyre Manufacturing</span>
-                <span class="case-cat-chip" data-cat="network">Network &amp; IT Infrastructure</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">MRF plant · ITS permanent network</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">MRF Limited</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">Delivered 2019</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>Fibre, Copper &amp; Aruba Switching</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">A structured fibre, copper and Aruba switching backbone for MRF&#x27;s ITS permanent network, linking the Wheel Test Lab, LMC Zone-4 and BIAS DC with fully tagged, serviceable infrastructure.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">OFC Backbone</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">1,387 m</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">HDPE Pathway</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">1,525 m</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">FTP Cabling</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">1,238 m</span>
-              </div>
-            </div>
+        </article>
+        <!-- MRF Limited (mrf) -->
+        <article id="mrf" data-category="network" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="353" height="71" src="assets/case-studies/logos/mrf.svg" alt="MRF Limited logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Automotive Tyre Manufacturing</span><span class="case-cat-chip" data-cat="network">Network &amp; IT Infrastructure</span></div>
+            <h3 class="cs-client">MRF Limited</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>Fibre, Copper &amp; Aruba Switching</span></p>
+            <p class="cs-summary">A structured fibre, copper and Aruba switching backbone for MRF&#x27;s ITS permanent network, linking the Wheel Test Lab, LMC Zone-4 and BIAS DC with fully tagged, serviceable infrastructure.</p>
+            <dl class="cs-metrics"><div><dt>OFC Backbone</dt><dd>1,387 m</dd></div><div><dt>HDPE Pathway</dt><dd>1,525 m</dd></div><div><dt>FTP Cabling</dt><dd>1,238 m</dd></div><div><dt>Racks Tagged</dt><dd>29</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>MRF plant · ITS permanent network</span><span class="cs-dot" aria-hidden="true">·</span><span>Delivered 2019</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('mrf')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('mrf')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('mrf')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('mrf')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: Indofil Industries Limited (indofil) -->
-        <div id="indofil" data-category="network" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="150" height="50" src="assets/case-studies/logos/indofil.webp" alt="Indofil Industries Limited logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Specialty Chemicals</span>
-                <span class="case-cat-chip" data-cat="network">Network &amp; IT Infrastructure</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Indofil Synthesis Plant, Dahej, Gujarat</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Indofil Industries Limited</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">Greenfield plant rollout</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>Complete Greenfield Plant IT</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">A turnkey IT foundation for Indofil&#x27;s new Dahej synthesis plant — fibre, copper, switching, Wi-Fi, data centre, servers, AV boardroom and PA — won through e-auction and delivered on schedule.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Solution Domains</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">7</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Site</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">Greenfield Plant</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Sourcing</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">Won via e-Auction</span>
-              </div>
-            </div>
+        </article>
+        <!-- Indofil Industries Limited (indofil) -->
+        <article id="indofil" data-category="network" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="150" height="50" src="assets/case-studies/logos/indofil.webp" alt="Indofil Industries Limited logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Specialty Chemicals</span><span class="case-cat-chip" data-cat="network">Network &amp; IT Infrastructure</span></div>
+            <h3 class="cs-client">Indofil Industries Limited</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>Complete Greenfield Plant IT</span></p>
+            <p class="cs-summary">A turnkey IT foundation for Indofil&#x27;s new Dahej synthesis plant — fibre, copper, switching, Wi-Fi, data centre, servers, AV boardroom and PA — won through e-auction and delivered on schedule.</p>
+            <dl class="cs-metrics"><div><dt>Solution Domains</dt><dd>7</dd></div><div><dt>Site</dt><dd>Greenfield Plant</dd></div><div><dt>Sourcing</dt><dd>Won via e-Auction</dd></div><div><dt>Delivery</dt><dd>On Committed Date</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Indofil Synthesis Plant, Dahej, Gujarat</span><span class="cs-dot" aria-hidden="true">·</span><span>Greenfield plant rollout</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('indofil')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('indofil')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('indofil')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('indofil')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: Bostik India Pvt. Ltd. (bostik) -->
-        <div id="bostik" data-category="network" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="300" height="122" src="assets/case-studies/logos/bostik.svg" alt="Bostik India Pvt. Ltd. logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Adhesives &amp; Sealants</span>
-                <span class="case-cat-chip" data-cat="network">Network &amp; IT Infrastructure</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Jhagadia, Bharuch, Gujarat</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Bostik India Pvt. Ltd.</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">Greenfield plant delivery</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>Plant-wide Network &amp; EPABX</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Fibre, copper, Cisco Layer-3 switching and EPABX telephony for Bostik&#x27;s new Jhagadia plant — mobilised within a week of the order and completed within a month.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Mobilisation</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">&lt; 1 Week</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Completion</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">1 Month</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Network Core</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">Cisco Layer-3</span>
-              </div>
-            </div>
+        </article>
+        <!-- Bostik India Pvt. Ltd. (bostik) -->
+        <article id="bostik" data-category="network" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="300" height="122" src="assets/case-studies/logos/bostik.svg" alt="Bostik India Pvt. Ltd. logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Adhesives &amp; Sealants</span><span class="case-cat-chip" data-cat="network">Network &amp; IT Infrastructure</span></div>
+            <h3 class="cs-client">Bostik India Pvt. Ltd.</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>Plant-wide Network &amp; EPABX</span></p>
+            <p class="cs-summary">Fibre, copper, Cisco Layer-3 switching and EPABX telephony for Bostik&#x27;s new Jhagadia plant — mobilised within a week of the order and completed within a month.</p>
+            <dl class="cs-metrics"><div><dt>Mobilisation</dt><dd>&lt; 1 Week</dd></div><div><dt>Completion</dt><dd>1 Month</dd></div><div><dt>Network Core</dt><dd>Cisco Layer-3</dd></div><div><dt>Telephony</dt><dd>EPABX</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Jhagadia, Bharuch, Gujarat</span><span class="cs-dot" aria-hidden="true">·</span><span>Greenfield plant delivery</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('bostik')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('bostik')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('bostik')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('bostik')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: GNFC Limited (gnfc-amc) -->
-        <div id="gnfc-amc" data-category="services" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="556" height="567" src="assets/case-studies/logos/gnfc.webp" alt="GNFC Limited logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Chemicals &amp; Fertilizers</span>
-                <span class="case-cat-chip" data-cat="services">Managed Services</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Bharuch, Gujarat · multiple campuses</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">GNFC Limited</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">2013 – 2018 · four work orders</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>Network, PC &amp; Dell Server AMC</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Five documented years supporting GNFC&#x27;s enterprise IT — plant-wide networks, 1,500+ PCs, software support and eight VMware-connected Dell servers — with a resident 12-engineer team.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">PC Estate</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">1,500+ Units</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Dell Servers</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">8</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">On-site Team</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">12 Engineers</span>
-              </div>
-            </div>
+        </article>
+        <!-- GNFC Limited (gnfc-amc) -->
+        <article id="gnfc-amc" data-category="services" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="556" height="567" src="assets/case-studies/logos/gnfc.webp" alt="GNFC Limited logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Chemicals &amp; Fertilizers</span><span class="case-cat-chip" data-cat="services">Managed Services</span></div>
+            <h3 class="cs-client">GNFC Limited</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>Network, PC &amp; Dell Server AMC</span></p>
+            <p class="cs-summary">Five documented years supporting GNFC&#x27;s enterprise IT — plant-wide networks, 1,500+ PCs, software support and eight VMware-connected Dell servers — with a resident 12-engineer team.</p>
+            <dl class="cs-metrics"><div><dt>PC Estate</dt><dd>1,500+ Units</dd></div><div><dt>Dell Servers</dt><dd>8</dd></div><div><dt>On-site Team</dt><dd>12 Engineers</dd></div><div><dt>Documented Span</dt><dd>2013 – 2018</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Bharuch, Gujarat · multiple campuses</span><span class="cs-dot" aria-hidden="true">·</span><span>2013 – 2018 · four work orders</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('gnfc-amc')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('gnfc-amc')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('gnfc-amc')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('gnfc-amc')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: Petronet LNG Limited (petronet-amc) -->
-        <div id="petronet-amc" data-category="services" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="429" height="600" src="assets/case-studies/logos/petronet-lng.webp" alt="Petronet LNG Limited logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Energy · LNG Terminal</span>
-                <span class="case-cat-chip" data-cat="services">Managed Services</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Dahej LNG Terminal, Gujarat</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Petronet LNG Limited</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">1 Jul 2014 – 30 Jun 2015</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>Dell Systems Warranty &amp; Support</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Warranty extension and service support for 13 mission-critical Dell servers and workstations across ESVT, OPC, FGS and BAS systems, with a contractual 24-hour resolution commitment.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Systems Covered</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">13</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Resolution</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">≤ 24 Hours</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Parts</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">Dell Certified</span>
-              </div>
-            </div>
+        </article>
+        <!-- Petronet LNG Limited (petronet-amc) -->
+        <article id="petronet-amc" data-category="services" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="429" height="600" src="assets/case-studies/logos/petronet-lng.webp" alt="Petronet LNG Limited logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Energy · LNG Terminal</span><span class="case-cat-chip" data-cat="services">Managed Services</span></div>
+            <h3 class="cs-client">Petronet LNG Limited</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>Dell Systems Warranty &amp; Support</span></p>
+            <p class="cs-summary">Warranty extension and service support for 13 mission-critical Dell servers and workstations across ESVT, OPC, FGS and BAS systems, with a contractual 24-hour resolution commitment.</p>
+            <dl class="cs-metrics"><div><dt>Systems Covered</dt><dd>13</dd></div><div><dt>Resolution</dt><dd>≤ 24 Hours</dd></div><div><dt>Parts</dt><dd>Dell Certified</dd></div><div><dt>Warranty Term</dt><dd>2 Years</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Dahej LNG Terminal, Gujarat</span><span class="cs-dot" aria-hidden="true">·</span><span>1 Jul 2014 – 30 Jun 2015</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('petronet-amc')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('petronet-amc')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('petronet-amc')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('petronet-amc')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-        <!-- Summary Card: Balaji Wafers Private Limited (balaji) -->
-        <div id="balaji" data-category="safety" class="case-card rounded-3xl bg-white border border-slate-200 shadow-xs p-6 sm:p-7 flex flex-col justify-between group overflow-hidden scroll-mt-28">
-          <div class="space-y-4">
-            <div class="h-48 sm:h-52 w-full rounded-2xl overflow-hidden relative bg-slate-100 border border-slate-200 flex items-center justify-center p-8">
-              <img width="110" height="85" src="assets/case-studies/logos/balaji.svg" alt="Balaji Wafers Private Limited logo" loading="lazy" class="max-h-28 sm:max-h-32 w-auto max-w-[70%] object-contain bg-white rounded-2xl px-10 py-6 border border-slate-200 shadow-xs">
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-slate-900/80 border border-white/20 px-2.5 py-1 rounded-md shadow-xs">Food Processing &amp; High-Speed FMCG</span>
-                <span class="case-cat-chip" data-cat="safety">Safety, Communication &amp; Automation</span>
-              </div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1 text-[11px] font-mono font-medium text-slate-600">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
-                <span class="truncate">Food Manufacturing Hub, Gujarat</span>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Balaji Wafers Private Limited</h3>
-              <p class="mt-1 text-[11px] font-mono text-slate-500">Submitted 2019</p>
-              <div class="inline-flex items-center gap-1.5 mt-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <i data-lucide="check" class="w-3 h-3"></i>
-                <span>AI Vision QC Reject &amp; RFID Dispatch</span>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Integrated high-speed inline AI vision reject sorting and RFID weighbridge dispatch to slash shipping discrepancies and streamline shift meal queues.</p>
-            <div class="grid grid-cols-3 gap-2 pt-1 chip-grid">
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Shipping Accuracy</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">99.8% Match</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Meal Tap Speed</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">&lt; 0.4 Seconds</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col justify-center min-w-0 chip">
-                <span class="text-[10px] font-mono uppercase text-slate-400 block leading-snug chip-label">Daily Shift Volume</span>
-                <span class="text-xs sm:text-base font-extrabold text-blue-600 font-mono mt-0.5 truncate tracking-tight chip-value">3,500+ Workers</span>
-              </div>
-            </div>
+        </article>
+        <!-- Balaji Wafers Private Limited (balaji) -->
+        <article id="balaji" data-category="safety" class="case-card cs-card">
+          <div class="cs-stage"><img class="cs-logo" width="110" height="85" src="assets/case-studies/logos/balaji.svg" alt="Balaji Wafers Private Limited logo" loading="lazy" decoding="async"></div>
+          <div class="cs-body">
+            <div class="cs-meta"><span class="cs-industry">Food Processing &amp; High-Speed FMCG</span><span class="case-cat-chip" data-cat="safety">Safety, Communication &amp; Automation</span></div>
+            <h3 class="cs-client">Balaji Wafers Private Limited</h3>
+            <p class="cs-scope"><i data-lucide="check"></i><span>AI Vision QC Reject &amp; RFID Dispatch</span></p>
+            <p class="cs-summary">Integrated high-speed inline AI vision reject sorting and RFID weighbridge dispatch to slash shipping discrepancies and streamline shift meal queues.</p>
+            <dl class="cs-metrics"><div><dt>Shipping Accuracy</dt><dd>99.8% Match</dd></div><div><dt>Meal Tap Speed</dt><dd>&lt; 0.4 Seconds</dd></div><div><dt>Daily Shift Volume</dt><dd>3,500+ Workers</dd></div><div><dt>Food Waste Drop</dt><dd>28% Reduction</dd></div></dl>
+            <p class="cs-where"><i data-lucide="map-pin"></i><span>Food Manufacturing Hub, Gujarat</span><span class="cs-dot" aria-hidden="true">·</span><span>Submitted 2019</span></p>
           </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="handleViewDetailsClick('balaji')" class="w-full sm:flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900">
-              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>View Case Summary</span>
-            </button>
-            <button type="button" onclick="handleDownloadPdfClick('balaji')" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Get Full PDF</span>
-            </button>
+          <div class="cs-actions">
+            <button type="button" class="cs-btn cs-btn-ghost" onclick="handleViewDetailsClick('balaji')"><i data-lucide="lock"></i><span>View Case Summary</span></button>
+            <button type="button" class="cs-btn cs-btn-solid" onclick="handleDownloadPdfClick('balaji')"><i data-lucide="download"></i><span>Get Full PDF</span></button>
           </div>
-        </div>
-
+        </article>
             </div>
-            <p id="case-empty" class="hidden text-sm text-slate-500">No case studies in this category yet.</p>
+            <p id="case-empty" class="hidden cs-empty">No case studies in this category yet.</p>
 
           </div>
         </section>
