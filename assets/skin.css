@@ -344,7 +344,19 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
   border-top:1px solid var(--line);
 }
 .brand-marquee-label {
-  display:none;
+  display:inline-block;
+  color:var(--signal-deep);
+  font:700 10px/1 var(--label);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  padding:6px 14px;
+  border-radius:20px;
+  background:var(--signal-wash, rgba(0,140,207,.08));
+  border:1px solid var(--signal-deep);
+}
+.brand-marquee-label-wrap {
+  padding:0 36px 14px;
 }
 
 /* --- Scrolling track --- */
@@ -410,7 +422,8 @@ a.brand-marquee-item { cursor:pointer; }
   body .leadership-team-grid { grid-template-columns:1fr; }
   .leadership-card:last-child { grid-column:auto; max-width:none; }
   .marquee-set { gap:40px; padding:0 20px; }
-  .brand-marquee-label { display:none; }
+  .brand-marquee-label-wrap { padding:0 20px 10px; }
+  .brand-marquee-label { font-size:9px; padding:5px 10px; }
   .brand-marquee { padding:40px 0 32px; }
   .brand-marquee-heading { padding-bottom:28px; }
   .brand-marquee-item img { height:44px; max-width:140px; }

@@ -74,11 +74,14 @@
     row.className = 'brand-marquee-row';
     row.setAttribute('data-direction', direction);
 
-    /* The visible label that anchors the left edge */
+    /* The visible label tag sitting above the logos */
+    var labelWrap = document.createElement('div');
+    labelWrap.className = 'brand-marquee-label-wrap';
     var labelEl = document.createElement('span');
     labelEl.className = 'brand-marquee-label';
     labelEl.textContent = label;
-    row.appendChild(labelEl);
+    labelWrap.appendChild(labelEl);
+    row.appendChild(labelWrap);
 
     /* Inner track: contains logos duplicated for seamless loop */
     var track = document.createElement('div');
