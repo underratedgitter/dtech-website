@@ -55,7 +55,10 @@
    against the dark surface here (they have no card behind them, by
    design, in light mode). Give them a tight white backing chip only
    in this dark chapter so every logo stays legible on both themes. -- */
-.brand-marquee-item img:not([src$="beetel.png"]) { background:#fff; border-radius:6px; padding:4px 10px; }
+.brand-marquee-item img:not([src$="beetel.png"]):not([src$="fingers.png"]) { background:#fff; border-radius:6px; padding:4px 10px; }
+.brand-marquee-label { background:var(--surface); }
+.brand-marquee-row + .brand-marquee-row { border-top-color:var(--line); }
+.brand-marquee-title { color:var(--ink); }
 
 /* ---- Actions: on dark the cyan carries the primary voice. --------------- */
 .button-primary { background:var(--signal-deep); border-color:var(--signal-deep); color:#04121f!important; }

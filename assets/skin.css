@@ -308,30 +308,89 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
 
 .brand-marquee {
   position:relative;
-  overflow-x:auto;
-  overflow-y:hidden;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:thin;
-  padding:26px 24px;
+  overflow:hidden;
+  padding:48px 0 40px;
   border-block:1px solid var(--line);
   background:var(--surface);
 }
-.brand-marquee-track {
-  display:flex;
-  align-items:center;
-  gap:48px;
-  width:max-content;
+.brand-marquee-heading {
+  text-align:center;
+  padding:0 24px 32px;
 }
-.brand-marquee-label {
+.brand-marquee-eyebrow {
+  display:block;
   color:var(--faint);
   font:700 10px/1 var(--label);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.brand-marquee-title {
+  font-size:clamp(1.15rem, 2vw, 1.5rem);
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:-.02em;
+  line-height:1.3;
+  margin:0;
+}
+
+/* --- Individual row --- */
+.brand-marquee-row {
+  position:relative;
+  overflow:hidden;
+  padding:16px 0;
+}
+.brand-marquee-row + .brand-marquee-row {
+  border-top:1px solid var(--line);
+}
+.brand-marquee-label {
+  position:absolute;
+  left:24px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--faint);
+  font:700 9px/1 var(--label);
   letter-spacing:.1em;
   text-transform:uppercase;
   white-space:nowrap;
+  z-index:2;
+  background:var(--surface);
+  padding:4px 12px 4px 0;
 }
+
+/* --- Scrolling track --- */
+.brand-marquee-track {
+  display:flex;
+  width:max-content;
+}
+.marquee-set {
+  display:flex;
+  align-items:center;
+  gap:48px;
+  padding:0 24px;
+}
+
+/* Keyframes for left and right infinite scroll */
+@keyframes marqueeLeft {
+  0%   { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
+@keyframes marqueeRight {
+  0%   { transform:translateX(-50%); }
+  100% { transform:translateX(0); }
+}
+.marquee-scroll-left  { animation:marqueeLeft  30s linear infinite; }
+.marquee-scroll-right { animation:marqueeRight 30s linear infinite; }
+
+/* Pause on hover */
+.marquee-paused .brand-marquee-track { animation-play-state:paused; }
+.brand-marquee-row:hover .brand-marquee-track { animation-play-state:paused; }
+
+/* --- Logo items --- */
 .brand-marquee-item {
   display:flex;
   align-items:center;
+  flex-shrink:0;
   cursor:default;
 }
 a.brand-marquee-item { cursor:pointer; }
@@ -341,7 +400,7 @@ a.brand-marquee-item { cursor:pointer; }
   max-width:160px;
   height:44px;
   object-fit:contain;
-  opacity:.92;
+  opacity:.7;
   transition:opacity .2s ease;
 }
 .brand-marquee-item:hover img,.brand-marquee-item:focus-visible img { opacity:1; }
@@ -349,6 +408,9 @@ a.brand-marquee-item { cursor:pointer; }
 .brand-marquee-item img[src$="zkteco.png"] { background:#fff; border-radius:4px; padding:4px 10px; }
 @media (prefers-reduced-motion:reduce) {
   .partner-card,.partner-cta,.alliance-brand { transition:none; }
+  .marquee-scroll-left,.marquee-scroll-right { animation:none; }
+  .brand-marquee-track { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .brand-marquee { overflow-x:auto; }
 }
 
 @media (max-width:1023px) {
@@ -358,7 +420,11 @@ a.brand-marquee-item { cursor:pointer; }
 @media (max-width:700px) {
   body .leadership-team-grid { grid-template-columns:1fr; }
   .leadership-card:last-child { grid-column:auto; max-width:none; }
-  .brand-marquee-track { gap:32px; }
+  .marquee-set { gap:32px; padding:0 16px; }
+  .brand-marquee-label { display:none; }
+  .brand-marquee { padding:32px 0 28px; }
+  .brand-marquee-heading { padding-bottom:20px; }
+  .brand-marquee-item img { height:36px; max-width:120px; }
 }
 
 /* ==================== 3 · UTILITY NEUTRALISATION ====================

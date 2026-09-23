@@ -1,48 +1,64 @@
-/* Shared technology-partner marquee. Visual rules live in assets/skin.css. */
+/* ============================================================================
+   D-TECH · Three-tier brand marquee with infinite auto-scroll.
+   Visual rules live in assets/skin.css.
+
+   Tier 1  —  Global giants + large multinationals (scrolls ←)
+   Tier 2  —  Established brands (scrolls →)
+   Tier 3  —  Mid-size + specialist partners (scrolls ←)
+   ========================================================================= */
 (function () {
   'use strict';
 
-  var brands = [
-    { name: 'HP', link: 'about.html#partner-hp', logo: 'assets/partners/hp.svg', width: 100, height: 100 },
-    { name: 'Dell Technologies', link: 'about.html#partner-dell', logo: 'assets/partners/dell-technologies.svg', width: 72, height: 9 },
-    { name: 'Siemens', logo: 'assets/partners/siemens.svg', width: 126, height: 20 },
-    { name: 'Motorola Solutions', link: 'about.html#partner-motorola', logo: 'assets/partners/motorola-solutions.svg', width: 634, height: 73 },
-    { name: 'Microsoft', logo: 'assets/partners/microsoft.svg', width: 118, height: 25 },
-    { name: 'Matrix', logo: 'assets/partners/matrix-comsec.png', width: 90, height: 34 },
-    { name: 'Intel', logo: 'assets/partners/intel.svg', width: 90, height: 35 },
-    { name: 'Cisco', logo: 'assets/partners/cisco.svg', width: 80, height: 42 },
-    { name: 'Lenovo', logo: 'assets/partners/lenovo.svg', width: 120, height: 24 },
-    { name: 'Molex', logo: 'assets/partners/molex.svg', width: 100, height: 25 },
-    { name: 'Axis Communications', logo: 'assets/partners/axis-communications.svg', width: 278, height: 100 },
-    { name: 'Asus', logo: 'assets/partners/asus.svg', width: 371, height: 100 },
-    { name: 'Oracle', logo: 'assets/partners/oracle.svg', width: 770, height: 100 },
-    { name: 'Google', logo: 'assets/partners/google.svg', width: 296, height: 100 },
-    { name: 'CP Plus', logo: 'assets/partners/cp-plus.png', width: 168, height: 28 },
-    { name: 'APC', logo: 'assets/partners/apc.svg', width: 236, height: 100 },
-    { name: 'Acer', logo: 'assets/partners/acer.svg', width: 373, height: 100 },
-    { name: 'Apple', logo: 'assets/partners/apple.svg', width: 81, height: 100 },
-    { name: 'Beetel', logo: 'assets/partners/beetel.png', width: 100, height: 100 },
-    { name: 'Canon', logo: 'assets/partners/canon.svg', width: 472, height: 100 },
-    { name: 'D-Link', logo: 'assets/partners/d-link.svg', width: 333, height: 100 },
-    { name: 'Panasonic', logo: 'assets/partners/panasonic.svg', width: 653, height: 100 },
-    { name: 'Digisol', logo: 'assets/partners/digisol.png', width: 657, height: 120 },
-    { name: 'Epson', logo: 'assets/partners/epson.svg', width: 407, height: 100 },
-    { name: 'Samsung', logo: 'assets/partners/samsung.svg', width: 653, height: 100 },
-    { name: 'Exide', logo: 'assets/partners/exide.svg', width: 310, height: 100 },
-    { name: 'Grandstream', logo: 'assets/partners/grandstream.png', width: 300, height: 43 },
-    { name: 'Polycab', logo: 'assets/partners/polycab.png', width: 150, height: 34 },
-    { name: 'Poly', logo: 'assets/partners/poly.svg', width: 229, height: 100 },
-    { name: 'Honeywell', logo: 'assets/partners/honeywell.svg', width: 565, height: 100 },
-    { name: 'JBL', logo: 'assets/partners/jbl.svg', width: 96, height: 100 },
-    { name: 'Legrand', logo: 'assets/partners/legrand.svg', width: 403, height: 100 },
-    { name: 'LG', logo: 'assets/partners/lg.svg', width: 100, height: 100 },
-    { name: 'Logitech', logo: 'assets/partners/logitech.svg', width: 605, height: 100 },
-    { name: 'Prama', logo: 'assets/partners/prama.png', width: 793, height: 213 },
-    { name: 'Sony', logo: 'assets/partners/sony.svg', width: 568, height: 100 },
-    { name: 'ViewSonic', logo: 'assets/partners/viewsonic.svg', width: 616, height: 100 },
-    { name: 'ZKTeco', logo: 'assets/partners/zkteco.png', width: 500, height: 115 }
+  /* ---- Tier 1: Mega-cap global giants + large multinational OEMs -------- */
+  var tier1 = [
+    { name: 'Apple',               logo: 'assets/partners/apple.svg',               width: 81,  height: 100 },
+    { name: 'Microsoft',           logo: 'assets/partners/microsoft.svg',           width: 118, height: 25  },
+    { name: 'Google',              logo: 'assets/partners/google.svg',              width: 296, height: 100 },
+    { name: 'Samsung',             logo: 'assets/partners/samsung.svg',             width: 653, height: 100 },
+    { name: 'HP',                  logo: 'assets/partners/hp.svg',                  width: 100, height: 100, link: 'about.html#partner-hp' },
+    { name: 'Dell Technologies',   logo: 'assets/partners/dell-technologies.svg',   width: 72,  height: 9,   link: 'about.html#partner-dell' },
+    { name: 'Oracle',              logo: 'assets/partners/oracle.svg',              width: 770, height: 100 },
+    { name: 'Bosch',               logo: 'assets/partners/bosch.svg',               width: 400, height: 100 },
+    { name: 'Sony',                logo: 'assets/partners/sony.svg',                width: 568, height: 100 },
+    { name: 'Panasonic',           logo: 'assets/partners/panasonic.svg',           width: 653, height: 100 },
+    { name: 'Cisco',               logo: 'assets/partners/cisco.svg',               width: 80,  height: 42  },
+    { name: 'Honeywell',           logo: 'assets/partners/honeywell.svg',           width: 565, height: 100 },
+    { name: 'Canon',               logo: 'assets/partners/canon.svg',               width: 472, height: 100 }
   ];
 
+  /* ---- Tier 2: Large, established brands -------------------------------- */
+  var tier2 = [
+    { name: 'Lenovo',              logo: 'assets/partners/lenovo.svg',              width: 120, height: 24  },
+    { name: 'LG',                  logo: 'assets/partners/lg.svg',                  width: 100, height: 100 },
+    { name: 'Legrand',             logo: 'assets/partners/legrand.svg',             width: 403, height: 100 },
+    { name: 'Motorola Solutions',  logo: 'assets/partners/motorola-solutions.svg',  width: 634, height: 73,  link: 'about.html#partner-motorola' },
+    { name: 'Epson',               logo: 'assets/partners/epson.svg',               width: 407, height: 100 },
+    { name: 'CommScope',           logo: 'assets/partners/commscope.png',           width: 360, height: 205 },
+    { name: 'Exide',               logo: 'assets/partners/exide.svg',               width: 310, height: 100 }
+  ];
+
+  /* ---- Tier 3: Mid-size global/regional + niche specialists ------------- */
+  var tier3 = [
+    { name: 'Asus',                logo: 'assets/partners/asus.svg',                width: 371, height: 100 },
+    { name: 'Acer',                logo: 'assets/partners/acer.svg',                width: 373, height: 100 },
+    { name: 'Logitech',            logo: 'assets/partners/logitech.svg',            width: 605, height: 100 },
+    { name: 'Polycab',             logo: 'assets/partners/polycab.png',             width: 150, height: 34  },
+    { name: 'JBL',                 logo: 'assets/partners/jbl.svg',                 width: 96,  height: 100 },
+    { name: 'ViewSonic',           logo: 'assets/partners/viewsonic.svg',           width: 616, height: 100 },
+    { name: 'D-Link',              logo: 'assets/partners/d-link.svg',              width: 333, height: 100 },
+    { name: 'Poly',                logo: 'assets/partners/poly.svg',                width: 229, height: 100 },
+    { name: 'ZKTeco',              logo: 'assets/partners/zkteco.png',              width: 500, height: 115 },
+    { name: 'Grandstream',         logo: 'assets/partners/grandstream.png',         width: 300, height: 43  },
+    { name: 'Axis Communications', logo: 'assets/partners/axis-communications.svg', width: 278, height: 100 },
+    { name: 'CP Plus',             logo: 'assets/partners/cp-plus.png',             width: 168, height: 28  },
+    { name: 'Beetel',              logo: 'assets/partners/beetel.png',              width: 100, height: 100 },
+    { name: 'Matrix',              logo: 'assets/partners/matrix-comsec.png',       width: 90,  height: 34  },
+    { name: 'Prama',               logo: 'assets/partners/prama.png',               width: 793, height: 213 },
+    { name: 'Digisol',             logo: 'assets/partners/digisol.png',             width: 657, height: 120 },
+    { name: 'Fingers',             logo: 'assets/partners/fingers.png',             width: 96,  height: 96  }
+  ];
+
+  /* ---- Build a single logo element ------------------------------------- */
   function buildItem(brand) {
     var tag = brand.link ? 'a' : 'div';
     var href = brand.link ? ' href="' + brand.link + '"' : '';
@@ -52,6 +68,35 @@
     return '<' + tag + href + ' class="brand-marquee-item">' + logo + '</' + tag + '>';
   }
 
+  /* ---- Build a single auto-scrolling marquee row ----------------------- */
+  function buildRow(brands, direction, label) {
+    var row = document.createElement('div');
+    row.className = 'brand-marquee-row';
+    row.setAttribute('data-direction', direction);
+
+    /* The visible label that anchors the left edge */
+    var labelEl = document.createElement('span');
+    labelEl.className = 'brand-marquee-label';
+    labelEl.textContent = label;
+    row.appendChild(labelEl);
+
+    /* Inner track: contains logos duplicated for seamless loop */
+    var track = document.createElement('div');
+    track.className = 'brand-marquee-track';
+    var dirClass = direction === 'right' ? 'marquee-scroll-right' : 'marquee-scroll-left';
+    track.classList.add(dirClass);
+
+    /* Build the logo set twice for the infinite-loop illusion */
+    var logosHtml = '';
+    for (var i = 0; i < brands.length; i++) { logosHtml += buildItem(brands[i]); }
+    track.innerHTML = '<div class="marquee-set">' + logosHtml + '</div>'
+                    + '<div class="marquee-set" aria-hidden="true">' + logosHtml + '</div>';
+
+    row.appendChild(track);
+    return row;
+  }
+
+  /* ---- Inject the full three-tier section ------------------------------- */
   function inject() {
     if (document.querySelector('.brand-marquee')) return;
 
@@ -59,26 +104,30 @@
     section.className = 'brand-marquee';
     section.setAttribute('aria-label', 'Technology partners');
 
-    var track = document.createElement('div');
-    track.className = 'brand-marquee-track';
-    var html = '<span class="brand-marquee-label">Authorized technology partners</span>';
-    for (var i = 0; i < brands.length; i += 1) {
-      html += buildItem(brands[i]);
-    }
-    track.innerHTML = html;
-    section.appendChild(track);
+    /* Section heading */
+    var heading = document.createElement('div');
+    heading.className = 'brand-marquee-heading';
+    heading.innerHTML = '<span class="brand-marquee-eyebrow">Authorized technology partners</span>'
+                      + '<h2 class="brand-marquee-title">Trusted by the brands that power industry</h2>';
+    section.appendChild(heading);
 
-    // A plain mouse wheel only reports vertical delta, and this strip has no
-    // vertical overflow to catch it — without this it just does nothing on
-    // any browser/OS where the visitor isn't using a trackpad. Translate
-    // vertical wheel input into horizontal scroll; let real horizontal
-    // gestures (trackpad swipe, shift+wheel) pass through untouched.
-    section.addEventListener('wheel', function (event) {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-      section.scrollLeft += event.deltaY;
-      event.preventDefault();
-    }, { passive: false });
+    /* Three rows */
+    section.appendChild(buildRow(tier1, 'left',  'Global leaders'));
+    section.appendChild(buildRow(tier2, 'right', 'Established brands'));
+    section.appendChild(buildRow(tier3, 'left',  'Specialist partners'));
 
+    /* Pause on hover for accessibility */
+    section.addEventListener('mouseenter', function () { section.classList.add('marquee-paused'); });
+    section.addEventListener('mouseleave', function () { section.classList.remove('marquee-paused'); });
+
+    /* Respect reduced motion */
+    try {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        section.classList.add('marquee-paused');
+      }
+    } catch (e) { /* matchMedia not supported */ }
+
+    /* Inject position: after the metric ribbon on home, else before footer */
     var footer = document.querySelector('footer');
     var homeMetric = document.body && document.body.getAttribute('data-page') === 'home'
       ? document.querySelector('.home-hero + section')
