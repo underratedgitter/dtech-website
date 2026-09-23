@@ -193,8 +193,7 @@ html[data-theme="dark"] .text-link:hover { color:#fff; border-bottom-color:#fff;
 .project-cta::before {
   content:''; position:absolute; right:-8%; top:50%; width:46%; aspect-ratio:1;
   transform:translateY(-50%); border-radius:50%; pointer-events:none;
-  background:radial-gradient(closest-side,rgba(39,182,218,.22),transparent);
-  filter:blur(10px);
+  background:radial-gradient(closest-side,rgba(39,182,218,.22),rgba(39,182,218,.06) 70%,transparent);
 }
 .project-cta>.executive-container { position:relative; }
 .project-cta .button-primary {

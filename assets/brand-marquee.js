@@ -63,7 +63,7 @@
     var tag = brand.link ? 'a' : 'div';
     var href = brand.link ? ' href="' + brand.link + '"' : '';
     var logo = brand.logo
-      ? '<img src="' + brand.logo + '" alt="' + brand.name + '" width="' + brand.width + '" height="' + brand.height + '" loading="lazy">'
+      ? '<img src="' + brand.logo + '" alt="' + brand.name + '" width="' + brand.width + '" height="' + brand.height + '" loading="lazy" decoding="async">'
       : brand.name;
     return '<' + tag + href + ' class="brand-marquee-item">' + logo + '</' + tag + '>';
   }
@@ -115,13 +115,21 @@
     section.appendChild(heading);
 
     /* Three rows */
-    section.appendChild(buildRow(tier1, 'left',  'Tier 01 · Global Technology Leaders'));
-    section.appendChild(buildRow(tier2, 'right', 'Tier 02 · Enterprise Infrastructure & Control'));
-    section.appendChild(buildRow(tier3, 'left',  'Tier 03 · Specialized Systems & Hardware'));
+    section.appendChild(buildRow(tier1, 'left',  'Global Technology Leaders'));
+    section.appendChild(buildRow(tier2, 'right', 'Enterprise Infrastructure & Control'));
+    section.appendChild(buildRow(tier3, 'left',  'Specialized Systems & Hardware'));
 
     /* Pause on hover for accessibility */
     section.addEventListener('mouseenter', function () { section.classList.add('marquee-paused'); });
     section.addEventListener('mouseleave', function () { section.classList.remove('marquee-paused'); });
+
+    /* Stop the three infinite animations while the section is off screen,
+       so scrolling the rest of the page is not competing with them. */
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        section.classList.toggle('marquee-offscreen', !entries[0].isIntersecting);
+      }, { rootMargin: '200px 0px' }).observe(section);
+    }
 
     /* Respect reduced motion */
     try {

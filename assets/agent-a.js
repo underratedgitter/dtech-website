@@ -79,7 +79,7 @@
             }
           }
         },
-        { threshold: 0.08, rootMargin: '0px 0px -6% 0px' }
+        { threshold: 0, rootMargin: '0px 0px 8% 0px' }
       );
       for (var j = 0; j < sections.length; j++) {
         if (sections[j].classList.contains('home-hero')) continue;

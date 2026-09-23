@@ -362,6 +362,8 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
 .brand-marquee-track {
   display:flex;
   width:max-content;
+  will-change:transform;
+  backface-visibility:hidden;
   -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 64px, #000 calc(100% - 64px), transparent 100%);
   mask-image:linear-gradient(90deg, transparent 0%, #000 64px, #000 calc(100% - 64px), transparent 100%);
 }
@@ -385,7 +387,8 @@ body[data-page="about"] #partners.partner-section { background:var(--invert)!imp
 .marquee-scroll-right { animation:marqueeRight 80s linear infinite; }
 
 /* Pause on hover */
-.marquee-paused .brand-marquee-track { animation-play-state:paused; }
+.marquee-paused .brand-marquee-track,
+.marquee-offscreen .brand-marquee-track { animation-play-state:paused; }
 .brand-marquee-row:hover .brand-marquee-track { animation-play-state:paused; }
 
 /* --- Logo items --- */
@@ -1482,7 +1485,7 @@ footer img { background:transparent!important; padding:0!important; filter:inver
 /* ==================== 22 · MOTION ==================== */
 
 .a-pre { opacity:0; transform:translateY(14px); }
-.a-in { opacity:1; transform:none; transition:opacity 520ms var(--ease),transform 520ms var(--ease); }
+.a-in { opacity:1; transform:none; transition:opacity 380ms var(--ease),transform 380ms var(--ease); }
 
 @keyframes a-rise { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
 .home-hero .hero-copy>* { animation:a-rise 620ms var(--ease) both; }
