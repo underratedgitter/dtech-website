@@ -74,7 +74,7 @@
     "alternateName": "D-TECH SIPL",
     "url": "https://www.dtechindia.com/",
     "email": "sales@dtechindia.com",
-    "telephone": ["+91-99980-26089", "+91-99989-03042", "+91-2642-264596"],
+    "telephone": ["+91-99980-26089", "+91-2642-264596"],
     "foundingDate": "2003",
     "address": {
       "@type": "PostalAddress",
@@ -210,10 +210,6 @@
                 </div>
                 <div class="flex items-center gap-3">
                   <i data-lucide="phone-call" class="w-4 h-4 text-blue-600 shrink-0"></i>
-                  <a href="tel:+919998903042" class="hover:text-blue-600 font-mono font-medium">+91 99989 03042</a>
-                </div>
-                <div class="flex items-center gap-3">
-                  <i data-lucide="phone-call" class="w-4 h-4 text-blue-600 shrink-0"></i>
                   <a href="tel:+912642264596" class="hover:text-blue-600 font-mono font-medium">+91 2642 264596</a>
                 </div>
                 <div class="flex items-center gap-3">
@@ -277,7 +273,12 @@
                 <span>Your items from the Cart / Estimator have been pre-filled into the requirements below.</span>
               </div>
 
-              <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <!-- Honeypot for bots: hidden from people and assistive tech -->
+                <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
+                  <label for="contact-website">Website</label>
+                  <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -520,26 +521,68 @@
       }
     });
 
-    // The site has no form backend, so the request was previously discarded after a
-    // "request logged" alert. Hand it to the visitor's email app, addressed to sales,
-    // and keep the form filled in case no mail app opens.
-    function handleContactSubmit(e) {
+    // POSTs to the Vercel function in api/contact.js, which emails the enquiry to
+    // sales over SMTP. If that fails (or the site is served without the function),
+    // hand the request to the visitor's email app instead, so nothing is lost.
+    async function handleContactSubmit(e) {
       e.preventDefault();
+      const form = e.target;
+      const button = form.querySelector('button[type="submit"]');
       const field = id => (document.getElementById(id)?.value || '').trim();
-      const name = field('contact-name');
       const sel = document.getElementById('contact-solution');
-      const topic = sel?.selectedOptions[0]?.text || '';
-      const subject = `Website enquiry: ${topic} — ${name}`;
+      const enquiry = {
+        name: field('contact-name'),
+        email: field('contact-email'),
+        phone: field('contact-phone'),
+        company: field('contact-company'),
+        subject: sel?.value || '',
+        topic: sel?.selectedOptions[0]?.text || '',
+        message: field('rfp-requirements-textarea'),
+        website: field('contact-website'),
+      };
+
+      if (button) button.disabled = true;
+      showToast('Sending your request…', 20000);
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 20000);
+      let result;
+      try {
+        const r = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(enquiry),
+          signal: controller.signal
+        });
+        const data = await r.json().catch(() => ({}));
+        result = { ok: r.ok && data.ok, status: r.status, error: data.error };
+      } catch (err) {
+        result = { ok: false };
+      } finally {
+        clearTimeout(timer);
+        if (button) button.disabled = false;
+      }
+
+      if (result.ok) {
+        form.reset();
+        showToast('Thank you! Your request has reached our team. We reply within 1 business day.', 6000);
+        return;
+      }
+      // A validation or rate-limit message is the visitor's to fix; show it.
+      if (result.status === 400 || result.status === 429) {
+        showToast(result.error || 'Please check the form and try again.', 6000);
+        return;
+      }
+      const subject = `Website enquiry: ${enquiry.topic} — ${enquiry.name}`;
       const body = [
-        `Name: ${name}`,
-        `Email: ${field('contact-email')}`,
-        `Phone: ${field('contact-phone') || '—'}`,
-        `Company: ${field('contact-company') || '—'}`,
+        `Name: ${enquiry.name}`,
+        `Email: ${enquiry.email}`,
+        `Phone: ${enquiry.phone || '—'}`,
+        `Company: ${enquiry.company || '—'}`,
         '',
-        field('rfp-requirements-textarea'),
+        enquiry.message,
       ].join('\n');
       location.href = `mailto:sales@dtechindia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      showToast('Your email app should open with this request. Press Send to deliver it, or reach us on WhatsApp at +91 99980 26089.', 8000);
+      showToast('We could not send it from the site, so your email app should open with this request. Press Send to deliver it, or reach us on WhatsApp at +91 99980 26089.', 9000);
     }
   </script>
 <script>if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js');});}</script>

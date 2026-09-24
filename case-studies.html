@@ -98,7 +98,7 @@
     "alternateName": "D-TECH SIPL",
     "url": "https://www.dtechindia.com/case-studies.html",
     "email": "sales@dtechindia.com",
-    "telephone": ["+91-99980-26089", "+91-99989-03042", "+91-2642-264596"],
+    "telephone": ["+91-99980-26089", "+91-2642-264596"],
     "foundingDate": "2003",
     "address": {
       "@type": "PostalAddress",
@@ -927,8 +927,8 @@
 
         // Case-study PDF email delivery (email ONLY — no direct downloads).
         // POSTs to the Vercel function in api/send-whitepaper.js, which emails the
-        // PDF to the visitor as an attachment and notifies sales. Needs the
-        // RESEND_API_KEY environment variable in Vercel (see that file).
+        // PDF to the visitor as an attachment and notifies sales. Needs the SMTP
+        // environment variables in Vercel (see api/_mail.js).
         const WHITEPAPER_MAIL_CONFIG = {
           endpoint: '/api/send-whitepaper',
           timeoutMs: 20000

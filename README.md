@@ -33,21 +33,30 @@ Commit the outputs; Vercel serves them as-is and `tools/` is excluded by `.verce
 2. Framework preset: **Other**. Leave the build command and output directory empty; the repository root is the site.
 3. Deploy. `404.html` is served automatically for unknown paths.
 
-## Case studies and PDF emails
+## Email (SMTP)
 
-Case-study PDFs live in `assets/case-studies/pdf/`. When a visitor asks for one, `case-studies.html` posts to the Vercel function `api/send-whitepaper.js`. The function emails the PDF to the visitor as an attachment and sends a lead notification to sales, using the [Resend](https://resend.com) email API.
+The Vercel functions send mail over SMTP with [nodemailer](https://nodemailer.com), through `api/_mail.js`:
+
+- `api/contact.js`: the Contact Us form (`contact.html`) posts here, and the enquiry is emailed to sales with Reply-To set to the visitor. If the function fails or is unavailable, the form falls back to opening the visitor's email app.
+- `api/send-whitepaper.js`: case-study PDFs live in `assets/case-studies/pdf/`. When a visitor asks for one on `case-studies.html`, the PDF is emailed to them as an attachment and sales gets a lead notification.
 
 Set these in Vercel → Project → Settings → Environment Variables, then redeploy:
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `RESEND_API_KEY` | yes | API key from resend.com |
-| `MAIL_FROM` | no | Sender, e.g. `D-TECH <sales@dtechindia.com>`, once dtechindia.com is verified in Resend. Until then the default test sender only delivers to the Resend account owner's own email address. |
-| `SALES_EMAIL` | no | Receives lead notifications and visitor replies (default `sales@dtechindia.com`) |
+| `SMTP_HOST` | yes | SMTP server, e.g. `smtp.gmail.com`, `smtp.zoho.in`, `smtp.office365.com` |
+| `SMTP_USER` | yes | Mailbox login, e.g. `sales@dtechindia.com` |
+| `SMTP_PASS` | yes | That mailbox's password, or an app password when the account uses 2-step verification |
+| `SMTP_PORT` | no | `465` (implicit TLS, default) or `587` (STARTTLS) |
+| `SMTP_SECURE` | no | `true`/`false`; defaults to `true` on port 465 only |
+| `MAIL_FROM` | no | Sender shown to recipients (default `D-TECH <SMTP_USER>`). Most providers reject a From address the login does not own. |
+| `SALES_EMAIL` | no | Receives enquiries and lead notifications (default `sales@dtechindia.com`) |
 | `SITE_URL` | no | Public address used in email links, e.g. `https://www.dtechindia.com` (default: the deployment's own address) |
-| `ALLOWED_ORIGINS` | no | Extra comma-separated site origins allowed to call the function (its own origin is always allowed) |
+| `ALLOWED_ORIGINS` | no | Extra comma-separated site origins allowed to call the functions (their own origin is always allowed) |
 
-The function only accepts JSON posts from the site's own origin, has a hidden bot trap field, sanitises the name used in the greeting, and rate-limits by IP and by recipient. These limits live in memory per instance; add a CAPTCHA (e.g. Cloudflare Turnstile) or a shared store before heavy public use.
+**Google Workspace / Gmail:** `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=465`, `SMTP_USER` = the full mailbox address, and `SMTP_PASS` = a 16-character [app password](https://myaccount.google.com/apppasswords) (the account needs 2-Step Verification on; Google rejects the normal password over SMTP). Gmail sends as `SMTP_USER`; a different `MAIL_FROM` address only works if it is added under Gmail → Settings → Accounts → "Send mail as". Workspace allows about 2,000 messages a day per mailbox.
+
+Both functions only accept JSON posts from the site's own origin, have a hidden bot trap field, and rate-limit by IP (the PDF function also by recipient). These limits live in memory per instance; add a CAPTCHA (e.g. Cloudflare Turnstile) or a shared store before heavy public use.
 
 
 ## News page

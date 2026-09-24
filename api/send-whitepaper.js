@@ -1,17 +1,9 @@
 // Vercel serverless function: emails a case-study PDF to the visitor who
 // requested it and notifies D-TECH sales about the lead.
 //
-// Sends through the Resend HTTP API (https://resend.com), so no SMTP server
-// or npm packages are needed. Set these in Vercel → Project → Settings →
-// Environment Variables, then redeploy:
+// Sends over SMTP via _mail.js; set SMTP_HOST, SMTP_USER and SMTP_PASS (and
+// optionally MAIL_FROM, SALES_EMAIL) as described there. Also reads:
 //
-//   RESEND_API_KEY  required  API key from resend.com
-//   MAIL_FROM       optional  e.g. "D-TECH <sales@dtechindia.com>" once the
-//                             domain is verified in Resend. Until then the
-//                             default test sender only delivers to the email
-//                             address that owns the Resend account.
-//   SALES_EMAIL     optional  where lead notifications go and visitor replies
-//                             are directed (default sales@dtechindia.com)
 //   SITE_URL        optional  public site address used in email links, e.g.
 //                             https://www.dtechindia.com (default: this deployment)
 //   ALLOWED_ORIGINS optional  extra comma-separated origins allowed to call this
@@ -20,9 +12,8 @@
 const fs = require('fs');
 const path = require('path');
 const WHITEPAPERS = require('./_whitepapers.json');
+const { isConfigured, sendMail, salesEmail } = require('./_mail');
 
-const DEFAULT_FROM = 'D-TECH Case Studies <onboarding@resend.dev>';
-const DEFAULT_SALES = 'sales@dtechindia.com';
 const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[A-Za-z]{2,}$/;
 
 // Best-effort abuse brakes. Instances are short-lived and not shared, so these
@@ -64,19 +55,6 @@ function esc(v) {
 
 function clean(v, max) {
   return String(v == null ? '' : v).replace(/[\r\n\t]+/g, ' ').trim().slice(0, max);
-}
-
-async function sendEmail(apiKey, message) {
-  const r = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(message),
-  });
-  if (!r.ok) {
-    const detail = await r.text().catch(() => '');
-    throw new Error(`Resend ${r.status}: ${detail.slice(0, 300)}`);
-  }
-  return r.json();
 }
 
 function visitorEmail({ name, paper, siteUrl }) {
@@ -124,9 +102,8 @@ module.exports = async function handler(req, res) {
     return res.status(415).json({ ok: false, error: 'Unsupported content type' });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.error('RESEND_API_KEY is not set');
+  if (!isConfigured()) {
+    console.error('SMTP environment variables are missing');
     return res.status(503).json({ ok: false, error: 'Email delivery is temporarily unavailable. Please contact sales@dtechindia.com.' });
   }
 
@@ -163,27 +140,24 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ ok: false, error: 'Case study file is unavailable.' });
   }
 
-  const from = process.env.MAIL_FROM || DEFAULT_FROM;
-  const sales = process.env.SALES_EMAIL || DEFAULT_SALES;
+  const sales = salesEmail();
   const requestHost = String(req.headers['x-forwarded-host'] || req.headers.host || '');
   const siteUrl = (process.env.SITE_URL || (HOST_RE.test(requestHost) ? `https://${requestHost}` : 'https://www.dtechindia.com')).replace(/\/+$/, '');
 
   try {
-    const sent = await sendEmail(apiKey, {
-      from,
-      to: [lead.email],
-      reply_to: sales,
+    const sent = await sendMail({
+      to: lead.email,
+      replyTo: sales,
       subject: `Your D-TECH case study: ${paper.title}`,
       html: visitorEmail({ name: safeGreetingName(lead.name), paper, siteUrl }),
-      attachments: [{ filename: path.basename(paper.file), content: pdf.toString('base64') }],
+      attachments: [{ filename: path.basename(paper.file), content: pdf, contentType: 'application/pdf' }],
     });
 
     // The visitor already has their PDF; a failed sales notice must not undo that.
     // Awaited, because Vercel may freeze the function once the response is sent.
-    await sendEmail(apiKey, {
-      from,
-      to: [sales],
-      reply_to: lead.email,
+    await sendMail({
+      to: sales,
+      replyTo: lead.email,
       subject: `Website lead: ${paper.title} PDF requested by ${lead.name || lead.email}`,
       html: leadEmail({ lead, paper, ip }),
     }).catch(err => console.error('Sales notification failed:', err.message));

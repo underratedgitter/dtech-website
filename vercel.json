@@ -5,6 +5,9 @@
     "api/send-whitepaper.js": {
       "includeFiles": "assets/case-studies/**/*.pdf",
       "maxDuration": 15
+    },
+    "api/contact.js": {
+      "maxDuration": 15
     }
   },
   "redirects": [
