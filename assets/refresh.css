@@ -152,3 +152,10 @@ body[data-page="contact"] main>section:nth-of-type(2) .lg\:col-span-5>div { bord
   body[data-page="about"] .partner-logo-box { width:96px!important; height:96px!important; padding:16px!important; }
   body[data-page="about"] :is(.partner-accent-green,.partner-accent-red) .partner-logo-box { width:156px!important; }
 }
+
+/* About › partners: a brand with its own page links there from its logo and name. */
+.partner-brand { color:inherit; text-decoration:none; border-radius:16px; }
+.partner-brand-more { display:inline-block; margin-top:6px; font-size:12px; font-weight:600; color:var(--partner-accent); }
+.partner-brand:hover h3, .partner-brand:focus-visible h3 { text-decoration:underline; text-underline-offset:4px; }
+.partner-brand:hover .partner-brand-more { text-decoration:underline; }
+.partner-brand:focus-visible { outline:2px solid var(--partner-accent); outline-offset:6px; }

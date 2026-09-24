@@ -43,7 +43,13 @@
       "closes": "18:00"
     }],
     "areaServed": ["Bharuch", "Dahej", "Ankleshwar", "Jhagadia", "Vadodara", "Ahmedabad", "India"],
-    "hasMap": "https://g.page/d-tech-solution-integrators--848?share"
+    "hasMap": "https://g.page/d-tech-solution-integrators--848?share",
+    "sameAs": [
+      "https://www.facebook.com/DTechComputersIndia",
+      "https://www.youtube.com/c/BhavikBarot",
+      "https://www.linkedin.com/company/d-tech-computers-an-iso-9001-company-bharuch",
+      "https://www.instagram.com/dtechitindia/"
+    ]
   }
   </script>
   <script src="assets/analytics.min.js" defer></script>
@@ -60,7 +66,7 @@
     <div class="deck-tools">
       <button type="button" id="deck-full" title="Full screen (press F)">Full screen</button>
       <a href="https://prezi.com/view/WUH9rqAFTcB7IAT8LCnc/" target="_blank" rel="noopener noreferrer" class="deck-exit">Open in Prezi &#8599;</a>
-      <a href="about.html" class="deck-exit">Exit</a>
+      <a href="about.html" class="deck-exit" id="deck-exit">Exit</a>
     </div>
   </header>
 
@@ -82,6 +88,11 @@
       title="D-TECH interactive company introduction (Prezi)"
       allow="autoplay; fullscreen"
       allowfullscreen></iframe>
+    <!-- Sits over Prezi's Present button only (a click inside the embed cannot be
+         caught from here), so presenting opens prezi.com in a new tab while the
+         rest of the page, full screen included, works as before. -->
+    <a class="deck-present" href="https://prezi.com/view/WUH9rqAFTcB7IAT8LCnc/" target="_blank" rel="noopener noreferrer"
+       aria-label="Present the D-TECH corporate introduction on Prezi (opens in a new tab)"></a>
   </main>
 
   <script>
@@ -115,6 +126,17 @@
         var tag = (event.target.tagName || '').toLowerCase();
         if (tag === 'input' || tag === 'textarea') return;
         if (event.key === 'f' || event.key === 'F') { event.preventDefault(); toggleFull(); }
+      });
+
+      // The site opens this page in its own tab. There, Exit closes the tab and
+      // the visitor is back on the page they came from; if the browser refuses
+      // (the page was reached some other way), Exit is an ordinary link.
+      var exit = document.getElementById('deck-exit');
+      exit.addEventListener('click', function (event) {
+        if (history.length > 1) return;
+        event.preventDefault();
+        window.close();
+        setTimeout(function () { location.href = exit.href; }, 150);
       });
     })();
   </script>

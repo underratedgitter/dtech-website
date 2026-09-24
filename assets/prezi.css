@@ -100,3 +100,15 @@
   .deck-home img { height: 28px; }
   .deck-tools button, .deck-exit { padding: 8px 10px; font-size: 10px; letter-spacing: .06em; }
 }
+
+/* Covers Prezi's Present button so presenting opens prezi.com in a new tab.
+   Prezi draws that button at a fixed size in the centre of the embed (a play
+   circle with its label, or a small pill on narrow screens), so a fixed box
+   centred on the stage covers it at every stage size. */
+.deck-present {
+  position: absolute; left: 50%; top: 50%; z-index: 1;
+  width: 190px; height: 230px;
+  transform: translate(-50%, -50%);
+  border-radius: 20px; cursor: pointer;
+}
+.deck-present:focus-visible { outline: 3px solid var(--deck-blue); outline-offset: 4px; }

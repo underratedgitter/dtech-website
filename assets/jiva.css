@@ -217,6 +217,11 @@ body[data-page="kiosk"] main h2 { letter-spacing:-.03em; }
 .kiosk-proof img { height:34px; width:auto; }
 .kiosk-proof p { margin:0; color:var(--ink-soft); flex:1 1 320px; }
 .jiva-gallery.is-portrait { grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); }
+/* Cafeteria infographics: two per row at their native 3:2 so no text is cropped */
+body[data-page="cafeteria"] .jiva-gallery.is-pair { grid-template-columns:repeat(auto-fill,minmax(max(300px,calc((100% - 16px) / 2)),1fr)); }
+body[data-page="cafeteria"] .jiva-gallery.is-pair .jiva-figure img { aspect-ratio:3/2; }
+/* TFMS site photos: at most 3 per row so the 6-photo gallery forms a clean 3×2 grid */
+body[data-page="tfms"] .jiva-gallery.is-portrait { grid-template-columns:repeat(auto-fill,minmax(max(300px,calc((100% - 32px) / 3)),1fr)); }
 
 /* ---- AI Supervisor: supervisor cards with detection lists and template download ---- */
 body[data-page="ai-supervisor"] main h2 { letter-spacing:-.03em; }
@@ -339,3 +344,9 @@ body[data-page="news"] main h2,body[data-page="careers"] main h2 { letter-spacin
 .intro-dots button[aria-selected="true"] { background:var(--signal-deep); }
 .intro-foot { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
 @media (prefers-reduced-motion:reduce) { .intro-slide { animation:none; } }
+
+/* ---- Partner pages: the OEM's own showcase fills the page, edge to edge, under the sticky header. */
+.partner-embed-page { padding:0; }
+.partner-embed { width:100%; background:#fff; }
+.partner-embed iframe { display:block; width:100%; height:calc(100vh - 73px); height:calc(100dvh - 73px); min-height:600px; border:0; }
+.visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }

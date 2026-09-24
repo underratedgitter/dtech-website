@@ -632,6 +632,12 @@ body main .hover\:shadow-md:hover,body main .hover\:shadow-lg:hover { box-shadow
   border-bottom:1px solid var(--line); border-radius:0; margin-bottom:5px; padding-bottom:10px;
 }
 .nav-dropdown-panel a:first-child:hover { background:transparent; }
+/* A short list of peers (the Partner menu) has no overview link: every item reads alike. */
+.nav-dropdown-panel--plain a:first-child {
+  color:var(--ink-soft); font:500 13px/1.35 var(--text-face); letter-spacing:normal; text-transform:none;
+  border-bottom:0; border-radius:7px; margin-bottom:0; padding-bottom:9px;
+}
+.nav-dropdown-panel--plain a:first-child:hover { background:var(--c-cyan-wash); color:var(--signal-deep); }
 
 .mobile-restored-nav { display:flex; flex-direction:column; padding:16px 0; gap:2px; }
 .mobile-restored-nav>a,.mobile-restored-nav summary {
