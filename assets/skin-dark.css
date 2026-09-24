@@ -50,8 +50,6 @@ body { letter-spacing:-.003em; }
 .site-header,.utility-bar { background:var(--sunken); }
 .site-header { border-bottom-color:var(--line); }
 
-/* ---- Wordmark is black art; it needs inverting on every dark ground. ---- */
-.brand-mark img,footer img { filter:invert(1) brightness(1.7); }
 /* ---- Featured partner cards on about.html: clean floating logos only (no box/pill) */
 .partner-logo-box {
   background: transparent !important;

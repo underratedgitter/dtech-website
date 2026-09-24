@@ -2,11 +2,11 @@
  * Bump VERSION on every deploy: the byte change is what tells browsers
  * to install the new worker, which then deletes the previous cache.
  * Forgetting this serves stale CSS/JS to returning visitors. */
-var VERSION = 'dtech-v32';
+var VERSION = 'dtech-v33';
 var CORE = [
   '/',
   '/assets/bundle.min.css',
-  '/assets/dtech-logo.webp',
+  '/assets/dtech-logo-blue.webp',
   '/assets/icon-192.png'
 ];
 

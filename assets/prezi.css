@@ -48,7 +48,7 @@
   background: linear-gradient(180deg, rgba(7, 29, 52, .95), rgba(7, 29, 52, .6));
   border-bottom: 1px solid var(--deck-line);
 }
-.deck-home img { display: block; height: 34px; width: auto; filter: brightness(0) invert(1); }
+.deck-home img { display: block; height: 34px; width: auto; }
 .deck-chapter { font: 600 13px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--deck-soft); }
 .deck-tools { display: flex; align-items: center; gap: 10px; }
 .deck-tools button, .deck-exit {

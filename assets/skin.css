@@ -528,6 +528,9 @@ body main .hover\:shadow-md:hover,body main .hover\:shadow-lg:hover { box-shadow
 .utility-bar a { color:rgba(255,255,255,.60); }
 .utility-bar a:hover { color:#fff; }
 .utility-bar a span { margin-left:14px; color:var(--signal); }
+.utility-phones { display:flex; align-items:center; gap:18px; }
+.utility-phones a+a span { margin-left:0; }
+.utility-bar a span.utility-lead { margin-left:0; color:inherit; }
 
 /* ==================== 5 · CHROME · HEADER ====================
    The deck runs a solid navy band across the top of every page. The site
@@ -550,7 +553,6 @@ body main .hover\:shadow-md:hover,body main .hover\:shadow-lg:hover { box-shadow
 .brand-mark img {
   width:128px; height:46px; object-fit:contain;
   background:transparent; padding:0;
-  filter:invert(1) brightness(1.6);   /* black wordmark art onto the navy band */
 }
 
 .header-actions { display:flex; align-items:center; gap:12px; }
@@ -1464,7 +1466,7 @@ footer h4 {
 footer a:hover,body footer .hover\:text-white:hover { color:var(--signal)!important; }
 footer [class*="border-slate-"] { border-color:rgba(255,255,255,.10)!important; }
 footer .bg-white { background:transparent!important; padding:0!important; }
-footer img { background:transparent!important; padding:0!important; filter:invert(1) brightness(1.6); }
+footer img { background:transparent!important; padding:0!important; }
 
 /* ==================== 21 · OVERLAYS ==================== */
 
@@ -1544,6 +1546,9 @@ html.is-scrolling body { pointer-events:none; }
 @media (max-width:800px) {
   .utility-bar .executive-container>span { display:none; }
   .utility-bar .executive-container { justify-content:center; }
+  .utility-phones { gap:12px; }
+  .utility-phones a span { margin-left:0; }
+  .utility-bar a span.utility-lead { display:none; }
   .header-inner { min-height:62px; }
   .header-cta { display:none; }
   .brand-mark img { width:110px; height:40px; }
