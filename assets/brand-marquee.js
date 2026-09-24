@@ -33,7 +33,7 @@
     { name: 'Legrand',             logo: 'assets/partners/legrand.svg',             width: 403, height: 100 },
     { name: 'Motorola Solutions',  logo: 'assets/partners/motorola-solutions.svg',  width: 634, height: 73,  link: 'about.html#partner-motorola' },
     { name: 'Epson',               logo: 'assets/partners/epson.svg',               width: 407, height: 100 },
-    { name: 'CommScope',           logo: 'assets/partners/commscope.png',           width: 360, height: 205 },
+    { name: 'CommScope',           logo: 'assets/partners/commscope-logo.png',      width: 800, height: 106 },
     { name: 'Exide',               logo: 'assets/partners/exide.svg',               width: 310, height: 100 }
   ];
 
