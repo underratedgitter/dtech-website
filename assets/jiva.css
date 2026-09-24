@@ -344,9 +344,3 @@ body[data-page="news"] main h2,body[data-page="careers"] main h2 { letter-spacin
 .intro-dots button[aria-selected="true"] { background:var(--signal-deep); }
 .intro-foot { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
 @media (prefers-reduced-motion:reduce) { .intro-slide { animation:none; } }
-
-/* ---- Partner pages: the OEM's own showcase fills the page, edge to edge, under the sticky header. */
-.partner-embed-page { padding:0; }
-.partner-embed { width:100%; background:#fff; }
-.partner-embed iframe { display:block; width:100%; height:calc(100vh - 73px); height:calc(100dvh - 73px); min-height:600px; border:0; }
-.visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }

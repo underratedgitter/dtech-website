@@ -2,7 +2,7 @@
  * Bump VERSION on every deploy: the byte change is what tells browsers
  * to install the new worker, which then deletes the previous cache.
  * Forgetting this serves stale CSS/JS to returning visitors. */
-var VERSION = 'dtech-v30';
+var VERSION = 'dtech-v31';
 var CORE = [
   '/',
   '/assets/bundle.min.css',
@@ -54,7 +54,7 @@ self.addEventListener('fetch', function (event) {
       return caches.match(req, { ignoreSearch: true }).then(function (hit) {
         return hit || caches.match('/');
       });
-    }) : caches.match(req, { ignoreSearch: true }).then(function (hit) {
+    }) : caches.match(req).then(function (hit) {
       if (hit) return hit;
       return fetch(req).then(function (res) {
         if (res && res.status === 200 && res.type === 'basic') {

@@ -22,7 +22,7 @@
   <meta property="og:image:alt" content="D-TECH: Complex systems. Precisely integrated. Industrial IT, automation, safety and security since 2003.">
   <meta name="twitter:image" content="https://www.dtechindia.com/assets/og-image.png">
 
-  <script src="assets/lucide.min.js" defer></script>
+  <script src="assets/lucide.min.js?v=d5638e66bc" defer></script>
 
 
   <style>
@@ -56,16 +56,16 @@
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
   </style>
-  <script src="assets/refined.min.js" defer></script>
-  <script src="assets/agent-a.min.js" defer></script>
-  <link rel="stylesheet" href="assets/bundle.min.css">
-  <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.min.css">
+  <script src="assets/refined.min.js?v=a0926bc7fa" defer></script>
+  <script src="assets/agent-a.min.js?v=9e48e37142" defer></script>
+  <link rel="stylesheet" href="assets/bundle.min.css?v=42c7af370f">
+  <link id="theme-dark-css" rel="stylesheet" href="assets/skin-dark.min.css?v=efff374e76">
   <!-- Built from tools/tailwind; loads last, where the Play CDN used to inject it. -->
-  <link rel="stylesheet" href="assets/fonts.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/fonts.min.css?v=819b514fbb" media="print" onload="this.media='all'">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-400.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-700.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/InterTight-var.woff2" crossorigin>
-  <link rel="stylesheet" href="assets/jiva.min.css">
+  <link rel="stylesheet" href="assets/jiva.min.css?v=db0ab40d4e">
   <script>try{var __dt=localStorage.getItem('dtech-theme');if(__dt!=='light'&&__dt!=='dark'){try{__dt=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}catch(e){__dt='light';}}if(__dt!=='dark'){var __dl=document.getElementById('theme-dark-css');if(__dl){__dl.disabled=true;}}document.documentElement.setAttribute('data-theme',__dt);}catch(e){}</script>
   <script type="application/ld+json">
   {
@@ -101,11 +101,19 @@
     ]
   }
   </script>
-  <script src="assets/analytics.min.js" defer></script>
+  <script src="assets/analytics.min.js?v=b98f1a835b" defer></script>
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" as="image" href="assets/dtech-logo.webp" fetchpriority="high">
-    <link rel="stylesheet" href="assets/refresh.min.css">
+    <link rel="stylesheet" href="assets/refresh.min.css?v=ea02ccd2aa">
+  <style>
+    /* The OEM's own showcase fills the page, edge to edge, below the site header.
+       Inline so an outdated cached stylesheet cannot break it. */
+    .partner-embed-page { padding:0; }
+    .partner-embed { width:100%; background:#fff; }
+    .partner-embed iframe { display:block; width:100%; height:calc(100vh - 73px); height:calc(100dvh - 73px); min-height:600px; border:0; }
+    .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+  </style>
 </head>
 <body data-page="partner-dell" class="bg-white text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -299,6 +307,6 @@
     })();
   </script>
 <script>if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js');});}</script>
-<script src="assets/brand-marquee.js" defer></script>
+<script src="assets/brand-marquee.js?v=c92d164f43" defer></script>
 </body>
 </html>

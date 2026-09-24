@@ -70,7 +70,7 @@ def check_marquee_contract(problems):
     script = (ROOT / "assets/brand-marquee.js").read_text(encoding="utf-8")
     skin = (ROOT / "assets/skin.css").read_text(encoding="utf-8")
     bundle = (ROOT / "assets/bundle.min.css").read_text(encoding="utf-8")
-    if 'src="assets/brand-marquee.js"' not in home:
+    if not re.search(r'src="assets/brand-marquee\.js(?:\?v=[0-9a-f]+)?"', home):
         problems.append("index.html does not use shared brand marquee")
     if '<section class="brand-marquee"' in home:
         problems.append("index.html still duplicates marquee markup")
@@ -93,8 +93,8 @@ def check_marquee_contract(problems):
 
 def check_cache_contract(problems):
     worker = (ROOT / "sw.js").read_text(encoding="utf-8")
-    if "var VERSION = 'dtech-v30';" not in worker:
-        problems.append("service worker cache was not advanced to dtech-v30")
+    if "var VERSION = 'dtech-v31';" not in worker:
+        problems.append("service worker cache was not advanced to dtech-v31")
     for asset in ("/assets/bundle.min.css", "/assets/dtech-logo.webp"):
         if asset not in worker:
             problems.append(f"service worker core cache missing {asset}")
