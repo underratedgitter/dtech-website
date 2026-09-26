@@ -13,48 +13,17 @@ const fs = require('fs');
 const path = require('path');
 const WHITEPAPERS = require('./_whitepapers.json');
 const { isConfigured, sendMail, salesEmail } = require('./_mail');
+const { EMAIL_RE, createRateLimiter, allowedOrigin, esc, clean } = require('./_http');
 
-const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[A-Za-z]{2,}$/;
-
-// Best-effort abuse brakes. Instances are short-lived and not shared, so these
-// only slow bursts; add a CAPTCHA or a shared store for stronger protection.
-const hits = new Map();
-
-function overLimit(key, max, windowMs) {
-  const now = Date.now();
-  const recent = (hits.get(key) || []).filter(t => now - t < windowMs);
-  recent.push(now);
-  hits.set(key, recent);
-  if (hits.size > 5000) hits.clear();
-  return recent.length > max;
-}
+const overLimit = createRateLimiter();
 
 const HOST_RE = /^[a-z0-9.-]+(:\d{1,5})?$/i;
-
-function allowedOrigin(req) {
-  const origin = req.headers.origin;
-  if (!origin) return false;
-  let host;
-  try { host = new URL(origin).host; } catch (e) { return false; }
-  if (host === req.headers.host || host === req.headers['x-forwarded-host']) return true;
-  return String(process.env.ALLOWED_ORIGINS || '')
-    .split(',').map(o => o.trim().replace(/\/+$/, '')).filter(Boolean)
-    .includes(origin.replace(/\/+$/, ''));
-}
 
 // The visitor's name is echoed in an email we send to the address they typed,
 // so keep it to plain name characters — no links or markup for spammers to plant.
 function safeGreetingName(name) {
   const words = String(name).split(/\s+/).filter(w => /^[\p{L}\p{M}'-]{1,30}$/u.test(w));
   return words.slice(0, 2).join(' ');
-}
-
-function esc(v) {
-  return String(v).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
-}
-
-function clean(v, max) {
-  return String(v == null ? '' : v).replace(/[\r\n\t]+/g, ' ').trim().slice(0, max);
 }
 
 function visitorEmail({ name, paper, siteUrl }) {
